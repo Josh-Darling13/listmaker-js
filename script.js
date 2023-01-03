@@ -6,6 +6,7 @@ const buildIn = document.getElementById("buildIn");
 const buildOut = document.getElementById("buildOut");
 const ulItems = document.getElementById("ULItems");
 const typeload = document.getElementById("typeload");
+const arrayItems = document.getElementById("arrayItems");
 
 let memberMeArray = [];
 
@@ -86,5 +87,15 @@ ulItems.addEventListener('change', (event)=>{
         primaryList.innerText="All gone";
         ulItems.setAttribute("value", !checkVal);
     }
+
+});
+
+arrayItems.addEventListener('change', (event)=>{
+
+    primaryList.innerText='const array = [';
+    memberMeArray.forEach(item =>{
+        primaryList.innerText += `"${item.replace('"', '')}", `  ;
+    })
+    primaryList.append('];');
 
 });

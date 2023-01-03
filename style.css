@@ -50,8 +50,8 @@ p{
 
   }
 
-  ul{
-    list-style: none;
+ul li{
+list-style: none;
 }
   
   .container{
