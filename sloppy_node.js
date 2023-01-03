@@ -30,14 +30,9 @@ const indexes = arrayMess.reduce((accumulator, current, index) => {
     while(n < indexes.length){
         console.log("indexes" + indexes[n]);
         arrayMess.splice(indexes[n],1);
-
         n++;
     }
-
-
   }
-
-
 }
 console.log(arrayMess);
 
