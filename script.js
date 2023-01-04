@@ -61,15 +61,34 @@ buildIn.addEventListener('keydown', (event)=>{
     }
 });
 
+/*
+Things for tonight:
+
+updated array verification
+
+add show hide for list options (instructions for use and about is what's in it's place)
+
+change list to radio buttons with matching array
+
+update z index for input text box divs (might have to deal with that later 
+
+updated show/hide scroll bars
+
+show hide for second dairy and thrid outboxes 
+
+Actual code will be in the variout div
+
+*/ 
+
 
 ulItems.addEventListener('change', (event)=>{
     let checkVal = Boolean(event.target.value);
-
+    // ulItems.getElementsByClassName(ulItems);
 
     const noDupes = noDuplicates(memberMeArray);
     console.log("event is called " + event.target.value);
 
-    console.log("noDupes" + noDupes);
+    console.log("noDupes" + checkVal);
     console.log("noDupes is a typeof " + typeof(noDupes));
 
     if(checkVal === true){
@@ -78,23 +97,25 @@ ulItems.addEventListener('change', (event)=>{
         let paratag = document.createElement("p");
         paratag.innerText = `<li>${item.replace('"', '')}</li>`  ;
         primaryList.appendChild(paratag);
+        ulItems.classList.add("checked");
+        ulItems.setAttribute("value", !checkVal);
 
-    })
+    }) 
     primaryList.append('</ul>');
-    ulItems.setAttribute("value", !checkVal);
+    
   
     } else if (checkVal === false){
         primaryList.innerText="All gone";
-        ulItems.setAttribute("value", !checkVal);
+        ulItems.classList.remove("checked");
     }
 
 });
 
 arrayItems.addEventListener('change', (event)=>{
 
-    primaryList.innerText='const array = [';
+    primaryList.textContent='const array = [\n';
     memberMeArray.forEach(item =>{
-        primaryList.innerText += `"${item.replace('"', '')}", `  ;
+        primaryList.textContent += `"${item.replace('"', '')}", `  ;
     })
     primaryList.append('];');
 
