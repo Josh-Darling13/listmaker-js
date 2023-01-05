@@ -15,8 +15,6 @@ div{
     border-radius: 10px;
     opacity: 85%;
     overflow-wrap: break-word;
-
-
   }
 
 
@@ -25,7 +23,8 @@ div{
 h1 {
     white-space: nowrap;
     overflow: hidden;  
-    /* font-size: 50px; */
+    font-weight: bolder;
+    color: aliceblue;
     font-family: 'Darker Grotesque', sans-serif;
     letter-spacing: 30px;
 }
@@ -92,10 +91,8 @@ background-image: linear-gradient(to right, #ff1414 0%, #fffb15 100%);
 
 
 .textInIt{
-    
     margin: 2%;
     padding: 2%;
-
 }
 
 .listmaker{
@@ -110,14 +107,16 @@ padding: 2%;
 border: 3px solid #0856f2;
 border-radius: 10px;
 overflow-y:scroll;
-height: fit-content;
+height: 140px;
+
 }
 
 .sample{
     overflow-y:scroll;
     height: 90%;
     width: 30%;
-    padding-left: 1%;
+    padding: 3%;
+    margin-top: 2%;
 }
 
 

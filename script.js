@@ -14,26 +14,41 @@ const validation = ()=>{
 
 }
 
-const noDuplicates =(orgArray)=>{
 
-    const copyArray = [...orgArray];
-    let searchForMe = [];
-    const prepArray = orgArray.reverse();
-    let revArray = [...prepArray];
+const noWhite = (imDirty) => {
+    //removes white space and empty values in arrays
+    const cleanThis = imDirty.filter(n => n);
+    console.log(cleanThis);
+    imClean = [];
+    for (const element in cleanThis){
+        const soap = cleanThis[element].trim();
+            imClean.push(soap);
+    }
+return imClean
+}
 
-    for (let element in orgArray){
-        let searchFor = copyArray.shift();
-        let whereInArray = copyArray.indexOf(searchFor);
-    
-        if (whereInArray !== -1){
-            searchForMe.push(searchFor);
+const noDuplicates =(arrayMess)=>{
+    //this verifies there is no duplicate data while keeping  data in order
+    let extraMess = [...arrayMess];
+    for (const element in extraMess.reverse()){
+        const indexes = arrayMess.reduce((accumulator, current, index) => {
+        if (current === extraMess[element]) {
+            accumulator.push(index);
+            }
+        return accumulator;
+    }, []);
+
+    if(indexes.length > 1){
+        let n = 1;
+        while(n < indexes.length){
+            // console.log("indexes" + indexes[n]);
+            arrayMess.splice(indexes[n],1);
+            n++;
         }
     }
-    for (elm in searchForMe){
-        let whereDelete = revArray.indexOf(searchForMe[elm]);
-        revArray.splice(whereDelete,1);
     }
-    return revArray.reverse();
+    const cleaned = noWhite(arrayMess);
+    return cleaned
 }
 
 const noSpecialChars = ()=>{
@@ -42,18 +57,23 @@ const noSpecialChars = ()=>{
 
 buildIn.addEventListener('keydown', (event)=>{
     let evt = JSON.stringify(event.target.value);
-    console.log(evt);
-
+    // console.log(evt);
     if (event.key === 'Enter'){
         let breakBuild = [];
         let finalOut = [];
-        breakBuild = evt.split('\\n');
+        let noReturn = [];
+        breakBuild = evt.split('/\n?\r/');
         for (const ele in breakBuild){
-            finalOut.push(breakBuild[ele].replace('"', ''));
+            const spaceStrip = breakBuild[ele].trim().replace('"', '');
+            console.log(spaceStrip);
+            finalOut = spaceStrip.split('\\n');
             memberMeArray.push(breakBuild[ele].replace('"', ''));
         }
+
+        const sampleText = noDuplicates(finalOut);
+            // console.log(sampleText);
         buildOut.innerHTML='';
-        finalOut.forEach(item => {
+        sampleText.forEach(item => {
             let li = document.createElement("li");
             li.innerText = item;
             buildOut.appendChild(li);
@@ -64,7 +84,7 @@ buildIn.addEventListener('keydown', (event)=>{
 /*
 Things for tonight:
 
-updated array verification
+updated array verification --done
 
 add show hide for list options (instructions for use and about is what's in it's place)
 
@@ -84,13 +104,10 @@ Actual code will be in the variout div
 ulItems.addEventListener('change', (event)=>{
     let checkVal = Boolean(event.target.value);
     // ulItems.getElementsByClassName(ulItems);
-
     const noDupes = noDuplicates(memberMeArray);
     console.log("event is called " + event.target.value);
-
     console.log("noDupes" + checkVal);
     console.log("noDupes is a typeof " + typeof(noDupes));
-
     if(checkVal === true){
     primaryList.innerText='<ul>';
     noDupes.forEach(item =>{
@@ -99,7 +116,6 @@ ulItems.addEventListener('change', (event)=>{
         primaryList.appendChild(paratag);
         ulItems.classList.add("checked");
         ulItems.setAttribute("value", !checkVal);
-
     }) 
     primaryList.append('</ul>');
     

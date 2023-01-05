@@ -1,38 +1,69 @@
-const arrayMess = ["safd","fdsws","sss","sdfrtwe","yt","ffes","sss","sfgersdgf","tgv","yjkjn","hju","sss","yt","foo","ikmjo","slemrp","sss","tr","yt","seddsa","trunt","trunt"];
-let extraMess = [...arrayMess];
-let indexes = [];
-let grid = [];
-let justOne = [];
-let lessMess = [];
-let findex = "";
-let accumulator = [];
-
-let i = 1;
+const arrayMess = ["dp", "Ted", "Bonnie", "Alexis Texas", "Chasey--", "Alexis Texas",  "options", "August", "Chasey", "August", "Asia", "", "", "Ed", "Ted", "Bonnie", "tots", "Chasey",  "", "Ed", "Ted", "Bonnie--", "Chasey", "August", "AsiaEd", "Ted", "Bonnie", "Chasey", "August", "AsiaEd",  "Asia", "listDisplay", "listBox,", "options", "textInIt", "instructions", "sample", "listDisplay", "listBox", "height: 100%;", "Ted", "Bonnie", "Chasey", "August", "AsiaEd", "August", "AsiaEd", "Ted", "Bonnie", "Chasey", "August", "AsiaEd", "Ted", "Bonnie", "Chasey", "August", "AsiaEd", "Ted", "Bonnie", "Chasey", "August", "AsiaEd", "tots", "Ted", "Bonnie", "Chasey", " August", "August", "Asia", "options", "textInIt--", "instructions", "sample", "", "", "Ted", "Bonnie", "Chasey", "August", "Asia", "", "", "Ed", "Ted",  "extInIt--", "instructions", "sample", "Ted", "Bonnie", "Chasey", "August", "Asia", "", "", "Ed", "Ted", "Bonnie", "Chasey", "Chasey", "August","Bonnie",  "tots" ];
 
 
 
 
-for (const element in extraMess.reverse()){
-const indexes = arrayMess.reduce((accumulator, current, index) => {
-    if (current === extraMess[element]) {
-    accumulator.push(index);
+// const array = ["Ed","Ted", "Bonnie","Chasey","August","Asia", ];
+// let extraMess = [...arrayMess];
 
+// let grid = [];
+// let justOne = [];
+// let lessMess = [];
+// let findex = "";
+
+
+// let i = 1;
+
+
+const noDuplicates =(arrayMess)=>{
+
+    //this verifies there is no duplicate data while keeping  data in order
+
+    let extraMess = [...arrayMess];
+    for (const element in extraMess.reverse()){
+        const indexes = arrayMess.reduce((accumulator, current, index) => {
+        if (current === extraMess[element]) {
+            accumulator.push(index);
+            }
+        return accumulator;
+    }, []);
+
+    if(indexes.length > 1){
+        let n = 1;
+        while(n < indexes.length){
+            // console.log("indexes" + indexes[n]);
+            arrayMess.splice(indexes[n],1);
+            n++;
+        }
     }
-    return accumulator;
-}, []);
-
-
-
-//  console.log(indexes);
-
-  if(indexes.length >= 2){
-    let n = 1;
-    while(n < indexes.length){
-        console.log("indexes" + indexes[n]);
-        arrayMess.splice(indexes[n],1);
-        n++;
     }
-  }
+    return arrayMess
 }
-console.log(arrayMess);
 
+const noWhite = (imDirty) => {
+    const cleanThis = imDirty.filter(n => n);
+    console.log(cleanThis);
+    imClean = [];
+    for (const element in cleanThis){
+        // console.log(imDirty[element]);
+        const soap = cleanThis[element].trim();
+        // if (soap !== " " || soap !== '' || soap !== undefined ||  soap !== null || soap !== '\n' ){
+            imClean.push(soap);
+        // }
+    }
+
+return imClean
+}
+
+const cleanArray = noWhite(arrayMess);
+
+// console.log(cleanArray);
+
+
+let workDupes = noDuplicates(cleanArray);
+
+console.log(workDupes);
+
+// for (const ets in workDupes){
+//     console.log(workDupes[ets]);
+// }
