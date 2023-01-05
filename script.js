@@ -1,19 +1,21 @@
-const listTitle = document.getElementsByClassName("listTitle");
-const primaryList = document.getElementById("primaryList");
-const secondList = document.getElementsByClassName("secondList");
-const thirdList = document.getElementsByClassName("thirdList");
-const buildIn = document.getElementById("buildIn");
-const buildOut = document.getElementById("buildOut");
-const ulItems = document.getElementById("ULItems");
-const typeload = document.getElementById("typeload");
-const arrayItems = document.getElementById("arrayItems");
+const listTitle = document.getElementsByClassName('listTitle');
+const primaryList = document.getElementById('primaryList');
+const secondList = document.querySelector('.secondList');
+const thirdList = document.querySelector('.thirdList');
+const buildIn = document.getElementById('buildIn');
+const buildOut = document.getElementById('buildOut');
+const ulItems = document.getElementById('ULItems');
+const typeload = document.getElementById('typeload');
+const arrayItems = document.getElementById('arrayItems');
+const mpNav = document.getElementById('mpNav');
+const clearAll = document.getElementById('clearAll');
 
 let memberMeArray = [];
+let sampleText = [];
 
 const validation = ()=>{
 
 }
-
 
 const noWhite = (imDirty) => {
     //removes white space and empty values in arrays
@@ -41,7 +43,7 @@ const noDuplicates =(arrayMess)=>{
     if(indexes.length > 1){
         let n = 1;
         while(n < indexes.length){
-            // console.log("indexes" + indexes[n]);
+            // console.log('indexes' + indexes[n]);
             arrayMess.splice(indexes[n],1);
             n++;
         }
@@ -55,26 +57,75 @@ const noSpecialChars = ()=>{
 
 }
 
+const htmlCloser = (codeSearch) =>{
+    // searches for html tags in code and returns end tag
+    const checkitem = ['div', 'ul', 'a', 'p', 'input', 'li', 'img' ];
+    for (const elts in checkitem){
+        let searchThis = new RegExp(`^${checkitem[elts]}`,'g');
+        let whatItBe = codeSearch.search(searchThis);
+        // console.log('[whatItBe] '+ whatItBe + " insanity  " + checkitem[elts]);
+        if (whatItBe !== -1){
+            console.log(checkitem[elts]);
+            return `</${checkitem[elts]}>`
+        }
+    }
+}
+
+const arrayToOutPut = (whereItGoes, outterCodeStart, theArray, innerWrapper, codeStart) =>{
+    // HTML Build
+    // arrayToOutPut(whereItGoes, outterCodeStart, theArray, innerWrapper, codeStart);
+    const codeEnd = htmlCloser(outterCodeStart);
+    const outterCodeEnd = htmlCloser(codeStart);
+    whereItGoes.innerText= `<${outterCodeStart}>`;          //  whereItGoes = which list out //outterCodeStart wrapping ie <div>
+    theArray.forEach(item =>{                               //  The Array being output
+    let paratag = document.createElement(`${innerWrapper}`);//  innertag, best left to 'p' ... for now
+    paratag.innerText = `${codeStart, item, codeEnd}`  ;    //  actual code to copy
+    primaryList.appendChild(paratag);
+})
+primaryList.append(`${outterCodeEnd}`);
+}
+
+
+
+const hideTwoAndTree = () =>{
+    secondList.setAttribute("hidden","");
+    thirdList.setAttribute("hidden","");
+}
+
+/*
+****************************************************************
+Listeners:
+****************************************************************
+*/
+
+clearAll.addEventListener('click', ()=>{
+    primaryList.innerText = 'refer to text area and instructions';
+    secondList.setAttribute("hidden","");
+    thirdList.setAttribute("hidden","");
+    buildIn.reset();
+    sampleText = [];
+})
+
+
 buildIn.addEventListener('keydown', (event)=>{
     let evt = JSON.stringify(event.target.value);
     // console.log(evt);
     if (event.key === 'Enter'){
         let breakBuild = [];
         let finalOut = [];
-        let noReturn = [];
         breakBuild = evt.split('/\n?\r/');
         for (const ele in breakBuild){
-            const spaceStrip = breakBuild[ele].trim().replace('"', '');
+            const spaceStrip = breakBuild[ele].trim().replace(/['"]+/g, '');
             console.log(spaceStrip);
             finalOut = spaceStrip.split('\\n');
-            memberMeArray.push(breakBuild[ele].replace('"', ''));
+            memberMeArray.push(breakBuild[ele]/*.replace('"', '')*/);
         }
 
-        const sampleText = noDuplicates(finalOut);
+        sampleText = noDuplicates(finalOut);
             // console.log(sampleText);
         buildOut.innerHTML='';
         sampleText.forEach(item => {
-            let li = document.createElement("li");
+            let li = document.createElement('li');
             li.innerText = item;
             buildOut.appendChild(li);
         })
@@ -104,35 +155,86 @@ Actual code will be in the variout div
 ulItems.addEventListener('change', (event)=>{
     let checkVal = Boolean(event.target.value);
     // ulItems.getElementsByClassName(ulItems);
-    const noDupes = noDuplicates(memberMeArray);
-    console.log("event is called " + event.target.value);
-    console.log("noDupes" + checkVal);
-    console.log("noDupes is a typeof " + typeof(noDupes));
+    console.log("checkVal "+checkVal);
     if(checkVal === true){
-    primaryList.innerText='<ul>';
-    noDupes.forEach(item =>{
-        let paratag = document.createElement("p");
-        paratag.innerText = `<li>${item.replace('"', '')}</li>`  ;
-        primaryList.appendChild(paratag);
-        ulItems.classList.add("checked");
-        ulItems.setAttribute("value", !checkVal);
+    primaryList.innerText='<ul>';                       // HTML tag start (wrapping tag)
+    sampleText.forEach(item =>{                         // being looping out array value
+        let paratag = document.createElement('p');      // inner tag (keep as p)
+        paratag.innerText = `<li>${item}</li>`  ;       // wrapping out put code --should be vriables
+        primaryList.appendChild(paratag);               // end of inner wrapper
     }) 
-    primaryList.append('</ul>');
-    
-  
-    } else if (checkVal === false){
-        primaryList.innerText="All gone";
-        ulItems.classList.remove("checked");
-    }
+    primaryList.append('</ul>');                        // HTML tag end  (wrapping tag)
 
+    } else if (checkVal === false){
+        primaryList.innerText='All gone';
+        ulItems.classList.remove('checked');
+    }
+    hideTwoAndTree();
 });
 
 arrayItems.addEventListener('change', (event)=>{
-
     primaryList.textContent='const array = [\n';
-    memberMeArray.forEach(item =>{
-        primaryList.textContent += `"${item.replace('"', '')}", `  ;
+    sampleText.forEach(item =>{
+        primaryList.textContent += `'${item.replace('"', '')}', `  ;
     })
     primaryList.append('];');
-
+    hideTwoAndTree();
 });
+
+
+
+
+{/*
+<input type="checkbox" id="spaNav" name="spaNav">
+<label for="spanav">Build &lt;ul&gt; with SPA navigation</label>
+<hr />
+<input type="checkbox" id="arrayItems" name="arrayItems">
+<label for="ulItem">Build a JS Array=[] with matching const and let variables</label> */}
+
+mpNav.addEventListener('change', (event)=>{
+// output to list 1
+
+    primaryList.innerText = `<div ="nav-bar">`;
+    primaryList.innerHTML += '<br/>';
+    primaryList.innerText += `<ul class="nav-links}>`;          //  whereItGoes = which list out //outterCodeStart wrapping ie <div>
+    sampleText.forEach(item =>{                               //  The Array being output
+    const homeTest = item.toLowerCase()
+    let paratag = document.createElement(`p`);//  innertag, best left to 'p' ... for now
+
+    if (homeTest === 'home' || homeTest === 'main'){
+        paratag.innerText += `<li><a href="index.html" class="nav-link" id="nav-${item}" >${item}</a></li>`;
+    } else {
+        paratag.innerText += `<li><a href="${item}.html" class="nav-link" id="nav-${item}" >${item}</a></li>`;
+    }
+    primaryList.appendChild(paratag);
+}) 
+primaryList.append('</ul>\n');
+primaryList.innerHTML += '<br/>';
+primaryList.innerText += '</div>';
+
+
+
+    // primaryList.innerText= `</div>`; 
+// unhide list 2
+
+secondList.removeAttribute('hidden');
+
+
+secondList.innerText = `Page names based on links`; 
+secondList.innerHTML += '<br/>';
+secondList.innerHTML += '<p class="alert"/> feature to download pre-made templates coming soon!<p/>';
+secondList.innerHTML += '<br/>';
+secondList.innerText += `type "home" or "main" for index.html`;
+sampleText.forEach(item =>{
+const homeTest = item.toLowerCase()
+let paratag = document.createElement(`p`);
+if (homeTest === 'home' || homeTest === 'main'){
+    paratag.innerText += `index.html`;
+    } else {
+    paratag.innerText += `${item}.html`;
+    }
+    secondList.appendChild(paratag);
+})
+});
+
+

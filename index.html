@@ -61,7 +61,9 @@
                         <li>copy and paste as needed</li>
                         </ul>
                 </div>
-                <<textarea rows="10" col="40" class="inputs" id="buildIn" /></textarea> 
+                <textarea rows="10" col="40" class="inputs" id="buildIn" ></textarea> 
+                <hr />
+                <p id="clearAll">&lt;&lt; CLEAR ALL LISTS &gt:&gt;</p>
             </div>
             <div class="sample">
                 <ul id="buildOut">
@@ -78,12 +80,11 @@
                     <hr />
                     <div class="listDisplay">
                         <div class="listBox" id="primaryList">
-                            Code Here
+                            refer to text area and instructions
                         </div>
-                        <div class="listBox" id="secondList">
-                            2nd list here
+                        <div class="secondList" id="secondList" hidden>
                         </div>
-                        <div class="listBox" id="thirdList">
+                        <div class="thirdList" id="thirdList" hidden>
                             3rd list here
                         </div>
                     </div>
@@ -100,6 +101,5 @@
 
     <!-- Script -->
     <script src="script.js"></script>
-
 </body>
 </html>

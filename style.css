@@ -14,7 +14,7 @@ div{
     border: 1px solid #282c34;
     border-radius: 10px;
     opacity: 85%;
-    overflow-wrap: break-word;
+    /* overflow-wrap: break-word; */
   }
 
 
@@ -48,6 +48,7 @@ p{
 
 ul li{
     list-style: none;
+    quotes: none;
 }
 
 .container{
@@ -84,7 +85,7 @@ padding-left: 5%;
 display: flex;
 flex-direction: column;
 align-items: flex-start; 
-text-align: left;
+text-align: justify;
 text-indent: 10px;
 background-image: linear-gradient(to right, #ff1414 0%, #fffb15 100%);
 }
@@ -117,6 +118,7 @@ height: 140px;
     width: 30%;
     padding: 3%;
     margin-top: 2%;
+    quotes: none;
 }
 
 
@@ -169,24 +171,74 @@ height: auto;
 }
 
 .listBox{
-    overflow-y:scroll;
-    height: 100%;
+ 
+    height: 200px;
     padding: 2%;
+    font-weight: bolder;
 }
 
 #primaryList{
-width: 30%;
-margin: 3%;
+    font-size: 12px;
+    line-height: 10px;
+    width: 30%;
+    margin: 3%;
+    overflow-y: auto;
+    margin-bottom: 12px;
+    transition: 0.2s;
 
+}
+#primaryList:hover{
+    font-size: 16px;
+    line-height: 20px;
+    width: 70%;
+    opacity: 100;
+    transition: 0.5s;
 }
 
 #secondList{
+    font-size: 12px;
+    line-height: 10px;
     width: 30%;
     margin: 3%;
+    overflow-y: auto;
+    margin-bottom: 12px;
+    transition: 0.2s;
+    height: 200px;
+    padding: 2%;
+    font-weight: bolder;
     }
 
+#secondList:hover{
+    font-size: 16px;
+    line-height: 20px;
+    width: 70%;
+    opacity: 100;
+    transition: 0.5s;
+}
+
 #thirdList{
+    font-size: 12px;
+    line-height: 10px;
     width: 30%;
     margin: 3%;
+    overflow-y: auto;
+    margin-bottom: 12px;
+    transition: 0.2s;
+    height: 200px;
+    padding: 2%;
+    font-weight: bolder;
     }
+
+#thirdList:hover{
+    font-size: 16px;
+    line-height: 20px;
+    width: 70%;
+    opacity: 100;
+    transition: 0.5s;
+}
+
+.alert{
+    font-weight: bolder;
+    color: fuchsia;
+}
 
