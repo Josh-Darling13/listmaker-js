@@ -41,17 +41,14 @@ const noDuplicates =(arrayMess)=>{
 }
 
 const noWhite = (imDirty) => {
+    //removes white space and empty values in arrays
     const cleanThis = imDirty.filter(n => n);
     console.log(cleanThis);
     imClean = [];
     for (const element in cleanThis){
-        // console.log(imDirty[element]);
         const soap = cleanThis[element].trim();
-        // if (soap !== " " || soap !== '' || soap !== undefined ||  soap !== null || soap !== '\n' ){
             imClean.push(soap);
-        // }
     }
-
 return imClean
 }
 
