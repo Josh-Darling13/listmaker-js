@@ -133,21 +133,11 @@ buildIn.addEventListener('keydown', (event)=>{
 });
 
 /*
-Things for tonight:
 
-updated array verification --done
 
-add show hide for list options (instructions for use and about is what's in it's place)
 
-change list to radio buttons with matching array
+change options lists to just p tags
 
-update z index for input text box divs (might have to deal with that later 
-
-updated show/hide scroll bars
-
-show hide for second dairy and thrid outboxes 
-
-Actual code will be in the variout div
 
 */ 
 
