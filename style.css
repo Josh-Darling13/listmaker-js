@@ -81,7 +81,7 @@ ul li{
 }
 
 .options{
-    background-color: aliceblue;
+    background-color: rgb(138, 176, 207);
     grid-column: 1;
     grid-row: 1 / 7;
     height: auto;
@@ -89,6 +89,10 @@ ul li{
     text-align: left;
     overflow-y:scroll;
 }
+
+.options p:hover{
+    filter: brightness(200%);
+  }
 
 .listTitle{
     grid-column: 2 / 6;
@@ -279,4 +283,5 @@ ul li{
     font-weight: bolder;
     color: fuchsia;
 }
+
 
