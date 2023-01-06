@@ -9,6 +9,7 @@ const typeload = document.getElementById('typeload');
 const arrayItems = document.getElementById('arrayItems');
 const mpNav = document.getElementById('mpNav');
 const clearAll = document.getElementById('clearAll');
+const OLItems = document.getElementById('OLItems');
 
 let memberMeArray = [];
 let sampleText = [];
@@ -85,8 +86,6 @@ const arrayToOutPut = (whereItGoes, outterCodeStart, theArray, innerWrapper, cod
 primaryList.append(`${outterCodeEnd}`);
 }
 
-
-
 const hideTwoAndTree = () =>{
     secondList.setAttribute("hidden","");
     thirdList.setAttribute("hidden","");
@@ -133,20 +132,14 @@ buildIn.addEventListener('keydown', (event)=>{
 });
 
 /*
-
-
-
 change options lists to just p tags
-
 
 */ 
 
 
 ulItems.addEventListener('click', (event)=>{
     let checkVal = Boolean(event.target.value);
-    // ulItems.getElementsByClassName(ulItems);
     console.log("checkVal "+checkVal);
-    // if(checkVal === true){
     primaryList.innerText='<ul>';                       // HTML tag start (wrapping tag)
     sampleText.forEach(item =>{                         // being looping out array value
         let paratag = document.createElement('p');      // inner tag (keep as p)
@@ -154,16 +147,30 @@ ulItems.addEventListener('click', (event)=>{
         primaryList.appendChild(paratag);               // end of inner wrapper
     })
     primaryList.append('</ul>');                        // HTML tag end  (wrapping tag)
-
-    // } else if (checkVal === false){
-    //     primaryList.innerText='All gone';
-    //     ulItems.classList.remove('checked');
-    // }
     hideTwoAndTree();
 });
 
-arrayItems.addEventListener('change', (event)=>{
-    primaryList.textContent='const array = [\n';
+OLItems.addEventListener('click', (event)=>{
+    let checkVal = Boolean(event.target.value);
+    console.log("checkVal "+checkVal);
+    primaryList.innerText='<ol>';                       // HTML tag start (wrapping tag)
+    sampleText.forEach(item =>{                         // being looping out array value
+        let paratag = document.createElement('p');      // inner tag (keep as p)
+        paratag.innerText = `<li>${item}</li>`  ;       // wrapping out put code --should be vriables
+        primaryList.appendChild(paratag);               // end of inner wrapper
+    })
+    primaryList.append('</ol>');                        // HTML tag end  (wrapping tag)
+    hideTwoAndTree();
+});
+
+
+
+
+
+arrayItems.addEventListener('click', (event)=>{
+    primaryList.textContent ='const ';
+    primaryList.innerHTML +='<span id="">array</span>';
+    primaryList.textContent +=' = [\n';
     sampleText.forEach(item =>{
         primaryList.textContent += `'${item.replace('"', '')}', `  ;
     })
@@ -172,16 +179,33 @@ arrayItems.addEventListener('change', (event)=>{
 });
 
 
-
-
 {/*
+
+
+words separated with <p> 
+
+
+
+
+words separated with <br/> 
+words separated with <hr/> 
+<ol> list with items
+
 <input type="checkbox" id="spaNav" name="spaNav">
 <label for="spanav">Build &lt;ul&gt; with SPA navigation</label>
 <hr />
 <input type="checkbox" id="arrayItems" name="arrayItems">
-<label for="ulItem">Build a JS Array=[] with matching const and let variables</label> */}
+<label for="ulItem">Build a JS Array=[] with matching const and let variables and prebuilt <i>for... in</i> loop</label>
 
-mpNav.addEventListener('change', (event)=>{
+
+            <hr />
+            <p id="javObjt" name="javObjt">
+            <label for="chex"> &lt;input type="checkbox"&gt; id matches label, JS variables and event listeners, matching <br />CSS id</label>
+            </p>
+
+*/}
+
+mpNav.addEventListener('click', (event)=>{
 // output to list 1
 
     primaryList.innerText = `<div ="nav-bar">`;
@@ -190,7 +214,6 @@ mpNav.addEventListener('change', (event)=>{
     sampleText.forEach(item =>{                               //  The Array being output
     const homeTest = item.toLowerCase()
     let paratag = document.createElement(`p`);//  innertag, best left to 'p' ... for now
-
     if (homeTest === 'home' || homeTest === 'main'){
         paratag.innerText += `<li><a href="index.html" class="nav-link" id="nav-${item}" >${item}</a></li>`;
     } else {
@@ -202,14 +225,8 @@ primaryList.append('</ul>\n');
 primaryList.innerHTML += '<br/>';
 primaryList.innerText += '</div>';
 
-
-
-    // primaryList.innerText= `</div>`; 
 // unhide list 2
-
 secondList.removeAttribute('hidden');
-
-
 secondList.innerText = `Page names based on links`; 
 secondList.innerHTML += '<br/>';
 secondList.innerHTML += '<p class="alert"/> feature to download pre-made templates coming soon!<p/>';
