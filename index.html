@@ -32,12 +32,14 @@
 
         <div class="options">
             <h2>List options</h2>
-            <input type="checkbox" id="ULItems" name="ULItems" > 
-            <!-- value="true" -->
+            <hr />
+            <p id="ULItems" name="ULItems" > 
+            <!-- value="true" type="checkbox"-->
             <label for="ulItem">Build &lt;ul&gt; list with items</label>
+            </p>
             <hr />
             <input type="checkbox" id="mpNav" name="mpNav">
-            <label for="mpnav">Build &lt;ul&gt; with multi-page navigation links to html pages.</label>
+            <label for="mpnav">Build &lt;ul&gt; with multi-page navigation links to <span class="alert">html pages</span>.</label>
             <hr />
             <input type="checkbox" id="spaNav" name="spaNav">
             <label for="spanav">Build &lt;ul&gt; with SPA navigation</label>
@@ -68,7 +70,7 @@
                 </div>
                 <textarea rows="10" col="40" class="inputs" id="buildIn" ></textarea> 
                 <hr />
-                <p id="clearAll">&lt;&lt; CLEAR ALL LISTS &gt:&gt;</p>
+                <h3 id="clearAll">&lt;&lt; CLEAR ALL LISTS &gt;&gt;</h3>
             </div>
             <div class="sample">
                 <ul id="buildOut">
@@ -78,7 +80,7 @@
                     Duplicate list items will be removed.
                     <br/>
                     <br/>
-                    Typing "main" or "home" will generate index.html 
+                    Typing <span class="alert">"main"</span> or <span class="alert">"home"</span> will generate <span class="alert">index.html</span>. 
                 </ul>
             </div>
 

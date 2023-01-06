@@ -142,23 +142,23 @@ change options lists to just p tags
 */ 
 
 
-ulItems.addEventListener('change', (event)=>{
+ulItems.addEventListener('click', (event)=>{
     let checkVal = Boolean(event.target.value);
     // ulItems.getElementsByClassName(ulItems);
     console.log("checkVal "+checkVal);
-    if(checkVal === true){
+    // if(checkVal === true){
     primaryList.innerText='<ul>';                       // HTML tag start (wrapping tag)
     sampleText.forEach(item =>{                         // being looping out array value
         let paratag = document.createElement('p');      // inner tag (keep as p)
         paratag.innerText = `<li>${item}</li>`  ;       // wrapping out put code --should be vriables
         primaryList.appendChild(paratag);               // end of inner wrapper
-    }) 
+    })
     primaryList.append('</ul>');                        // HTML tag end  (wrapping tag)
 
-    } else if (checkVal === false){
-        primaryList.innerText='All gone';
-        ulItems.classList.remove('checked');
-    }
+    // } else if (checkVal === false){
+    //     primaryList.innerText='All gone';
+    //     ulItems.classList.remove('checked');
+    // }
     hideTwoAndTree();
 });
 
