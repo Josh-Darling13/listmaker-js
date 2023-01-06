@@ -15,6 +15,11 @@ const pTag = document.getElementById('pTag');
 const brTag = document.getElementById('brTag');
 const hrTag = document.getElementById('hrTag');
 const spaNav = document.getElementById('spaNav');
+const singleInput = document.getElementById('singleInput');
+const ArraysObjtLoops = document.getElementById('ArraysObjtLoops');
+const lazyLoops = document.getElementById('lazyLoops');
+const nameIt = document.getElementById('nameIt');
+
 
 let memberMeArray = [];
 let sampleText = [];
@@ -140,9 +145,6 @@ buildIn.addEventListener('keydown', (event)=>{
     }
 });
 
-
-
-
 ulItems.addEventListener('click', (event)=>{
                         // ul list generator
     primaryList.innerText='<ul>';                       // HTML tag start (wrapping tag)
@@ -156,51 +158,50 @@ ulItems.addEventListener('click', (event)=>{
 });
 
 pTag.addEventListener('click', (event)=>{
-                        // paragraph tag generator
-                        primaryList.innerHTML=" ";
-    sampleText.forEach(item =>{                         // being looping out array value
-        let paratag = document.createElement('p');      // inner tag (keep as p)
-        paratag.innerText = `<p>${item}</p>`;       // wrapping out put code --should be vriables
-        primaryList.appendChild(paratag);               // end of inner wrapper
+    // paragraph tag generator
+    primaryList.innerHTML=" ";
+    sampleText.forEach(item =>{
+        let paratag = document.createElement('p');
+        paratag.innerText = `<p>${item}</p>`;
+        primaryList.appendChild(paratag);
     })
     hideTwoAndTree();
 })
 
 brTag.addEventListener('click', (event)=>{
-    // paragraph tag generator
+    // br tag generator
     primaryList.innerHTML=" ";
-sampleText.forEach(item =>{                         // being looping out array value
-let paratag = document.createElement('p');      // inner tag (keep as p)
-paratag.innerText = `<br />${item}`;       // wrapping out put code --should be vriables
-primaryList.appendChild(paratag);               // end of inner wrapper
-})
-hideTwoAndTree();
+    sampleText.forEach(item =>{
+        let paratag = document.createElement('p');
+        paratag.innerText = `<br />${item}`;
+        primaryList.appendChild(paratag);
+    })
+    hideTwoAndTree();
 })
 
 hrTag.addEventListener('click', (event)=>{
-    // paragraph tag generator
+    // hr tag generator
     primaryList.innerHTML=" ";
-sampleText.forEach(item =>{                         // being looping out array value
-let paratag = document.createElement('p');      // inner tag (keep as p)
-paratag.innerText = `${item}<hr />`;       // wrapping out put code --should be vriables
-primaryList.appendChild(paratag);               // end of inner wrapper
+    sampleText.forEach(item =>{
+        let paratag = document.createElement('p');
+        paratag.innerText = `${item}<hr />`;
+        primaryList.appendChild(paratag);
+    })
+    hideTwoAndTree();
 })
-hideTwoAndTree();
-})
-
 
 OLItems.addEventListener('click', (event)=>{
-    primaryList.innerText='<ol>';                       // HTML tag start (wrapping tag)
-    sampleText.forEach(item =>{                         // being looping out array value
-        let paratag = document.createElement('p');      // inner tag (keep as p)
-        paratag.innerText = `<li>${item}</li>`;       // wrapping out put code --should be vriables
-        primaryList.appendChild(paratag);               // end of inner wrapper
+    primaryList.innerText='<ol>';
+    sampleText.forEach(item =>{
+        let paratag = document.createElement('p');
+        paratag.innerText = `<li>${item}</li>`;
+        primaryList.appendChild(paratag);
     })
-    primaryList.append('</ol>');                        // HTML tag end  (wrapping tag)
+    primaryList.append('</ol>');
     hideTwoAndTree();
 });
 
-arrayItems.addEventListener('click', (event)=>{         //builds an array
+arrayItems.addEventListener('click', (event)=>{
     primaryList.textContent ='const ';
     primaryList.innerHTML +='<span id="nameIt">array</span>';
     primaryList.textContent +=' = [\n';
@@ -208,14 +209,27 @@ arrayItems.addEventListener('click', (event)=>{         //builds an array
         primaryList.textContent += `'${item.replace('"', '')}', `;
     })
     primaryList.append('];');
+
+    ArraysObjtLoops.removeAttribute('hidden');
+    singleInput.removeAttribute('hidden');
     hideTwoAndTree();
 });
+/**
+ * The arrayItems and the eleName functions need to "merged" 
+ */
+eleName.addEventListener('keyup', (event)=>{
+    let codeName = 'array';
+    codeName = event.target.value;
+    console.log(codeName);
+    lazyLoops.innerHTML =`${codeName}`;
+    lazyLoops.innerHTML = `for (const element in ${codeName}){<br/>\n`;
+    lazyLoops.innerHTML += `\tconsole.log(${codeName}[element]);<br/>\n`;
+    lazyLoops.innerHTML += `\t};<br/>\n`;
+    nameIt.innerText =`<span id="nameIt">${codeName}</span>`;
+})
 
 
 {/*
-
-<input type="checkbox" id="spaNav" name="spaNav">
-<label for="spanav">Build &lt;ul&gt; with SPA navigation</label>
 
 <input type="checkbox" id="arrayItems" name="arrayItems">
 <label for="ulItem">Build a JS Array=[] with matching const and let variables and prebuilt <i>for... in</i> loop</label>
@@ -233,19 +247,18 @@ mpNav.addEventListener('click', (event)=>{
     primaryList.innerHTML += '<br/>';
     primaryList.innerText += `<ul class="nav-links}>`;          //  whereItGoes = which list out //outterCodeStart wrapping ie <div>
     sampleText.forEach(item =>{                               //  The Array being output
-    const homeTest = item.toLowerCase()
-    let paratag = document.createElement(`p`);//  innertag, best left to 'p' ... for now
-    if (homeTest === 'home' || homeTest === 'main'){
-        paratag.innerText += `<li><a href="index.html" class="nav-link" id="nav-${item}" >${item}</a></li>`;
-    } else {
-        paratag.innerText += `<li><a href="${item}.html" class="nav-link" id="nav-${item}" >${item}</a></li>`;
-    }
-    primaryList.appendChild(paratag);
-}) 
+        const homeTest = item.toLowerCase()
+        let paratag = document.createElement(`p`);//  innertag, best left to 'p' ... for now
+        if (homeTest === 'home' || homeTest === 'main'){
+            paratag.innerText += `<li><a href="index.html" class="nav-link" id="nav-${item}" >${item}</a></li>`;
+        } else {
+            paratag.innerText += `<li><a href="${item}.html" class="nav-link" id="nav-${item}" >${item}</a></li>`;
+        }
+        primaryList.appendChild(paratag);
+})
     primaryList.append('</ul>\n');
     primaryList.innerHTML += '<br/>';
     primaryList.innerText += '</div>';
-
     // unhide list 2
     secondList.removeAttribute('hidden');
     secondList.innerText = `Page names based on links`; 
@@ -254,31 +267,30 @@ mpNav.addEventListener('click', (event)=>{
     secondList.innerText += `type "home" or "main" for index.html`;
     secondList.innerHTML += '<hr/>';
     sampleText.forEach(item =>{
-    const homeTest = item.toLowerCase()
-    let paratag = document.createElement(`p`);
-    if (homeTest === 'home' || homeTest === 'main'){
-        paratag.innerText += `index.html`;
-        } else {
-        paratag.innerText += `${item}.html`;
-        }
-        secondList.appendChild(paratag);
-    })
-    hideThree();
+        const homeTest = item.toLowerCase()
+        let paratag = document.createElement(`p`);
+        if (homeTest === 'home' || homeTest === 'main'){
+            paratag.innerText += `index.html`;
+            } else {
+            paratag.innerText += `${item}.html`;
+            }
+            secondList.appendChild(paratag);
+        })
+        hideThree();
 });
-
 
 spaNav.addEventListener('click', (event)=>{
                                                                 //<ul> with multi-page navigation links for SPAs
                                                                 // output to list 1
     primaryList.innerText = `<div ="nav-bar">`;
     primaryList.innerHTML += '<br/>';
-    primaryList.innerText += `<ul class="nav-links}>`;          //  whereItGoes = which list out //outterCodeStart wrapping ie <div>
-    sampleText.forEach(item =>{                                 //  The Array being output
+    primaryList.innerText += `<ul class="nav-links}>`;
+    sampleText.forEach(item =>{
         const homeTest = item.toLowerCase()
-        let paratag = document.createElement(`p`);              //  innertag, best left to 'p' ... for now
+        let paratag = document.createElement(`p`);
         if (homeTest === 'home' || homeTest === 'main'){
             paratag.innerText += `<li><a href="#home">home</a></li>`;
-        } else {                 
+        } else {
             paratag.innerText += `<li><a href="#${item}">${item}</a></li>`;
         }
     primaryList.appendChild(paratag);

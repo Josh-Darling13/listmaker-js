@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300&family=Playfair+Display:wght@500&family=Seymour+One&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300&family=Playfair+Display:wght@500&display=swap');
@@ -21,37 +19,33 @@
 </head>
 
 <body>
-    
+
     <video autoplay muted loop id="myVideo">
         <source src="toys_2.mp4" type="video/mp4">
       </video>
-
-
-
       <div class="container">
-
         <div class="options">
             <h2>List options</h2>
             <hr />
                 <h3>HTML, CSS, Vanilla Javascript </h3>
             <hr />
-            <p id="pTag" name="pTag" > 
-                &lt;p&gt; list with items    
+            <p id="pTag" name="pTag" >
+                &lt;p&gt; list with items
             </p>
             <hr />
-            <p id="brTag" name="brTag" > 
-                &lt;br /&gt; list with items    
+            <p id="brTag" name="brTag" >
+                &lt;br /&gt; list with items
             </p>
             <hr />
-            <p id="hrTag" name="hrTag" > 
+            <p id="hrTag" name="hrTag" >
                 &lt;hr /&gt; list with items
             </p>
             <hr />
-            <p id="ULItems" name="ULItems" > 
+            <p id="ULItems" name="ULItems" >
                 &lt;ul&gt; list with items
             </p>
             <hr />
-            <p id="OLItems" name="OLItems" > 
+            <p id="OLItems" name="OLItems" >
                 &lt;ol&gt; list with items
             </p>
             <hr />
@@ -64,7 +58,7 @@
             </p>
             <hr />
             <p id="arrayItems" name="arrayItems">
-                Build a JS Array=[] with matching const and let variables and prebuilt <i>for... in</i> loop
+                Javascript Array=[] with matching const and let variables and prebuilt <i>for in</i> loop
             </p>
             <hr />
             <p id="divbuild" name="divbuild">
@@ -75,9 +69,19 @@
                 &lt;input type="checkbox"&gt; id matches label, JS variables and event listeners, matching <br />CSS id</label>
             </p>
             <hr />
+            <p id="arrayItems" name="arrayItems">
+                Javascript Object={} with matching const and let variables and prebuilt <i>for of</i> loop
+            </p>
+            <hr />
+                <h3>Next builds </h3>
+            <hr />
+                <h3>Javascript Class Methods</h3>
+            <hr />
+                <h3>Javascript Error handeling</h3>
+            <hr />
                 <h3>Javascript Cookies</h3>
             <hr />
-                <h3>JSON, APIs, Local</h3>
+                <h3>JSON, APIs, Local storage, Ajax</h3>
             <hr />
                 <h3>React, JSX, Components, event handlers, state, hooks</h3>
             <hr />
@@ -101,11 +105,8 @@
             <hr />
                 Language order is based on my skills with them and my enjoyment of the language. Got a project and you need lists built sooner? <a href="mailto:squidDarling@gmail.com">Drop me a line here</a>
         </div>
-
         <div class="listTitle"><h1 id="typeload">LISTMAKER PLUS +</h1></div>
-
         <div class="textDiv">
-
             <div class="textInIt">
                 <div class="instructions">
                     <ul>
@@ -115,7 +116,7 @@
                         <li>copy and paste as needed</li>
                         </ul>
                 </div>
-                <textarea rows="10" col="40" class="inputs" id="buildIn" ></textarea> 
+                <textarea rows="10" col="40" class="inputs" id="buildIn" ></textarea>
                 <hr />
                 <h3 id="clearAll">&lt;&lt; CLEAR ALL LISTS &gt;&gt;</h3>
             </div>
@@ -130,12 +131,14 @@
                     Typing <span class="alert">"main"</span> or <span class="alert">"home"</span> will generate <span class="alert">index.html</span>. 
                 </ul>
             </div>
-
         </div>
-
         <div class="listOut">
             <div class="basicIn">
                 list output
+                <div  class="basicIn" id="singleInput" hidden>
+                    <input type="text" id="eleName" >
+                    <label for="eleName">Name your array/object, press [Enter]</label> singleInput
+                </div>
                     <hr />
                     <div class="listDisplay">
                         <div class="listBox" id="primaryList">
@@ -144,20 +147,17 @@
                         <div class="secondList" id="secondList" hidden>
                         </div>
                         <div class="thirdList" id="thirdList" hidden>
-                            3rd list here
                         </div>
                     </div>
             </div>
-            <div class="variout">
-                The wraping code.
+            <div class="variout" id="ArraysObjtLoops" hidden>
+                <span id="lazyLoops">The wraping code.</span>
             </div>
         </div>
-
         <div class="links">
             No links yet
         </div>
     </div>
-
     <!-- Script -->
     <script src="script.js"></script>
 </body>
