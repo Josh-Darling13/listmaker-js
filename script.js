@@ -306,7 +306,7 @@ spaNav.addEventListener('click', (event)=>{
         if (homeTest === 'home' || homeTest === 'main'){
             paratag.innerText += `<a id="home"></a>`;
         } else {
-            paratag.innerText += `    <a id="${item}"></a>`;
+            paratag.innerText += `<a id="${item}"></a>`;
         }
         secondList.appendChild(paratag);
         })
