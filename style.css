@@ -59,10 +59,11 @@ p{
 ul li{
     list-style: none;
     quotes: none;
-    float: none;
+    /* float: none; */
     font-family: 'Darker Grotesque', sans-serif;
     font-family: 'Playfair Display', serif;
     font-family: 'Seymour One', sans-serif;
+    display: flex;
 }
 
 .container{
@@ -208,6 +209,10 @@ ul li{
     grid-column: 1 / 6;
     height: auto;
     background-image: linear-gradient(to right, #ff1414 0%, #fffb15 100%);
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
 }
 
 .listBox{
@@ -283,25 +288,16 @@ ul li{
     font-weight: bolder;
     color: rgb(255, 136, 0);
 }
-.links{
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    /* float: left; */
-}
 
 .nav-link {
     color: antiquewhite;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-right: 150px;
+    display: inline-flex;
+    padding-right: 50px;
     text-decoration: none;
-    float: left;
-
 }
 
-/* li{
-   float: left;
-} */
+.navlinks{
+    color: antiquewhite;
+    display: inline-flex;
+    padding-right: 50px;
+}

@@ -228,10 +228,11 @@ arrayItems.addEventListener('click', (event)=>{
 // Use onload() *************************************************************************
     codeName = "foo";
 
-    const mkSpan = document.createElement('span');
-    const idSpan = mkSpan.setAttribute('id','nameIt');
+    const mkSpan = document.createElement('span').setAttribute('id','nameIt');
+    // const idSpan = mkSpan
+    console.log(String(mkSpan));
     primaryList.textContent ='const ';
-    idSpan.innerTEXT = codeName;
+    mkSpan.innerTEXT = codeName;
     primaryList.appendChild('span')
     primaryList.textContent +=' = [\n';
     sampleText.forEach(item =>{
