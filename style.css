@@ -59,6 +59,7 @@ p{
 ul li{
     list-style: none;
     quotes: none;
+    float: none;
     font-family: 'Darker Grotesque', sans-serif;
     font-family: 'Playfair Display', serif;
     font-family: 'Seymour One', sans-serif;
@@ -136,9 +137,10 @@ ul li{
 
 .sample{
     background-color: aliceblue;
+    font-family: Arial;
     overflow-y:scroll;
     text-align: left;
-    font-size: .8em;
+    font-size: 1em;
     height: 90%;
     width: 35%;
     padding-left: -10px;
@@ -146,12 +148,6 @@ ul li{
     margin-top: 2%;
     quotes: none;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    /* transition: 0.4s;
-}
-
-.sample:hover{
-    font-size: larger;
-    transition: 0.4s; */
 }
 
 
@@ -166,16 +162,18 @@ ul li{
     align-content: center;
     justify-content: space-around;
     padding: 2%;
-
 }
 
 .instructions{
+    font-family: Arial;
     margin: 2%;
     padding: 2%;
 }
 
 .basicIn{
     background-color: aliceblue;
+    font-family: Arial;
+    font-size: .8em;
     padding: 2%;
 }
 
@@ -198,6 +196,7 @@ ul li{
 
 .variout{
     background-color: aliceblue;
+    font-family: Arial;
     font-size: .8em;
     margin-top: 3%;
     padding: 2%;
@@ -212,9 +211,9 @@ ul li{
 }
 
 .listBox{
+    font-family: Arial;
     height: 200px;
     padding: 2%;
-    font-weight: bolder;
 }
 
 #primaryList{
@@ -225,8 +224,8 @@ ul li{
     overflow-y: auto;
     margin-bottom: 12px;
     transition: 0.2s;
-
 }
+
 #primaryList:hover{
     font-size: 16px;
     line-height: 20px;
@@ -282,7 +281,27 @@ ul li{
 
 .alert{
     font-weight: bolder;
-    color: fuchsia;
+    color: rgb(255, 136, 0);
+}
+.links{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    /* float: left; */
 }
 
+.nav-link {
+    color: antiquewhite;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-right: 150px;
+    text-decoration: none;
+    float: left;
 
+}
+
+/* li{
+   float: left;
+} */

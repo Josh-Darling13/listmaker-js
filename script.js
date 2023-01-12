@@ -19,6 +19,7 @@ const singleInput = document.getElementById('singleInput');
 const ArraysObjtLoops = document.getElementById('ArraysObjtLoops');
 const lazyLoops = document.getElementById('lazyLoops');
 const nameIt = document.getElementById('nameIt');
+const eleName = document.getElementById('eleName');
 
 
 let memberMeArray = [];
@@ -122,7 +123,6 @@ clearAll.addEventListener('click', ()=>{
 
 buildIn.addEventListener('keydown', (event)=>{
     let evt = JSON.stringify(event.target.value);
-    // console.log(evt);
     if (event.key === 'Enter'){
         let breakBuild = [];
         let finalOut = [];
@@ -133,12 +133,10 @@ buildIn.addEventListener('keydown', (event)=>{
             finalOut = spaceStrip.split('\\n');
             memberMeArray.push(breakBuild[ele]/*.replace('"', '')*/);
         }
-
         sampleText = noDuplicates(finalOut);
-            // console.log(sampleText);
         buildOut.innerHTML='';
         sampleText.forEach(item => {
-            let li = document.createElement('li');
+            let li = document.createElement('p');
             li.innerText = item;
             buildOut.appendChild(li);
         })
@@ -146,11 +144,11 @@ buildIn.addEventListener('keydown', (event)=>{
 });
 
 ulItems.addEventListener('click', (event)=>{
-                        // ul list generator
+                                                        // ul list generator
     primaryList.innerText='<ul>';                       // HTML tag start (wrapping tag)
     sampleText.forEach(item =>{                         // being looping out array value
         let paratag = document.createElement('p');      // inner tag (keep as p)
-        paratag.innerText = `<li>${item}</li>`;       // wrapping out put code --should be vriables
+        paratag.innerText = `<li>${item}</li>`;         // wrapping out put code --should be vriables
         primaryList.appendChild(paratag);               // end of inner wrapper
     })
     primaryList.append('</ul>');                        // HTML tag end  (wrapping tag)
@@ -201,32 +199,50 @@ OLItems.addEventListener('click', (event)=>{
     hideTwoAndTree();
 });
 
+let codeName = 'changed;'
+
+
+
+    /**
+ * The arrayItems and the eleName functions need to "merged" 
+ */
+    eleName.addEventListener('keyup', (event)=>{
+        codeName = 'array';
+        codeName = event.target.value;
+        console.log(codeName);
+        lazyLoops.innerHTML =`${codeName}`;
+        lazyLoops.innerHTML = `for (const element in ${codeName}){\n`;
+        lazyLoops.innerHTML += `\t<pre>console.log(${codeName}[element]);</pre>\n`;
+        lazyLoops.innerHTML += `\t};<br/>\n`;
+    })
+
+
+
 arrayItems.addEventListener('click', (event)=>{
+
+    eleName.addEventListener('keyup', (event)=>{
+        codeName = event.target.value;
+    nameIt.innerTEXT = codeName;
+    return codeName
+    })
+// Use onload() *************************************************************************
+    codeName = "foo";
+
+    const mkSpan = document.createElement('span');
+    const idSpan = mkSpan.setAttribute('id','nameIt');
     primaryList.textContent ='const ';
-    primaryList.innerHTML +='<span id="nameIt">array</span>';
+    idSpan.innerTEXT = codeName;
+    primaryList.appendChild('span')
     primaryList.textContent +=' = [\n';
     sampleText.forEach(item =>{
         primaryList.textContent += `'${item.replace('"', '')}', `;
     })
     primaryList.append('];');
-
     ArraysObjtLoops.removeAttribute('hidden');
     singleInput.removeAttribute('hidden');
     hideTwoAndTree();
 });
-/**
- * The arrayItems and the eleName functions need to "merged" 
- */
-eleName.addEventListener('keyup', (event)=>{
-    let codeName = 'array';
-    codeName = event.target.value;
-    console.log(codeName);
-    lazyLoops.innerHTML =`${codeName}`;
-    lazyLoops.innerHTML = `for (const element in ${codeName}){<br/>\n`;
-    lazyLoops.innerHTML += `\tconsole.log(${codeName}[element]);<br/>\n`;
-    lazyLoops.innerHTML += `\t};<br/>\n`;
-    nameIt.innerText =`<span id="nameIt">${codeName}</span>`;
-})
+
 
 
 {/*
