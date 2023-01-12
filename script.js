@@ -20,6 +20,8 @@ const ArraysObjtLoops = document.getElementById('ArraysObjtLoops');
 const lazyLoops = document.getElementById('lazyLoops');
 const nameIt = document.getElementById('nameIt');
 const eleName = document.getElementById('eleName');
+const arrayLang = document.getElementById('arrayLang');
+const arrayElements = document.getElementById('arrayElements');
 
 
 let memberMeArray = [];
@@ -100,9 +102,19 @@ primaryList.append(`${outterCodeEnd}`);
 const hideTwoAndTree = () =>{
     secondList.setAttribute("hidden","");
     thirdList.setAttribute("hidden","");
+    eleName.setAttribute("hidden","");
+    ArraysObjtLoops.setAttribute("hidden","");
 }
 
 const hideThree = ()=>{
+    thirdList.setAttribute("hidden","");
+    eleName.setAttribute("hidden","");
+    ArraysObjtLoops.setAttribute("hidden","");
+}
+
+
+const hideOneAndTree = () =>{
+    primaryList.setAttribute("hidden","");
     thirdList.setAttribute("hidden","");
 }
 
@@ -199,52 +211,36 @@ OLItems.addEventListener('click', (event)=>{
     hideTwoAndTree();
 });
 
-let codeName = 'changed;'
-
-
-
-    /**
- * The arrayItems and the eleName functions need to "merged" 
- */
-    eleName.addEventListener('keyup', (event)=>{
-        codeName = 'array';
-        codeName = event.target.value;
-        console.log(codeName);
-        lazyLoops.innerHTML =`${codeName}`;
-        lazyLoops.innerHTML = `for (const element in ${codeName}){\n`;
-        lazyLoops.innerHTML += `\t<pre>console.log(${codeName}[element]);</pre>\n`;
-        lazyLoops.innerHTML += `\t};<br/>\n`;
-    })
-
-
+let codeName = 'array;'
 
 arrayItems.addEventListener('click', (event)=>{
-
-    eleName.addEventListener('keyup', (event)=>{
-        codeName = event.target.value;
-    nameIt.innerTEXT = codeName;
-    return codeName
-    })
-// ************************************************************************* switch primary div for mkArray div DIV
-    codeName = "foo";
-
-   
-    // const idSpan = mkSpan
-    console.log(String(mkSpan));
-    primaryList.textContent ='const ';
-    mkSpan.innerTEXT = codeName;
-    primaryList.appendChild('span')
-    primaryList.textContent +=' = [\n';
-    sampleText.forEach(item =>{
-        primaryList.textContent += `'${item.replace('"', '')}', `;
-    })
-    primaryList.append('];');
-    ArraysObjtLoops.removeAttribute('hidden');
+                                                //builds an array and works with addEventListener to fill in array code
     singleInput.removeAttribute('hidden');
-    hideTwoAndTree();
+    ArraysObjtLoops.removeAttribute('hidden');
+    secondList.removeAttribute('hidden');
+    arrayLang.textContent = 'const '
+    nameIt.textContent = 'array';
+    arrayElements.textContent = ' = [\n';
+    sampleText.forEach(item =>{
+        arrayElements.textContent += `'${item.replace('"', '')}', `;
+    })
+    arrayElements.append('];');
+    hideOneAndTree();
 });
 
 
+/* ********************************* PAin in the arrays ********************************/
+eleName.addEventListener('keyup', (event)=>{
+    codeName = 'array';
+    codeName = event.target.value;
+    console.log(codeName);
+    lazyLoops.innerHTML =`${codeName}`;
+    lazyLoops.innerHTML = `for (const element in ${codeName}){\n`;
+    lazyLoops.innerHTML += `\t<pre>console.log(${codeName}[element]);</pre>\n`;
+    lazyLoops.innerHTML += `\t};<br/>\n`;
+    arrayLang.textContent = "const ";
+    nameIt.textContent = codeName;
+})
 
 {/*
 
