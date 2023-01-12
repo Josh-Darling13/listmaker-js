@@ -225,10 +225,10 @@ arrayItems.addEventListener('click', (event)=>{
     nameIt.innerTEXT = codeName;
     return codeName
     })
-// Use onload() *************************************************************************
+// ************************************************************************* switch primary div for mkArray div DIV
     codeName = "foo";
 
-    const mkSpan = document.createElement('span').setAttribute('id','nameIt');
+   
     // const idSpan = mkSpan
     console.log(String(mkSpan));
     primaryList.textContent ='const ';
