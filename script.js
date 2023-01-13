@@ -22,10 +22,13 @@ const nameIt = document.getElementById('nameIt');
 const eleName = document.getElementById('eleName');
 const arrayLang = document.getElementById('arrayLang');
 const arrayElements = document.getElementById('arrayElements');
-
+const langIs = document.getElementById('langIs');
+const ojectItems = document.getElementById('ojectItems');
 
 let memberMeArray = [];
 let sampleText = [];
+let codeName = 'array;'
+let arrayOrObject = "";
 
 const validation = ()=>{
 
@@ -101,21 +104,26 @@ primaryList.append(`${outterCodeEnd}`);
 
 const hideTwoAndTree = () =>{
     secondList.setAttribute("hidden","");
+    secondList.innerText = "";
     thirdList.setAttribute("hidden","");
-    eleName.setAttribute("hidden","");
+    thirdList.innerText = "";
+    singleInput.setAttribute("hidden","");
     ArraysObjtLoops.setAttribute("hidden","");
 }
 
 const hideThree = ()=>{
     thirdList.setAttribute("hidden","");
+    thirdList.innerText = "";
     eleName.setAttribute("hidden","");
     ArraysObjtLoops.setAttribute("hidden","");
 }
 
-
 const hideOneAndTree = () =>{
+                                                        //for arrays and objects
     primaryList.setAttribute("hidden","");
+    primaryList.innerText = "";
     thirdList.setAttribute("hidden","");
+    thirdList.innerText = "";
 }
 
 /*
@@ -125,11 +133,9 @@ Listeners:
 */
 
 clearAll.addEventListener('click', ()=>{
-    primaryList.innerText = 'refer to text area and instructions';
-    secondList.setAttribute("hidden","");
-    thirdList.setAttribute("hidden","");
-    buildIn.reset();
-    sampleText = [];
+    location.reload();
+    return false;
+
 })
 
 
@@ -157,18 +163,23 @@ buildIn.addEventListener('keydown', (event)=>{
 
 ulItems.addEventListener('click', (event)=>{
                                                         // ul list generator
-    primaryList.innerText='<ul>';                       // HTML tag start (wrapping tag)
-    sampleText.forEach(item =>{                         // being looping out array value
-        let paratag = document.createElement('p');      // inner tag (keep as p)
-        paratag.innerText = `<li>${item}</li>`;         // wrapping out put code --should be vriables
-        primaryList.appendChild(paratag);               // end of inner wrapper
+    primaryList.removeAttribute('hidden');
+    primaryList.innerText = "";
+    langIs.innerText = 'HTML';
+    primaryList.innerText='<ul>';
+    sampleText.forEach(item =>{
+        let paratag = document.createElement('p');
+        paratag.innerText = `<li>${item}</li>`;
+        primaryList.appendChild(paratag);
     })
-    primaryList.append('</ul>');                        // HTML tag end  (wrapping tag)
+    primaryList.append('</ul>');
     hideTwoAndTree();
 });
 
 pTag.addEventListener('click', (event)=>{
-    // paragraph tag generator
+                                                        // paragraph tag generator
+    primaryList.removeAttribute('hidden');
+    langIs.innerText = 'HTML';
     primaryList.innerHTML=" ";
     sampleText.forEach(item =>{
         let paratag = document.createElement('p');
@@ -179,7 +190,9 @@ pTag.addEventListener('click', (event)=>{
 })
 
 brTag.addEventListener('click', (event)=>{
-    // br tag generator
+                                                        // br tag generator
+    primaryList.removeAttribute('hidden');
+    langIs.innerText = 'HTML';
     primaryList.innerHTML=" ";
     sampleText.forEach(item =>{
         let paratag = document.createElement('p');
@@ -190,7 +203,9 @@ brTag.addEventListener('click', (event)=>{
 })
 
 hrTag.addEventListener('click', (event)=>{
-    // hr tag generator
+                                                        // hr tag generator
+    primaryList.removeAttribute('hidden');
+    langIs.innerText = 'HTML';
     primaryList.innerHTML=" ";
     sampleText.forEach(item =>{
         let paratag = document.createElement('p');
@@ -201,6 +216,9 @@ hrTag.addEventListener('click', (event)=>{
 })
 
 OLItems.addEventListener('click', (event)=>{
+                                                        // ol list generator
+    primaryList.removeAttribute('hidden');
+    langIs.innerText = 'HTML';
     primaryList.innerText='<ol>';
     sampleText.forEach(item =>{
         let paratag = document.createElement('p');
@@ -211,51 +229,16 @@ OLItems.addEventListener('click', (event)=>{
     hideTwoAndTree();
 });
 
-let codeName = 'array;'
-
-arrayItems.addEventListener('click', (event)=>{
-                                                //builds an array and works with addEventListener to fill in array code
-    singleInput.removeAttribute('hidden');
-    ArraysObjtLoops.removeAttribute('hidden');
-    secondList.removeAttribute('hidden');
-    arrayLang.textContent = 'const '
-    nameIt.textContent = 'array';
-    arrayElements.textContent = ' = [\n';
-    sampleText.forEach(item =>{
-        arrayElements.textContent += `'${item.replace('"', '')}', `;
-    })
-    arrayElements.append('];');
-    hideOneAndTree();
-});
-
-
-/* ********************************* PAin in the arrays ********************************/
-eleName.addEventListener('keyup', (event)=>{
-    codeName = 'array';
-    codeName = event.target.value;
-    console.log(codeName);
-    lazyLoops.innerHTML =`${codeName}`;
-    lazyLoops.innerHTML = `for (const element in ${codeName}){\n`;
-    lazyLoops.innerHTML += `\t<pre>console.log(${codeName}[element]);</pre>\n`;
-    lazyLoops.innerHTML += `\t};<br/>\n`;
-    arrayLang.textContent = "const ";
-    nameIt.textContent = codeName;
-})
-
 {/*
 
-<input type="checkbox" id="arrayItems" name="arrayItems">
-<label for="ulItem">Build a JS Array=[] with matching const and let variables and prebuilt <i>for... in</i> loop</label>
-
-            <hr />
-            <p id="javObjt" name="javObjt">
             <label for="chex"> &lt;input type="checkbox"&gt; id matches label, JS variables and event listeners, matching <br />CSS id</label>
-            </p>
 */}
 
 mpNav.addEventListener('click', (event)=>{
                         //<ul> with multi-page navigation links to html pages
     // output to list 1
+    primaryList.removeAttribute('hidden');
+    langIs.innerText = 'HTML';
     primaryList.innerText = `<div ="nav-bar">`;
     primaryList.innerHTML += '<br/>';
     primaryList.innerText += `<ul class="nav-links}>`;          //  whereItGoes = which list out //outterCodeStart wrapping ie <div>
@@ -295,6 +278,8 @@ mpNav.addEventListener('click', (event)=>{
 spaNav.addEventListener('click', (event)=>{
                                                                 //<ul> with multi-page navigation links for SPAs
                                                                 // output to list 1
+    primaryList.removeAttribute('hidden');
+    langIs.innerText = 'HTML';
     primaryList.innerText = `<div ="nav-bar">`;
     primaryList.innerHTML += '<br/>';
     primaryList.innerText += `<ul class="nav-links}>`;
@@ -328,6 +313,8 @@ spaNav.addEventListener('click', (event)=>{
 
 divbuild.addEventListener('click', (event)=>{
                                     // Builds div class="" with matching CSS classes/ids, and Javascript variables = document.getElementById(...)
+    primaryList.removeAttribute('hidden');
+    langIs.innerText = 'HTML, CSS, Javascript';
     primaryList.innerText = `<div class="container">`;
     primaryList.innerHTML += `<br/>`;
     sampleText.forEach(item =>{
@@ -384,3 +371,80 @@ divbuild.addEventListener('click', (event)=>{
     })
 })
 
+/* ********************************* Javascript arrays ********************************/
+
+/*
+Add const and let vars and build 
+*/
+
+
+arrayItems.addEventListener('click', (event)=>{
+                                    //writes an array and works with addEventListener to fill in array code
+    console.log('clicked');
+    arrayOrObject = 'array';
+    singleInput.removeAttribute('hidden');
+    ArraysObjtLoops.removeAttribute('hidden');
+    eleName.removeAttribute('hidden');
+    secondList.removeAttribute('hidden');
+    // secondList.innerText="";
+    langIs.innerText = 'Javascript';
+    arrayLang.textContent = 'const '
+    nameIt.textContent = 'array';
+    arrayElements.textContent = ' = [\n';
+    sampleText.forEach(item =>{
+    arrayElements.textContent += `'${item.replace('"', '')}', `;
+    })
+    arrayElements.append('];');
+    hideOneAndTree();
+    // return arrayOrObject
+});
+
+
+
+/* ********************************* Javascript objects ********************************/
+
+ojectItems.addEventListener('click', (event)=>{
+                                    //writes an object and works with eleName.addEventListener to fill in object code
+    arrayOrObject = 'object';
+    singleInput.removeAttribute('hidden');
+    ArraysObjtLoops.removeAttribute('hidden');
+    eleName.removeAttribute('hidden');
+    secondList.removeAttribute('hidden');
+    langIs.innerText = 'Javascript';
+    arrayLang.textContent = ''
+    nameIt.textContent = 'object';
+    arrayElements.textContent = ' = {\n';
+    sampleText.forEach(item =>{
+    arrayElements.textContent += `'${item.replace('"', '')}': , `;
+    })
+    arrayElements.append('};');
+    hideOneAndTree();
+});
+
+
+
+
+eleName.addEventListener('keyup', (event)=>{
+
+    if(arrayOrObject === 'array'){
+        codeName = 'array';
+        codeName = event.target.value;
+        console.log(codeName);
+        lazyLoops.innerHTML =`${codeName}`;
+        lazyLoops.innerHTML = `for (const element in ${codeName}){\n`;
+        lazyLoops.innerHTML += `\t<pre>console.log(${codeName}[element]);</pre>\n`;
+        lazyLoops.innerHTML += `\t};<br/>\n`;
+        arrayLang.textContent = "const ";
+        nameIt.textContent = codeName;
+    } else if (arrayOrObject === 'object'){
+        codeName = 'object';
+        codeName = event.target.value;
+        console.log(codeName);
+        lazyLoops.innerHTML =`${codeName}`;
+        lazyLoops.innerHTML = `for (const element of ${codeName}){\n`;
+        lazyLoops.innerHTML += `\t<pre>console.log(${codeName}[element]);</pre>\n`;
+        lazyLoops.innerHTML += `\t};<br/>\n`;
+        arrayLang.textContent = "";
+        nameIt.textContent = codeName;
+    }
+})

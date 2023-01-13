@@ -83,7 +83,9 @@ ul li{
 }
 
 .options{
-    background-color: rgb(138, 176, 207);
+    /* background-color: rgb(138, 176, 207); */
+    background: rgb(255,251,21);
+    background: radial-gradient(circle, rgba(255,251,21,1) 26%, rgba(255,20,20,1) 100%);
     grid-column: 1;
     grid-row: 1 / 7;
     height: auto;
@@ -286,7 +288,9 @@ ul li{
 
 .alert{
     font-weight: bolder;
-    color: rgb(255, 136, 0);
+    color: #dd15ff;
+    
+    /* color: rgb(255, 136, 0); */
 }
 
 .nav-link {

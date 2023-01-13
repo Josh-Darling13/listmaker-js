@@ -29,24 +29,26 @@
             <hr />
                 <h3>HTML, CSS, Vanilla Javascript </h3>
             <hr />
+            <!-- Replace this with a js file to generate a list (per language) here -->
+
             <p id="pTag" name="pTag" >
-                &lt;p&gt; list with items
+                &lt;p&gt; list
             </p>
             <hr />
             <p id="brTag" name="brTag" >
-                &lt;br /&gt; list with items
+                &lt;br /&gt; list
             </p>
             <hr />
             <p id="hrTag" name="hrTag" >
-                &lt;hr /&gt; list with items
+                &lt;hr /&gt; list
             </p>
             <hr />
             <p id="ULItems" name="ULItems" >
-                &lt;ul&gt; list with items
+                &lt;ul&gt; list
             </p>
             <hr />
             <p id="OLItems" name="OLItems" >
-                &lt;ol&gt; list with items
+                &lt;ol&gt; list
             </p>
             <hr />
             <p id="mpNav" name="mpNav">
@@ -57,8 +59,16 @@
                 &lt;ul&gt; with SPA navigation
             </p>
             <hr />
+            <p id="JSvars" name="JSvars">
+                Javascript const and let variables
+            </p>
+            <hr />
             <p id="arrayItems" name="arrayItems">
                 Javascript Array=[] with matching const and let variables and prebuilt <i>for in</i> loop
+            </p>
+            <hr />
+            <p id="ojectItems" name="ojectItems">
+                Javascript Object={} with matching const and let variables and prebuilt <i>for of</i> loop
             </p>
             <hr />
             <p id="divbuild" name="divbuild">
@@ -69,13 +79,21 @@
                 &lt;input type="checkbox"&gt; id matches label, JS variables and event listeners, matching <br />CSS id</label>
             </p>
             <hr />
-            <p id="arrayItems" name="arrayItems">
-                Javascript Object={} with matching const and let variables and prebuilt <i>for of</i> loop
+            <!-- start Python.js here -->
+            <p id="PyVar" name="PyVar">
+                Python variables 
+            </p>
+            <hr />
+            <p id="PyList" name="PyList">
+                Python List of strings or variables with matching variables
             </p>
             <hr />
                 <h3>Next builds </h3>
             <hr />
+                <!-- nextbuilds.js here -->
                 <h3>Javascript Class Methods</h3>
+            <hr />
+                <h3>Typescript</h3>
             <hr />
                 <h3>Javascript Error handeling</h3>
             <hr />
@@ -83,17 +101,17 @@
             <hr />
                 <h3>JSON, APIs, Local storage, Ajax</h3>
             <hr />
-                <h3>React, JSX, Components, event handlers, state, hooks</h3>
+                <h3>Node.js</h3>
             <hr />
-                <h3>Python, Tkinter, Kivy, MySql, Mongodb</h3>
+                <h3>React, JSX, Components, event handlers, state, hooks</h3>
             <hr />
                 <h3>Angular</h3>
             <hr />
                 <h3>Vue</h3>
             <hr />
-                <h3>Typescript</h3>
+                <h3>Python, Tkinter, Kivy, MySql, Mongodb</h3>
             <hr />
-                <h3>PHP, SQL, MySLQ</h3>
+                <h3>PHP, SQL, MySLQ, LAMP Stack</h3>
             <hr />
                 <h3>C/C++</h3>
             <hr />
@@ -105,7 +123,9 @@
             <hr />
                 Language order is based on my skills with them and my enjoyment of the language. Got a project and you need lists built sooner? <a href="mailto:squidDarling@gmail.com">Drop me a line here</a>
         </div>
-        <div class="listTitle"><h1 id="typeload">LISTMAKER PLUS +</h1></div>
+        <div class="listTitle"><h1 id="typeload">LISTMAKER PLUS + 0.1</h1>
+
+        </div>
         <div class="textDiv">
             <div class="textInIt">
                 <div class="instructions">
@@ -128,12 +148,15 @@
                     <br/>
                     <br/>
                     Typing <span class="alert">"main"</span> or <span class="alert">"home"</span> will generate <span class="alert">index.html</span>. 
+                    <br/>
+                    <br/>
+                    Need paragraphs in &lt;p&gt; tags? Paste then and use <b>&lt;p&gt; list</b> (first option on the left.)
                 </ul>
             </div>
         </div>
         <div class="listOut">
             <div class="basicIn">
-                list output
+                <span id="langIs">list output</span>
                 <div  class="basicIn" id="singleInput" hidden>
                     <input type="text" id="eleName" >
                     <label for="eleName">Name your array/object, press [Enter]</label> singleInput
@@ -163,6 +186,7 @@
                 <li><a href="https://github.com/Josh-Darling13/" class="nav-link" id="nav-GitHub" >gitHub</a></li>
                 <li><a href="mailto:squidDarling@gmail.com" class="nav-link" id="nav-contact" >email</a></li>
             </ul>
+
         </div>
     </div>
     <!-- Script -->
