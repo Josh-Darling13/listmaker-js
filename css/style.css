@@ -100,7 +100,6 @@ li{
 }
 
 .options{
-    /* background-color: rgb(138, 176, 207); */
     background: rgb(255,251,21);
     background: radial-gradient(circle, rgba(255,251,21,1) 26%, rgba(255,20,20,1) 100%);
     grid-column: 1;
@@ -109,10 +108,11 @@ li{
     padding: 2%;
     text-align: left;
     overflow-y:scroll;
+    overflow-x:hidden;
 }
 
 .options p:hover{
-    filter: brightness(200%);
+    filter: brightness(400%);
   }
 
 .listTitle{
@@ -338,4 +338,11 @@ i{
     -ms-transform: rotate(20deg); /* IE 9 */
     transform: rotate(-45deg);
     transition: 0.6s;
+  }
+
+  .copyList{
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    line-height: 1em;
   }
