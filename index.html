@@ -40,26 +40,33 @@
             </div>
             <div class="sample">
                 <h2>Directions:</h2>
-                <i class="fa-solid fa-cog fa-spin"></i>Type stuff
-                <br/>
-                <i class="fa-solid fa-cog fa-spin"></i>press [Enter]
-                    <br/>
-                    <i class="fa-solid fa-cog fa-spin"></i>Select list(s) --as needed
-                    <br/>
-                    <i class="fa-solid fa-cog fa-spin"></i>Click:<br>
-                    "copy to clipboard"
-                    <br/>
-                    <i class="fa-solid fa-cog fa-spin"></i>Paste code.
-                    
-                    <hr/>
+                <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+                Type stuff
+                <br/><br/>
+                <i class="fa-solid fa-cog fa-spin"></i>
+                Press [Enter]
+                <br/><br/>
+                <i class="fa fa-check" aria-hidden="true"></i>
+                Select code from List Options
+                <br/><br/>
+                <i class="fa fa-files-o" aria-hidden="true"></i>
+                Click:<br>
+                "copy to clipboard"
+                <br/><br/>
+                <i class="fa fa-clipboard" aria-hidden="true"></i>
+                Paste your code.
+                <hr/>
                 <ul id="buildOut">
-                    <i class="fa-solid fa-cog fa-spin"></i>Duplicate list items will be removed.
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                    Duplicate list items will be removed.
                     <br/>
                     <br/>
-                    <i class="fa-solid fa-cog fa-spin"></i>Typing <span class="alert">"main"</span> or <span class="alert">"home"</span> will generate <span class="alert">index.html</span>. 
+                    <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+                    Typing <span class="alert">"main"</span> or <span class="alert">"home"</span> will generate <span class="alert">index.html</span>. 
                     <br/>
                     <br/>
-                    <i class="fa-solid fa-cog fa-spin"></i>Need &lt;p&gt; tags in a bunch of paragraphs? Use <b>&lt;p&gt; list</b> (first option on the left.)
+                    <i class="fa fa-paragraph" aria-hidden="true"></i>
+                    Need &lt;p&gt; tags in a bunch of paragraphs? Use <b>&lt;p&gt; list</b> (first option on the left.)
                 </ul>
             </div>
         </div>
@@ -175,23 +182,27 @@
                     <hr />
                     <div class="listDisplay">
 
-                        <div class="pribox">
+                        <div class="copybox">
                             <div class="listBox" id="primaryList">
                                 If you follow the directions, you'll have code here.<br />
                             </div>
                             <button class="copyBtns" id="priCopy" onclick="priLstCopy()" hidden>copy to <br /> clipboard</button>
                         </div>
 
+                        <div class="copybox">
+                            <div class="secondList" id="secondList" hidden>
+                                <span id="arrayLang"></span>
+                                <span id="nameIt"></span>
+                                <span id="arrayElements"></span>
+                            </div>
+                            <button class="copyBtns" id="secCopy" onclick="secListCopy()" hidden>copy to <br /> clipboard</button>
+                        </div>
 
-                        <div class="secondList" id="secondList" hidden>
-                            <span id="arrayLang"></span>
-                            <span id="nameIt"></span>
-                            <span id="arrayElements"></span>
+                        <div class="copybox">
+                            <div class="thirdList" id="thirdList" hidden>
+                            </div>
+                            <button class="copyBtns" id="thrdCopy" onclick="thrListCopy()" hidden>copy to <br /> clipboard</button>
                         </div>
-                        
-                        <div class="thirdList" id="thirdList" hidden>
-                        </div>
-                    
                     </div>
             </div>
             <div class="variout" id="ArraysObjtLoops" hidden>

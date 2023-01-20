@@ -28,6 +28,7 @@ const copyOne = document.getElementById('copyOne');
 
 
 const priCopy = document.getElementById('priCopy');
+const secCopy = document.getElementById('secCopy');
 
 let memberMeArray = [];
 let sampleText = [];
@@ -88,15 +89,19 @@ const noSpecialChars = ()=>{
 const hideTwoAndThree = () =>{
     secondList.setAttribute("hidden","");
     secondList.innerText = "";
+    secListCopy.setAttribute("hidden","");
     thirdList.setAttribute("hidden","");
     thirdList.innerText = "";
+    thrListCopy.setAttribute('hidden','');
     singleInput.setAttribute("hidden","");
     ArraysObjtLoops.setAttribute("hidden","");
+
 }
 
 const hideThree = ()=>{
     thirdList.setAttribute("hidden","");
     thirdList.innerText = "";
+    thrListCopy.setAttribute('hidden','');
     eleName.setAttribute("hidden","");
     ArraysObjtLoops.setAttribute("hidden","");
 }
@@ -104,8 +109,10 @@ const hideThree = ()=>{
 const hideOneAndThree = () =>{                               //for arrays and objects
     primaryList.setAttribute("hidden","");
     primaryList.innerText = "";
+    priLstCopy.setAttribute('hidden','');
     thirdList.setAttribute("hidden","");
     thirdList.innerText = "";
+    thrListCopy.setAttribute('hidden','');
 }
 
 const hideTopAndBottom = () =>{
@@ -143,13 +150,13 @@ Copy Text
 ****************************************************************
 */
 
-const copyPrimary = () =>{
-    primaryList.select();
-    primaryList.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(primaryList.value);
-    console.log(primaryList.value);
+// const copyPrimary = () =>{
+//     primaryList.select();
+//     primaryList.setSelectionRange(0, 99999);
+//     navigator.clipboard.writeText(primaryList.value);
+//     console.log(primaryList.value);
 
-}
+// }
 
 
 
@@ -168,10 +175,24 @@ const priLstCopy = () =>{
     window.getSelection().removeAllRanges();
 }
 
-const secListCopy = () => {}
+const secListCopy = () => {
+    var range = document.createRange();
+    range.selectNode(secondList);
+    window.getSelection().removeAllRanges(); // clear current selection
+    window.getSelection().addRange(range); // to select text
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges();
+}
 
 
-const thrListCopy = () => {}
+const thrListCopy = () => {
+    var range = document.createRange();
+    range.selectNode(thirdList);
+    window.getSelection().removeAllRanges(); // clear current selection
+    window.getSelection().addRange(range); // to select text
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges();
+}
 
 const arrayCopy = () => {}
 
@@ -213,6 +234,7 @@ pTag.addEventListener('click', (event)=>{
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
         primaryList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
         primaryList.innerHTML=" ";
         sampleText.forEach(item =>{
@@ -220,7 +242,7 @@ pTag.addEventListener('click', (event)=>{
             paratag.innerText = `<p>${item}</p>`;
             primaryList.appendChild(paratag);
         })}
-        priCopy.removeAttribute('hidden');
+
         // primaryList.innerHTML += `<button id="copyOne" onclick="copyPrimary()" >Copy text</button>`
     hideTwoAndThree();
     })
@@ -230,6 +252,7 @@ brTag.addEventListener('click', (event)=>{
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
         primaryList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
         primaryList.innerHTML=" ";
         sampleText.forEach(item =>{
@@ -246,6 +269,7 @@ hrTag.addEventListener('click', (event)=>{
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
         primaryList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
         primaryList.innerHTML=" ";
         sampleText.forEach(item =>{
@@ -262,6 +286,7 @@ ulItems.addEventListener('click', (event)=>{
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
         primaryList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
         primaryList.innerText = "";
         langIs.innerText = 'HTML';
         primaryList.innerText='<ul>';
@@ -280,6 +305,7 @@ OLItems.addEventListener('click', (event)=>{
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
         primaryList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
         primaryList.innerText='<ol>';
         sampleText.forEach(item =>{
@@ -298,6 +324,7 @@ mpNav.addEventListener('click', (event)=>{
     if (runcode !== 0){
         // output to list 1
         primaryList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
         primaryList.innerText = `<div id="nav-bar">`;
         primaryList.innerHTML += '<br/>';
@@ -317,6 +344,7 @@ mpNav.addEventListener('click', (event)=>{
         primaryList.innerText += '</div>';
         // unhide list 2
         secondList.removeAttribute('hidden');
+
         secondList.innerHTML = '<span class="alert"/> feature to download pre-made templates coming soon!<span/>';
         secondList.innerHTML += '<br/>';
         secondList.innerText += `type "home" or "main" for index.html`;
@@ -389,6 +417,7 @@ divbuild.addEventListener('click', (event)=>{
         primaryList.innerHTML += `<br/>`;
         primaryList.innerText += `</div>`;
         secondList.removeAttribute('hidden');
+        secCopy.removeAttribute('hidden');
         secondList.innerHTML = `/* CSS Classes */<br/>\n\n`;
         sampleText.forEach(item =>{
             let paratag = document.createElement('p');
@@ -417,6 +446,7 @@ divbuild.addEventListener('click', (event)=>{
             secondList.appendChild(paratag);
         })
         thirdList.removeAttribute('hidden');
+        thrListCopy.removeAttribute('hidden');
         thirdList.innerHTML = `/* const variable = document.getElementById('htmlId'); */<br/>\n\n`;
         sampleText.forEach(item =>{
             let paratag = document.createElement('p');

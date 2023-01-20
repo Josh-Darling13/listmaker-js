@@ -1,13 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
 
-
 body{
     background: rgb(255,251,21);
     background: radial-gradient(circle, rgba(255,251,21,1) 26%, rgba(255,20,20,1) 100%);
     z-index: -2;
 }
-
-
 
 #myVideo {
     width: 100vw;
@@ -28,12 +25,9 @@ div{
     font-family: 'Darker Grotesque', sans-serif;
     font-family: 'Playfair Display', serif;
     font-family: 'Seymour One', sans-serif;
-    scrollbar-color: rebeccapurple green;
   }
 
-
 /* Animation */
-
 h1 {
     white-space: nowrap;
     overflow: hidden;  
@@ -54,9 +48,8 @@ h3{
     font-size: .8em;
     text-align: center;
 }
-  
-  /* text animation */
-  
+
+/* text animation */
 @keyframes animated-text{
     from{width: 0;}
     to{width: 100%;}
@@ -65,13 +58,10 @@ h3{
 p{
     color: #282c34;
     font-size: 1em;
-
   }
 
 ul li{
-
     quotes: none;
-    /* float: none; */
     font-family: 'Darker Grotesque', sans-serif;
     font-family: 'Playfair Display', serif;
     font-family: 'Seymour One', sans-serif;
@@ -82,6 +72,23 @@ li{
     list-style: none;
     line-height: 1.5em;
     margin: 15px;
+}
+
+button{
+    border: none;
+    border-radius: 10px;
+    color: navy;
+    background-color: #fffb15;
+    box-shadow: rgba(15, 15, 15, 0.848) 0px 2px 8px 0px;
+    transition: 0.5s;
+}
+
+button:hover{
+    color: red;
+    box-shadow: rgba(148, 148, 148, 0.803) 0px 2px 8px 0px;
+    transition: ease-in-out;
+    opacity: 100;
+    transition: 0.5s;
 }
 
 .container{
@@ -114,7 +121,7 @@ li{
 
 .options p:hover{
     filter: brightness(400%);
-  }
+}
 
 .listTitle{
     grid-column: 1 / 6;
@@ -170,7 +177,6 @@ li{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-
 .textDiv{
     background-color: rgb(215, 215, 215);
     padding-left: 2%;
@@ -183,8 +189,6 @@ li{
     justify-content: space-around;
     padding: 2%;
 }
-
-
 
 .basicIn{
     background-color: aliceblue;
@@ -240,23 +244,18 @@ li{
     font-family: Arial;
     height: 200px;
     width: 300px;
-    /* width: 40%; */
     padding: 2%;
-    /* overflow-y:scroll;
-    overflow-x:hidden; */
 }
 
-.pribox{
+.copybox{
     border: none;
 }
-
 
 #primaryList{
     font-family: monospace;
     font-size: 12px;
     line-height: 1.5em;
     width: 100px;
-    /* width: 40%; */
     margin: 1%;
     overflow-y:scroll;
     overflow-x:hidden;
@@ -282,7 +281,6 @@ li{
     transition: 0.2s;
     height: 200px;
     padding: 2%;
-    /* font-weight: bolder; */
     }
 
 #secondList:hover{
@@ -294,8 +292,9 @@ li{
 }
 
 #thirdList{
+    font-family: monospace;
     font-size: 12px;
-    line-height: 10px;
+    line-height: 1.5em;
     width: 100px;
     margin: 1%;
     overflow-y: auto;
@@ -303,13 +302,11 @@ li{
     transition: 0.2s;
     height: 200px;
     padding: 2%;
-    font-weight: bolder;
     }
 
 #thirdList:hover{
     font-size: 16px;
     line-height: 20px;
-    width: 70%;
     opacity: 100;
     transition: 0.5s;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -337,17 +334,17 @@ i{
     -ms-transform: rotate(0deg); /* IE 9 */
     transform: rotate(0deg);
     transition: 0.6s;
-  }
+}
 
-  i:hover{
+i:hover{
     -ms-transform: rotate(20deg); /* IE 9 */
     transform: rotate(-45deg);
     transition: 0.6s;
-  }
+}
 
-  .copyList{
+.copyList{
     border: none;
     margin: 0px;
     padding: 0px;
     line-height: 1em;
-  }
+}
