@@ -28,6 +28,7 @@ div{
     font-family: 'Darker Grotesque', sans-serif;
     font-family: 'Playfair Display', serif;
     font-family: 'Seymour One', sans-serif;
+    scrollbar-color: rebeccapurple green;
   }
 
 
@@ -64,7 +65,7 @@ h3{
 p{
     color: #282c34;
     font-size: 1em;
- 
+
   }
 
 ul li{
@@ -101,9 +102,9 @@ li{
 
 .options{
     background: rgb(255,251,21);
-    background: radial-gradient(circle, rgba(255,251,21,1) 26%, rgba(255,20,20,1) 100%);
-    grid-column: 1;
-    grid-row: 1 / 7;
+    background: radial-gradient(circle, rgba(255,251,21,1) 26%, rgb(251, 126, 36) 100%);
+    grid-column: 3/4;
+    grid-row: 2 / 7;
     height: auto;
     padding: 2%;
     text-align: left;
@@ -116,12 +117,12 @@ li{
   }
 
 .listTitle{
-    grid-column: 2 / 6;
+    grid-column: 1 / 6;
     grid-row: 1/1;
     padding-left: 5%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    align-items: flex-start;
     text-align: justify;
     text-indent: 10px;
     background-image: linear-gradient(to right, #ff1414 0%, #fffb15 100%);
@@ -140,19 +141,18 @@ li{
 }
 
 #buildIn{
+    color: rgb(63, 60, 60);
     font-size: larger;
     padding-top: 3%;
     margin-top: 2%;
     padding: 2%;
     border: 2px solid #0856f2;
-    background-color: aliceblue;
-    border-radius: 10px;
+     border-radius: 10px;
     overflow-y:scroll;
-    height: 140px;
+    height: 360px;
     width: 75%;
-    font-family: 'Darker Grotesque', sans-serif;
-    font-family: 'Playfair Display', serif;
-    font-family: 'Seymour One', sans-serif;
+    font-family: Arial;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .sample{
@@ -163,7 +163,7 @@ li{
     font-size: 1em;
     height: 90%;
     width: 35%;
-    padding-left: -10px;
+    padding: 10px;
     padding-right: 2%;
     margin-top: 2%;
     quotes: none;
@@ -174,7 +174,7 @@ li{
 .textDiv{
     background-color: rgb(215, 215, 215);
     padding-left: 2%;
-    grid-column: 2 / 4;
+    grid-column: 1 / 3;
     grid-row: 2 / 7;
     display: flex;
     flex-direction: row;
@@ -184,11 +184,7 @@ li{
     padding: 2%;
 }
 
-.instructions{
-    font-family: Arial;
-    margin: 2%;
-    padding: 2%;
-}
+
 
 .basicIn{
     background-color: aliceblue;
@@ -209,7 +205,7 @@ li{
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
-    overflow-y:scroll;
+    /* overflow-y:scroll; */
     height: 90%;
     padding: 2%;
 }
@@ -243,23 +239,33 @@ li{
 .listBox{
     font-family: Arial;
     height: 200px;
+    width: 300px;
+    /* width: 40%; */
     padding: 2%;
+    /* overflow-y:scroll;
+    overflow-x:hidden; */
 }
+
+.pribox{
+    border: none;
+}
+
 
 #primaryList{
     font-family: monospace;
     font-size: 12px;
     line-height: 1.5em;
-    width: 40%;
-    margin: 3%;
-    overflow-y: auto;
+    width: 100px;
+    /* width: 40%; */
+    margin: 1%;
+    overflow-y:scroll;
+    overflow-x:hidden;
     margin-bottom: 12px;
     transition: 0.2s;
 }
 
 #primaryList:hover{
     font-size: 16px;
-    width: 70%;
     opacity: 100;
     transition: 0.5s;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -269,8 +275,8 @@ li{
     font-family: monospace;
     font-size: 12px;
     line-height: 1.5em;
-    width: 30%;
-    margin: 3%;
+    width: 100px;
+    margin: 1%;
     overflow-y: auto;
     margin-bottom: 12px;
     transition: 0.2s;
@@ -282,7 +288,6 @@ li{
 #secondList:hover{
     font-size: 16px;
     line-height: 20px;
-    width: 70%;
     opacity: 100;
     transition: 0.5s;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -291,8 +296,8 @@ li{
 #thirdList{
     font-size: 12px;
     line-height: 10px;
-    width: 30%;
-    margin: 3%;
+    width: 100px;
+    margin: 1%;
     overflow-y: auto;
     margin-bottom: 12px;
     transition: 0.2s;

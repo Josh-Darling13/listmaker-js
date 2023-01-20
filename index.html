@@ -27,6 +27,43 @@
         <source src="./media/Toys_2.mp4" type="video/mp4">
       </video>
       <div class="container">
+
+        <div class="listTitle"><h1 id="typeload">LISTMAKER PLUS + 0.1</h1>
+
+        </div>
+
+        <div class="textDiv">
+            <div class="textInIt">
+                <textarea rows="50" col="40" class="inputs" id="buildIn" ></textarea>
+                <hr />
+                <h3 id="clearAll">&lt;&lt; CLEAR ALL LISTS &gt;&gt;</h3>
+            </div>
+            <div class="sample">
+                <h2>Directions:</h2>
+                <i class="fa-solid fa-cog fa-spin"></i>Type stuff
+                <br/>
+                <i class="fa-solid fa-cog fa-spin"></i>press [Enter]
+                    <br/>
+                    <i class="fa-solid fa-cog fa-spin"></i>Select list(s) --as needed
+                    <br/>
+                    <i class="fa-solid fa-cog fa-spin"></i>Click:<br>
+                    "copy to clipboard"
+                    <br/>
+                    <i class="fa-solid fa-cog fa-spin"></i>Paste code.
+                    
+                    <hr/>
+                <ul id="buildOut">
+                    <i class="fa-solid fa-cog fa-spin"></i>Duplicate list items will be removed.
+                    <br/>
+                    <br/>
+                    <i class="fa-solid fa-cog fa-spin"></i>Typing <span class="alert">"main"</span> or <span class="alert">"home"</span> will generate <span class="alert">index.html</span>. 
+                    <br/>
+                    <br/>
+                    <i class="fa-solid fa-cog fa-spin"></i>Need &lt;p&gt; tags in a bunch of paragraphs? Use <b>&lt;p&gt; list</b> (first option on the left.)
+                </ul>
+            </div>
+        </div>
+
         <div class="options">
             <h2>List options</h2>
             <hr />
@@ -127,34 +164,7 @@
             <hr />
                 Language order is based on my skills with them and my enjoyment of the language. Got a project and you need lists built sooner? <a href="mailto:squidDarling@gmail.com">Drop me a line here</a>
         </div>
-        <div class="listTitle"><h1 id="typeload">LISTMAKER PLUS + 0.1</h1>
 
-        </div>
-        <div class="textDiv">
-            <div class="textInIt">
-                <div class="instructions">
-                    <h2>Directions:</h2>
-                        Type stuff
-                        <br />press [Enter]
-                        <br />Select list(s) --as needed
-                        <br />Copy and Paste
-                </div>
-                <textarea rows="10" col="40" class="inputs" id="buildIn" ></textarea>
-                <hr />
-                <h3 id="clearAll">&lt;&lt; CLEAR ALL LISTS &gt;&gt;</h3>
-            </div>
-            <div class="sample">
-                <ul id="buildOut">
-                    Duplicate list items will be removed.
-                    <br/>
-                    <br/>
-                    Typing <span class="alert">"main"</span> or <span class="alert">"home"</span> will generate <span class="alert">index.html</span>. 
-                    <br/>
-                    <br/>
-                    Need &lt;p&gt; tags in a bunch of paragraphs? Use <b>&lt;p&gt; list</b> (first option on the left.)
-                </ul>
-            </div>
-        </div>
         <div class="listOut">
             <div class="basicIn">
                 <span id="langIs">list output</span>
@@ -164,28 +174,31 @@
                 </div>
                     <hr />
                     <div class="listDisplay">
-                        <div class="copyList">
-                            <div class="copyList" id="listPri">
-                                <span onClick="cAndP()" hidden>copist</span>
-                            </div>
-                                <div class="listBox" id="primaryList">
-                                    If you follow the directions, you'll have code here.<br />
-                                </div>
 
+                        <div class="pribox">
+                            <div class="listBox" id="primaryList">
+                                If you follow the directions, you'll have code here.<br />
+                            </div>
+                            <button class="copyBtns" id="priCopy" onclick="priLstCopy()" hidden>copy to <br /> clipboard</button>
                         </div>
+
+
                         <div class="secondList" id="secondList" hidden>
                             <span id="arrayLang"></span>
                             <span id="nameIt"></span>
                             <span id="arrayElements"></span>
                         </div>
+                        
                         <div class="thirdList" id="thirdList" hidden>
                         </div>
+                    
                     </div>
             </div>
             <div class="variout" id="ArraysObjtLoops" hidden>
                 <span id="lazyLoops">The wraping code.</span>
             </div>
         </div>
+
         <div class="links">
             <ul class="navlinks">
                 <li><a href="www.https://www.darckode.com" class="nav-link" id="nav-Home" ><i class="fa-solid fa-house fa-2x"></i><br />home</a></li>

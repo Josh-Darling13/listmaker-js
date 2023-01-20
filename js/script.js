@@ -26,6 +26,9 @@ const langIs = document.getElementById('langIs');
 const ojectItems = document.getElementById('ojectItems');
 const copyOne = document.getElementById('copyOne');
 
+
+const priCopy = document.getElementById('priCopy');
+
 let memberMeArray = [];
 let sampleText = [];
 const directions = [
@@ -38,10 +41,6 @@ let codeName = 'array;'
 let arrayOrObject = "";
 
 
-/* Note to self:
-Move a few divs around in the index page so the flow is 100%
-Left to to right
-*/
 
 const validation = ()=>{
 
@@ -156,6 +155,28 @@ const copyPrimary = () =>{
 
 /*
 ****************************************************************
+Copy and Paste functions in HTML
+****************************************************************
+*/
+
+const priLstCopy = () =>{
+    var range = document.createRange();
+    range.selectNode(primaryList);
+    window.getSelection().removeAllRanges(); // clear current selection
+    window.getSelection().addRange(range); // to select text
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges();
+}
+
+const secListCopy = () => {}
+
+
+const thrListCopy = () => {}
+
+const arrayCopy = () => {}
+
+/*
+****************************************************************
 Listeners:
 ****************************************************************
 */
@@ -199,7 +220,8 @@ pTag.addEventListener('click', (event)=>{
             paratag.innerText = `<p>${item}</p>`;
             primaryList.appendChild(paratag);
         })}
-        primaryList.innerHTML += `<button id="copyOne" onclick="copyPrimary()" >Copy text</button>`
+        priCopy.removeAttribute('hidden');
+        // primaryList.innerHTML += `<button id="copyOne" onclick="copyPrimary()" >Copy text</button>`
     hideTwoAndThree();
     })
 
