@@ -38,6 +38,11 @@ let codeName = 'array;'
 let arrayOrObject = "";
 
 
+/* Note to self:
+Move a few divs around in the index page so the flow is 100%
+Left to to right
+*/
+
 const validation = ()=>{
 
 }
