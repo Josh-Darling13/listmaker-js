@@ -29,6 +29,7 @@ const copyOne = document.getElementById('copyOne');
 
 const priCopy = document.getElementById('priCopy');
 const secCopy = document.getElementById('secCopy');
+const thrdCopy = document.getElementById('thrdCopy');
 
 let memberMeArray = [];
 let sampleText = [];
@@ -89,10 +90,11 @@ const noSpecialChars = ()=>{
 const hideTwoAndThree = () =>{
     secondList.setAttribute("hidden","");
     secondList.innerText = "";
-    secListCopy.setAttribute("hidden","");
+    secondList.innerHTML= `<span id="arrayLang" hidden></span><span id="nameIt" hidden></span><span id="arrayElements" hidden></span>`;
+    secCopy.setAttribute("hidden","");
     thirdList.setAttribute("hidden","");
     thirdList.innerText = "";
-    thrListCopy.setAttribute('hidden','');
+    thrdCopy.setAttribute('hidden','');
     singleInput.setAttribute("hidden","");
     ArraysObjtLoops.setAttribute("hidden","");
 
@@ -101,7 +103,7 @@ const hideTwoAndThree = () =>{
 const hideThree = ()=>{
     thirdList.setAttribute("hidden","");
     thirdList.innerText = "";
-    thrListCopy.setAttribute('hidden','');
+    thrdCopy.setAttribute('hidden', '')
     eleName.setAttribute("hidden","");
     ArraysObjtLoops.setAttribute("hidden","");
 }
@@ -109,10 +111,10 @@ const hideThree = ()=>{
 const hideOneAndThree = () =>{                               //for arrays and objects
     primaryList.setAttribute("hidden","");
     primaryList.innerText = "";
-    priLstCopy.setAttribute('hidden','');
+    priCopy.setAttribute('hidden','');
     thirdList.setAttribute("hidden","");
     thirdList.innerText = "";
-    thrListCopy.setAttribute('hidden','');
+    thrdCopy.setAttribute('hidden','');
 }
 
 const hideTopAndBottom = () =>{
@@ -144,21 +146,6 @@ const readDirections = (sampleArray, directions) => {       // Message for those
 }
 
 
-/*
-****************************************************************
-Copy Text
-****************************************************************
-*/
-
-// const copyPrimary = () =>{
-//     primaryList.select();
-//     primaryList.setSelectionRange(0, 99999);
-//     navigator.clipboard.writeText(primaryList.value);
-//     console.log(primaryList.value);
-
-// }
-
-
 
 /*
 ****************************************************************
@@ -183,7 +170,6 @@ const secListCopy = () => {
     document.execCommand("copy");
     window.getSelection().removeAllRanges();
 }
-
 
 const thrListCopy = () => {
     var range = document.createRange();
@@ -242,8 +228,6 @@ pTag.addEventListener('click', (event)=>{
             paratag.innerText = `<p>${item}</p>`;
             primaryList.appendChild(paratag);
         })}
-
-        // primaryList.innerHTML += `<button id="copyOne" onclick="copyPrimary()" >Copy text</button>`
     hideTwoAndThree();
     })
 
@@ -324,7 +308,7 @@ mpNav.addEventListener('click', (event)=>{
     if (runcode !== 0){
         // output to list 1
         primaryList.removeAttribute('hidden');
-        priCopy.removeAttribute('hidden');
+        // priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
         primaryList.innerText = `<div id="nav-bar">`;
         primaryList.innerHTML += '<br/>';
@@ -344,7 +328,7 @@ mpNav.addEventListener('click', (event)=>{
         primaryList.innerText += '</div>';
         // unhide list 2
         secondList.removeAttribute('hidden');
-
+        // secCopy.removeAttribute('hidden');
         secondList.innerHTML = '<span class="alert"/> feature to download pre-made templates coming soon!<span/>';
         secondList.innerHTML += '<br/>';
         secondList.innerText += `type "home" or "main" for index.html`;
@@ -359,7 +343,7 @@ mpNav.addEventListener('click', (event)=>{
                 }
                 secondList.appendChild(paratag);
             })
-            hideThree();
+            // hideThree();
             hideTopAndBottom();
         }}
     );
@@ -369,6 +353,7 @@ spaNav.addEventListener('click', (event)=>{
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
         primaryList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
         primaryList.innerText = `<div ="nav-bar">`;
         primaryList.innerHTML += '<br/>';
@@ -387,6 +372,7 @@ spaNav.addEventListener('click', (event)=>{
         primaryList.innerHTML += '<br/>';
         primaryList.innerText += '</div>';
         secondList.removeAttribute('hidden');
+        secCopy.removeAttribute('hidden');
         sampleText.forEach(item =>{
             const homeTest = item.toLowerCase()
             let paratag = document.createElement(`p`);
@@ -406,6 +392,7 @@ divbuild.addEventListener('click', (event)=>{
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
         primaryList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML, CSS, Javascript';
         primaryList.innerText = `<div class="container">`;
         primaryList.innerHTML += `<br/>`;
@@ -446,14 +433,14 @@ divbuild.addEventListener('click', (event)=>{
             secondList.appendChild(paratag);
         })
         thirdList.removeAttribute('hidden');
-        thrListCopy.removeAttribute('hidden');
-        thirdList.innerHTML = `/* const variable = document.getElementById('htmlId'); */<br/>\n\n`;
+        thrdCopy.removeAttribute('hidden');
+        thirdList.innerHTML = `<p>/* const variable = document.getElementById('htmlId'); */<p/>\n\n`;
         sampleText.forEach(item =>{
             let paratag = document.createElement('p');
             paratag.innerText += `const ${item} = document.getElementById('${item}');`;
             thirdList.appendChild(paratag);
         })
-        thirdList.innerHTML += `\n\n/* const variable = document.getElementsByClassName('htmlId'); */<br/>\n\n`;
+        thirdList.innerHTML += `\n\n<p>/* const variable = document.getElementsByClassName('htmlClass'); */<p/>\n\n`;
         sampleText.forEach(item =>{
             let paratag = document.createElement('p');
             paratag.innerText += `const ${item} = document.getElementById('${item}');`;
@@ -466,56 +453,71 @@ divbuild.addEventListener('click', (event)=>{
 
 arrayItems.addEventListener('click', (event)=>{
     //writes an array and works with addEventListener to fill in array code
-    arrayOrObject = 'array';
-    singleInput.removeAttribute('hidden');
-    ArraysObjtLoops.removeAttribute('hidden');
-    eleName.removeAttribute('hidden');
-    primaryList.removeAttribute('hidden');
-    secondList.removeAttribute('hidden');
-    thirdList.removeAttribute('hidden');
-    primaryList.textContent = '';
-    // secondList.innerText="";
-    langIs.innerText = 'Javascript';
-    arrayLang.textContent = 'const '
-    nameIt.textContent = 'array';
-    arrayElements.textContent = ' = [\n';
-    sampleText.forEach(item =>{
-        arrayElements.textContent += `\`${item.replace('"', '')}\`, `;
-    })
-    arrayElements.append('];');
+    let runcode = readDirections(sampleText, directions);
+    if (runcode !== 0){
+        arrayOrObject = 'array';
+        secondList.removeAttribute('hidden');
 
-    sampleText.forEach(item =>{
-        let paratag = document.createElement('p');
-        paratag.innerText = "const " + item + " = ``;";
-        primaryList.appendChild(paratag);
-    })
+        singleInput.removeAttribute('hidden');
 
-    sampleText.forEach(item =>{
-        let paratag = document.createElement('p');
-        paratag.innerText = "let " + item + " = ``;";
-        thirdList.appendChild(paratag);
-    })
-});
+        ArraysObjtLoops.removeAttribute('hidden');
+        nameIt.removeAttribute('hidden');
+        eleName.removeAttribute('hidden');
+
+        primaryList.removeAttribute('hidden');
+
+        thirdList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
+        secCopy.removeAttribute('hidden');
+        thrdCopy.removeAttribute('hidden');
+
+
+        primaryList.textContent = '';
+        thirdList.textContent = '';
+        langIs.innerText = 'Javascript';
+
+        arrayLang.innerText = 'const ';
+        nameIt.innerText = 'array';
+        arrayElements.textContent = ' = [\n';
+        sampleText.forEach(item =>{
+            arrayElements.textContent += `\`${item.replace('"', '')}\`, `;
+            console.log(item);
+        })
+        arrayElements.append('];');
+
+        sampleText.forEach(item =>{
+            let paratag = document.createElement('p');
+            paratag.innerText = "const " + item + " = ``;";
+            primaryList.appendChild(paratag);
+        })
+
+        sampleText.forEach(item =>{
+            let prtag = document.createElement('p');
+            prtag.innerText = "let " + item + " = ``;";
+            thirdList.appendChild(prtag);
+        })
+}}
+);
 
 /* ********************************* Javascript objects ********************************/
 
-ojectItems.addEventListener('click', (event)=>{
-                                    //writes an object and works with eleName.addEventListener to fill in object code
-    arrayOrObject = 'object';
-    singleInput.removeAttribute('hidden');
-    ArraysObjtLoops.removeAttribute('hidden');
-    eleName.removeAttribute('hidden');
-    secondList.removeAttribute('hidden');
-    langIs.innerText = 'Javascript';
-    arrayLang.textContent = ''
-    nameIt.textContent = 'object';
-    arrayElements.textContent = ' = {\n';
-    sampleText.forEach(item =>{
-    arrayElements.textContent += `'${item.replace('"', '')}': , `;
-    })
-    arrayElements.append('};');
-    hideOneAndThree();
-});
+// ojectItems.addEventListener('click', (event)=>{
+//                                     //writes an object and works with eleName.addEventListener to fill in object code
+//     arrayOrObject = 'object';
+//     singleInput.removeAttribute('hidden');
+//     ArraysObjtLoops.removeAttribute('hidden');
+//     eleName.removeAttribute('hidden');
+//     secondList.removeAttribute('hidden');
+//     langIs.innerText = 'Javascript';
+//     arrayLang.textContent = ''
+//     nameIt.textContent = 'object';
+//     arrayElements.textContent = ' = {\n';
+//     sampleText.forEach(item =>{
+//     arrayElements.textContent += `'${item.replace('"', '')}': , `;
+//     })
+//     arrayElements.append('};');
+//     hideOneAndThree();
+// });
 
 eleName.addEventListener('keyup', (event)=>{
 

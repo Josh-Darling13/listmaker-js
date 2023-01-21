@@ -106,6 +106,10 @@
                 &lt;ul&gt; with SPA navigation
             </p>
             <hr />
+            <p id="divbuild" name="divbuild">
+                &lt;div class=""&gt; with matching CSS classes/ids, and Javascript variables = document.getElementById(...);
+            </p>
+            <hr />
             <p id="arrayItems" name="arrayItems">
                 Javascript Array=[] prebuilt <i>for in</i> loop
             </p>
@@ -113,11 +117,6 @@
             <p id="ojectItems" name="ojectItems">
                 Javascript Object={} with matching const and let variables and prebuilt <i>for of</i> loop
             </p>
-            <hr />
-            <p id="divbuild" name="divbuild">
-                &lt;div class=""&gt; with matching CSS classes/ids, and Javascript variables = document.getElementById(...);
-            </p>
-
             <hr />
                 <h3>--Next builds--</h3>
                 <hr />
@@ -183,19 +182,28 @@
                     <div class="listDisplay">
 
                         <div class="copybox">
+                            <div class="listBox" id="arrayObjBox" hidden>
+
+                                There is text here ... for now
+                                <span id="arrayLang" ></span>
+                                <span id="nameIt" ></span>
+                                <span id="arrayElements" ></span>
+                            </div>
+                            <button class="copyBtns" id="ArrObjCopy" onclick="ArrObjCopy()" hidden> copy to <br /> clipboard</button>
+                        </div>
+
+                        <div class="copybox">
                             <div class="listBox" id="primaryList">
                                 If you follow the directions, you'll have code here.<br />
                             </div>
-                            <button class="copyBtns" id="priCopy" onclick="priLstCopy()" hidden>copy to <br /> clipboard</button>
+                            <button class="copyBtns" id="priCopy" onclick="priLstCopy()" hidden> copy to <br /> clipboard</button>
                         </div>
 
                         <div class="copybox">
                             <div class="secondList" id="secondList" hidden>
-                                <span id="arrayLang"></span>
-                                <span id="nameIt"></span>
-                                <span id="arrayElements"></span>
+
                             </div>
-                            <button class="copyBtns" id="secCopy" onclick="secListCopy()" hidden>copy to <br /> clipboard</button>
+                            <button class="copyBtns" id="secCopy" onclick="secListCopy()" hidden > copy to <br /> clipboard</button>
                         </div>
 
                         <div class="copybox">
@@ -206,7 +214,7 @@
                     </div>
             </div>
             <div class="variout" id="ArraysObjtLoops" hidden>
-                <span id="lazyLoops">The wraping code.</span>
+                <span id="lazyLoops">Name your array and loops will be made.</span>
             </div>
         </div>
 
