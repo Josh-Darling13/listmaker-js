@@ -92,57 +92,19 @@ const noSpecialChars = ()=>{
 
 }
 
-const hideTwoAndThree = () =>{
-    secondList.setAttribute("hidden","");
-    secondList.innerText = "";
-    secCopy.setAttribute("hidden","");
-    thirdList.setAttribute("hidden","");
-    thirdList.innerText = "";
-    thrdCopy.setAttribute('hidden','');
-    singleInput.setAttribute("hidden","");
-    ArraysObjtLoops.setAttribute("hidden","");
-
-}
-
-const hideThree = ()=>{
-    thirdList.setAttribute("hidden","");
-    thirdList.innerText = "";
-    thrdCopy.setAttribute('hidden', '')
-    eleName.setAttribute("hidden","");
-    ArraysObjtLoops.setAttribute("hidden","");
-}
-
-const hideOneAndThree = () =>{                               //for arrays and objects
-    primaryList.setAttribute("hidden","");
-    primaryList.innerText = "";
-    priCopy.setAttribute('hidden','');
-    thirdList.setAttribute("hidden","");
-    thirdList.innerText = "";
-    thrdCopy.setAttribute('hidden','');
-}
-
-const hideTopAndBottom = () =>{
-
-}
-
-const moveOffArrayObject = () => {
-
-}
-
 const hideAll = () => {
-
     arrayObjBox.setAttribute("hidden","");
     loopsCopy.setAttribute("hidden","");
-    secondList.setAttribute("hidden","");
-    secondList.innerText = "";
-    secCopy.setAttribute("hidden","");
+    aObjCopy.setAttribute("hidden","");
     primaryList.setAttribute("hidden","");
     primaryList.innerText = "";
     priCopy.setAttribute('hidden','');
+    secondList.setAttribute("hidden","");
+    secondList.innerText = "";
+    secCopy.setAttribute("hidden","");
     thirdList.setAttribute("hidden","");
     thirdList.innerText = "";
     thrdCopy.setAttribute('hidden','');
-
     eleName.setAttribute("hidden","");
     ArraysObjtLoops.setAttribute("hidden","");
 }
@@ -268,13 +230,13 @@ pTag.addEventListener('click', (event)=>{
             paratag.innerText = `<p>${item}</p>`;
             primaryList.appendChild(paratag);
         })}
-    hideTwoAndThree();
     })
 
 brTag.addEventListener('click', (event)=>{
     // br tag generator
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
+        hideAll();
         primaryList.removeAttribute('hidden');
         priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
@@ -284,14 +246,13 @@ brTag.addEventListener('click', (event)=>{
             paratag.innerText = `<br />${item}`;
             primaryList.appendChild(paratag);
         })}
-    hideTwoAndThree();
-    hideTopAndBottom();
 })
 
 hrTag.addEventListener('click', (event)=>{
     // hr tag generator
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
+        hideAll();
         primaryList.removeAttribute('hidden');
         priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
@@ -301,14 +262,13 @@ hrTag.addEventListener('click', (event)=>{
             paratag.innerText = `${item}<hr />`;
             primaryList.appendChild(paratag);
     })}
-    hideTwoAndThree();
-    hideTopAndBottom();
 })
 
 ulItems.addEventListener('click', (event)=>{
     // ul list generator
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
+        hideAll();
         primaryList.removeAttribute('hidden');
         priCopy.removeAttribute('hidden');
         primaryList.innerText = "";
@@ -320,14 +280,13 @@ ulItems.addEventListener('click', (event)=>{
         primaryList.appendChild(paratag);
     })
     primaryList.append('</ul>');}
-    hideTwoAndThree();
-    hideTopAndBottom();
 });
 
 OLItems.addEventListener('click', (event)=>{
     // ol list generator
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
+        hideAll();
         primaryList.removeAttribute('hidden');
         priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
@@ -338,17 +297,16 @@ OLItems.addEventListener('click', (event)=>{
             primaryList.appendChild(paratag);
         })
         primaryList.append('</ol>');}
-    hideTwoAndThree();
-    hideTopAndBottom();
 });
 
 mpNav.addEventListener('click', (event)=>{
     //<ul> with multi-page navigation links to html pages
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
+        hideAll();
         // output to list 1
         primaryList.removeAttribute('hidden');
-        // priCopy.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
         primaryList.innerText = `<div id="nav-bar">`;
         primaryList.innerHTML += '<br/>';
@@ -368,7 +326,7 @@ mpNav.addEventListener('click', (event)=>{
         primaryList.innerText += '</div>';
         // unhide list 2
         secondList.removeAttribute('hidden');
-        // secCopy.removeAttribute('hidden');
+        secCopy.removeAttribute('hidden');
         secondList.innerHTML = '<span class="alert"/> feature to download pre-made templates coming soon!<span/>';
         secondList.innerHTML += '<br/>';
         secondList.innerText += `type "home" or "main" for index.html`;
@@ -384,7 +342,6 @@ mpNav.addEventListener('click', (event)=>{
                 secondList.appendChild(paratag);
             })
             // hideThree();
-            hideTopAndBottom();
         }}
     );
 
@@ -392,6 +349,7 @@ spaNav.addEventListener('click', (event)=>{
     //<ul> with multi-page navigation links for SPAs
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
+        hideAll();
         primaryList.removeAttribute('hidden');
         priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
@@ -423,14 +381,14 @@ spaNav.addEventListener('click', (event)=>{
             }
             secondList.appendChild(paratag);
         })
-    hideThree();
-    hideTopAndBottom();}
+}
 });
 
 divbuild.addEventListener('click', (event)=>{
     // Builds div class="" with CSS classes/ids, and Javascript variables = document.getElementById(...)
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
+        hideAll();
         primaryList.removeAttribute('hidden');
         priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML, CSS, Javascript';
@@ -486,7 +444,6 @@ divbuild.addEventListener('click', (event)=>{
             paratag.innerText += `const ${item} = document.getElementById('${item}');`;
             thirdList.appendChild(paratag);
         })}
-    hideTopAndBottom();
 })
 
 /* ********************************* Javascript arrays ********************************/
@@ -497,28 +454,20 @@ arrayItems.addEventListener('click', (event)=>{
     if (runcode !== 0){
         arrayOrObject = 'array';
         hideAll();
-
-        // secondList.setAttribute("hidden","");
-        // secondList.innerText = "";
-
         singleInput.removeAttribute('hidden');
         loopsCopy.removeAttribute('hidden');
         ArraysObjtLoops.removeAttribute('hidden');
         nameIt.removeAttribute('hidden');
         eleName.removeAttribute('hidden');
-
         primaryList.removeAttribute('hidden');
         arrayObjBox.removeAttribute('hidden');
-
         priCopy.removeAttribute('hidden');
         aObjCopy.removeAttribute('hidden')
         thrdCopy.removeAttribute('hidden');
         thirdList.removeAttribute('hidden');
-
         primaryList.textContent = '';
         thirdList.textContent = '';
         langIs.innerText = 'Javascript';
-
         arrayLang.innerText = 'const ';
         nameIt.innerText = 'array';
         arrayElements.textContent = ' = [\n';
@@ -559,7 +508,6 @@ arrayItems.addEventListener('click', (event)=>{
 //     arrayElements.textContent += `'${item.replace('"', '')}': , `;
 //     })
 //     arrayElements.append('};');
-//     hideOneAndThree();
 // });
 
 eleName.addEventListener('keyup', (event)=>{
@@ -607,12 +555,16 @@ const stuffDone =[
     `potentially individually style this button as needed`,
     `remove hidden on singleInput clipboard button for arrays and objects --possibly first item`,
     `write the function to copy and paste`,
-];
-
-const stuffToGetDone = [
     `When clicking off arrays, objects, dictionaries, hash, etc... ArraysObjtLoops, singleInput, arrayObjBox are all hidden SEE NEXT FOR SOULTION`,
     `THE SOLUTION IS, at the start of ever function hide everything thee unhide as needed`,
     `testing solution once chrome can work`,
+];
+
+const stuffToGetDone = [
+
+    `If works delete unused code`,
+    `Add back and fix Javascript object`,
+    `remove input option --for now`,
     `add scrollbar and fix size of ArraysObjtLoops`,
     `make notes on new click off logic and rebuild functions accordingly`,
     `create data lost warning for clicking on "clear list and refreshing the browser` ,
