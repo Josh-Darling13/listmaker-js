@@ -122,13 +122,31 @@ const hideOneAndThree = () =>{                               //for arrays and ob
 }
 
 const hideTopAndBottom = () =>{
-    eleName.setAttribute("hidden","");
-    ArraysObjtLoops.setAttribute("hidden","");
+
 }
 
 const moveOffArrayObject = () => {
 
 }
+
+const hideAll = () => {
+
+    arrayObjBox.setAttribute("hidden","");
+    loopsCopy.setAttribute("hidden","");
+    secondList.setAttribute("hidden","");
+    secondList.innerText = "";
+    secCopy.setAttribute("hidden","");
+    primaryList.setAttribute("hidden","");
+    primaryList.innerText = "";
+    priCopy.setAttribute('hidden','');
+    thirdList.setAttribute("hidden","");
+    thirdList.innerText = "";
+    thrdCopy.setAttribute('hidden','');
+
+    eleName.setAttribute("hidden","");
+    ArraysObjtLoops.setAttribute("hidden","");
+}
+
 
 /*
 ****************************************************************
@@ -187,7 +205,12 @@ const thrListCopy = () => {
 }
 
 const arrObjCopy = () => {
-
+    const range = document.createRange();
+    range.selectNode(arrayObjBox);
+    window.getSelection().removeAllRanges(); 
+    window.getSelection().addRange(range); 
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges();
 }
 
 const loopCopy = () =>{
@@ -235,6 +258,7 @@ pTag.addEventListener('click', (event)=>{
     // paragraph tag generator
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
+        hideAll();
         primaryList.removeAttribute('hidden');
         priCopy.removeAttribute('hidden');
         langIs.innerText = 'HTML';
@@ -472,8 +496,10 @@ arrayItems.addEventListener('click', (event)=>{
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
         arrayOrObject = 'array';
-        secondList.setAttribute("hidden","");
-        secondList.innerText = "";
+        hideAll();
+
+        // secondList.setAttribute("hidden","");
+        // secondList.innerText = "";
 
         singleInput.removeAttribute('hidden');
         loopsCopy.removeAttribute('hidden');
@@ -578,59 +604,59 @@ const toDoText = document.getElementById('toDoText');
 const comp = document.getElementById('comp');
 const stuffDone =[
     '50 add "copy to clip board" for id="singleInput" to copy whatever is in id="ArraysObjtLoops" this may need to be uniquely sized',
+    `potentially individually style this button as needed`,
+    `remove hidden on singleInput clipboard button for arrays and objects --possibly first item`,
+    `write the function to copy and paste`,
 ];
 
 const stuffToGetDone = [
-`potentially individually style this button as needed`,
-`remove hidden on singleInput clipboard button for arrays and objects --possibly first item`,
-`write the function to copy and paste`,
-
-`When clicking off arrays, objects, dictionaries, hash, etc... ArraysObjtLoops, singleInput, arrayObjBox are all hidden SEE NEXT FOR SOULTION`,
-`THE SOLUTION IS, at the start of ever function hide everything thee unhide as needed`,
-`add scrollbar and fix size of ArraysObjtLoops`,
-`make notes on new click off logic and rebuild functions accordingly`,
-`create data lost warning for clicking on "clear list and refreshing the browser` ,
-`Javascript Object={} with matching const and let variables and prebuilt for of loop`,
-`add "With loops and Javascript const and let variables" to the description of Javascript arrays and objects`,
-`Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
-`add onload chime`,
-`Add Javascript Node.JS file  SQL log in and CRUD`,
-`Add Javascript Node.JS MongoDB log in and CRUD`,
-`Add Javascript API JSON asycn and await that just need a URL and a loop + console.Log`,
-`add state, render, return for React using a function that maps over state`,
-`basic hook VARIABLE writer with component export, import `,
-`basic hook ARRAY writer with component export, import `,
-`Add PHP variables`,
-`Add PHP arrays and loops`,
-`App PHP class object structure`,
-`Add Python List, loops, and Variables`,
-`Add Python Dictionaries, loops, and Variables`,
-`Add Python API that just need a URL and a loop + console.Log`,
-`Add Perl sclars, Arrays, Hash and loops`,
-`remove this to do list`,
-`Launch listmaker plus`,
-`*** Post Launch stuff ***`,
-`use an array of functions to do complete input validation`,
-`Use PHP to create file templates`,
-`Add PHP file system for CGI`,
-`Add PHP file SQL log in and CRUD`,
-`Add PHP file MongoDB log in and CRUD`,
-`Add Python file system for CGI`,
-`Add Python file system for SQL log in and CRUD`,
-`Add Python file system for MongoDB log in and CRUD`,
-`Add Python file system for basic game`,
-`Add Perl file system for CGI`,
-`Add Perl file system for SQL log in and CRUD`,
-`Add Perl file system for MongoDB log in and CRUD`,
-`Add c variables`,
-`Add c arrays and loops`,
-`App c++ class object structure`,
-`Add c file system for CGI`,
-`Add c API JSON asycn and await that just need a URL and a loop + console.Log`,
-`Add c file SQL log in and CRUD`,
-`Add c file MongoDB log in and CRUD`,
-`Add c file system for basic game`,
-`Java, Ruby, R, Dart, etc...`
+    `When clicking off arrays, objects, dictionaries, hash, etc... ArraysObjtLoops, singleInput, arrayObjBox are all hidden SEE NEXT FOR SOULTION`,
+    `THE SOLUTION IS, at the start of ever function hide everything thee unhide as needed`,
+    `testing solution once chrome can work`,
+    `add scrollbar and fix size of ArraysObjtLoops`,
+    `make notes on new click off logic and rebuild functions accordingly`,
+    `create data lost warning for clicking on "clear list and refreshing the browser` ,
+    `Javascript Object={} with matching const and let variables and prebuilt for of loop`,
+    `add "With loops and Javascript const and let variables" to the description of Javascript arrays and objects`,
+    `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
+    `add onload chime`,
+    `Add Javascript Node.JS file  SQL log in and CRUD`,
+    `Add Javascript Node.JS MongoDB log in and CRUD`,
+    `Add Javascript API JSON asycn and await that just need a URL and a loop + console.Log`,
+    `add state, render, return for React using a function that maps over state`,
+    `basic hook VARIABLE writer with component export, import `,
+    `basic hook ARRAY writer with component export, import `,
+    `Add PHP variables`,
+    `Add PHP arrays and loops`,
+    `App PHP class object structure`,
+    `Add Python List, loops, and Variables`,
+    `Add Python Dictionaries, loops, and Variables`,
+    `Add Python API that just need a URL and a loop + console.Log`,
+    `Add Perl sclars, Arrays, Hash and loops`,
+    `remove this to do list`,
+    `Launch listmaker plus`,
+    `*** Post Launch stuff ***`,
+    `use an array of functions to do complete input validation`,
+    `Use PHP to create file templates`,
+    `Add PHP file system for CGI`,
+    `Add PHP file SQL log in and CRUD`,
+    `Add PHP file MongoDB log in and CRUD`,
+    `Add Python file system for CGI`,
+    `Add Python file system for SQL log in and CRUD`,
+    `Add Python file system for MongoDB log in and CRUD`,
+    `Add Python file system for basic game`,
+    `Add Perl file system for CGI`,
+    `Add Perl file system for SQL log in and CRUD`,
+    `Add Perl file system for MongoDB log in and CRUD`,
+    `Add c variables`,
+    `Add c arrays and loops`,
+    `App c++ class object structure`,
+    `Add c file system for CGI`,
+    `Add c API JSON asycn and await that just need a URL and a loop + console.Log`,
+    `Add c file SQL log in and CRUD`,
+    `Add c file MongoDB log in and CRUD`,
+    `Add c file system for basic game`,
+    `Java, Ruby, R, Dart, etc...`
 ];
 
 stuffToGetDone.forEach(item =>{
