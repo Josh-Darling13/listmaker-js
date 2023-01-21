@@ -1,6 +1,9 @@
 // const arrayMess = ["dp", "Ted", "Bonnie", "Alexis Texas", "Chasey--", "Alexis Texas",  "options", "August", "Chasey", "August", "Asia", "", "", "Ed", "Ted", "Bonnie", "tots", "Chasey",  "", "Ed", "Ted", "Bonnie--", "Chasey", "August", "AsiaEd", "Ted", "Bonnie", "Chasey", "August", "AsiaEd",  "Asia", "listDisplay", "listBox,", "options", "textInIt", "instructions", "sample", "listDisplay", "listBox", "height: 100%;", "Ted", "Bonnie", "Chasey", "August", "AsiaEd", "August", "AsiaEd", "Ted", "Bonnie", "Chasey", "August", "AsiaEd", "Ted", "Bonnie", "Chasey", "August", "AsiaEd", "Ted", "Bonnie", "Chasey", "August", "AsiaEd", "tots", "Ted", "Bonnie", "Chasey", " August", "August", "Asia", "options", "textInIt--", "instructions", "sample", "", "", "Ted", "Bonnie", "Chasey", "August", "Asia", "", "", "Ed", "Ted",  "extInIt--", "instructions", "sample", "Ted", "Bonnie", "Chasey", "August", "Asia", "", "", "Ed", "Ted", "Bonnie", "Chasey", "Chasey", "August","Bonnie",  "tots" ];
 
-
+{/* <hr />
+<p id="chexBox" name="chexBox">
+    &lt;input type="checkbox"&gt; id matches label, JS variables and event listeners, matching <br />CSS id</label>
+</p> */}
 
 
 const array = ["Ed","Ted", "Bonnie","Chasey","August","Asia", ];

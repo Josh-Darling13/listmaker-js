@@ -558,18 +558,21 @@ const stuffDone =[
     `When clicking off arrays, objects, dictionaries, hash, etc... ArraysObjtLoops, singleInput, arrayObjBox are all hidden SEE NEXT FOR SOULTION`,
     `THE SOLUTION IS, at the start of ever function hide everything thee unhide as needed`,
     `testing solution once chrome can work`,
+    `If works delete unused code`,
+    `remove input option --for now`,
+    `add scrollbar`,
+    `make notes on new click off logic and rebuild functions accordingly`,
 ];
 
 const stuffToGetDone = [
 
-    `If works delete unused code`,
-    `Add back and fix Javascript object`,
-    `remove input option --for now`,
-    `add scrollbar and fix size of ArraysObjtLoops`,
-    `make notes on new click off logic and rebuild functions accordingly`,
-    `create data lost warning for clicking on "clear list and refreshing the browser` ,
+
     `Javascript Object={} with matching const and let variables and prebuilt for of loop`,
-    `add "With loops and Javascript const and let variables" to the description of Javascript arrays and objects`,
+    `fix size of ArraysObjtLoops`,
+
+    `create data lost warning for clicking on "clear list and refreshing the browser` ,
+
+    `add "While loops and Javascript const and let variables" to the description of Javascript arrays and objects`,
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
     `add onload chime`,
     `Add Javascript Node.JS file  SQL log in and CRUD`,
