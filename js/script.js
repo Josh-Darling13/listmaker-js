@@ -1,7 +1,11 @@
 const listTitle = document.getElementsByClassName('listTitle');
+
+const arrayObjBox = document.getElementById('arrayObjBox');
 const primaryList = document.getElementById('primaryList');
 const secondList = document.querySelector('.secondList');
 const thirdList = document.querySelector('.thirdList');
+
+
 const buildIn = document.getElementById('buildIn');
 const buildOut = document.getElementById('buildOut');
 const ulItems = document.getElementById('ULItems');
@@ -26,7 +30,7 @@ const langIs = document.getElementById('langIs');
 const ojectItems = document.getElementById('ojectItems');
 const copyOne = document.getElementById('copyOne');
 
-
+const aObjCopy = document.getElementById('aObjCopy');
 const priCopy = document.getElementById('priCopy');
 const secCopy = document.getElementById('secCopy');
 const thrdCopy = document.getElementById('thrdCopy');
