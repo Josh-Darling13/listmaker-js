@@ -31,9 +31,11 @@ const ojectItems = document.getElementById('ojectItems');
 const copyOne = document.getElementById('copyOne');
 
 const aObjCopy = document.getElementById('aObjCopy');
+const loopsCopy = document.getElementById('loopsCopy');
 const priCopy = document.getElementById('priCopy');
 const secCopy = document.getElementById('secCopy');
 const thrdCopy = document.getElementById('thrdCopy');
+
 
 let memberMeArray = [];
 let sampleText = [];
@@ -151,8 +153,6 @@ const readDirections = (sampleArray, directions) => {       // Message for those
     }
 }
 
-
-
 /*
 ****************************************************************
 Copy and Paste functions in HTML
@@ -187,8 +187,12 @@ const thrListCopy = () => {
 }
 
 const arrObjCopy = () => {
+
+}
+
+const loopCopy = () =>{
     const range = document.createRange();
-    range.selectNode(arrayObjBox);
+    range.selectNode(ArraysObjtLoops);
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
     document.execCommand("copy");
@@ -472,7 +476,7 @@ arrayItems.addEventListener('click', (event)=>{
         secondList.innerText = "";
 
         singleInput.removeAttribute('hidden');
-
+        loopsCopy.removeAttribute('hidden');
         ArraysObjtLoops.removeAttribute('hidden');
         nameIt.removeAttribute('hidden');
         eleName.removeAttribute('hidden');
@@ -571,9 +575,17 @@ Comment out before production
 ********************************************************************
 */
 const toDoText = document.getElementById('toDoText');
+const comp = document.getElementById('comp');
+const stuffDone =[
+    '50 add "copy to clip board" for id="singleInput" to copy whatever is in id="ArraysObjtLoops" this may need to be uniquely sized',
+];
+
 const stuffToGetDone = [
-'add "copy to clip board" for id="singleInput" to copy whatever is in id="ArraysObjtLoops" this may need to be uniquely sized',
-`When clicking off arrays, objects, dictionaries, hash, etc... ArraysObjtLoops, singleInput, arrayObjBox are all hidden SEE NEST FOR SOULTION`,
+`potentially individually style this button as needed`,
+`remove hidden on singleInput clipboard button for arrays and objects --possibly first item`,
+`write the function to copy and paste`,
+
+`When clicking off arrays, objects, dictionaries, hash, etc... ArraysObjtLoops, singleInput, arrayObjBox are all hidden SEE NEXT FOR SOULTION`,
 `THE SOLUTION IS, at the start of ever function hide everything thee unhide as needed`,
 `add scrollbar and fix size of ArraysObjtLoops`,
 `make notes on new click off logic and rebuild functions accordingly`,
@@ -622,8 +634,13 @@ const stuffToGetDone = [
 ];
 
 stuffToGetDone.forEach(item =>{
-    console.log(item);
     const litag = document.createElement('li');
     litag.innerHTML = item;
     toDoText.appendChild(litag);
+});
+
+stuffDone.forEach(item =>{
+    const litag = document.createElement('li');
+    litag.innerHTML = item;
+    comp.appendChild(litag);
 });

@@ -178,6 +178,9 @@
                 <div  class="basicIn" id="singleInput" hidden>
                     <input type="text" id="eleName" >
                     <label for="eleName">Name your array/object</label>
+                    <button class="copyBtns" id="loopsCopy" onclick="loopCopy()" hidden>
+                        <i class="fa fa-files-o" aria-hidden="true"></i> copy to clipboard
+                    </button>
                 </div>
                     <hr />
                     <div class="listDisplay">
@@ -187,27 +190,35 @@
                                 <span id="nameIt" ></span>
                                 <span id="arrayElements" ></span>
                             </div>
-                            <button class="copyBtns" id="aObjCopy" onclick="arrObjCopy()" hidden> copy to <br /> clipboard</button>
+                            <button class="copyBtns" id="aObjCopy" onclick="arrObjCopy()" hidden>
+                                <i class="fa fa-files-o" aria-hidden="true"></i> copy to clipboard
+                            </button>
                         </div>
 
                         <div class="copybox">
                             <div class="listBox" id="primaryList">
                                 If you follow the directions, you'll have code here.<br />
                             </div>
-                            <button class="copyBtns" id="priCopy" onclick="priLstCopy()" hidden> copy to <br /> clipboard</button>
+                            <button class="copyBtns" id="priCopy" onclick="priLstCopy()" hidden>
+                                <i class="fa fa-files-o" aria-hidden="true"></i> copy to clipboard
+                            </button>
                         </div>
 
                         <div class="copybox">
                             <div class="secondList" id="secondList" hidden>
 
                             </div>
-                            <button class="copyBtns" id="secCopy" onclick="secListCopy()" hidden > copy to <br /> clipboard</button>
+                            <button class="copyBtns" id="secCopy" onclick="secListCopy()" hidden >
+                                <i class="fa fa-files-o" aria-hidden="true"></i> copy to clipboard
+                            </button>
                         </div>
 
                         <div class="copybox">
                             <div class="thirdList" id="thirdList" hidden>
                             </div>
-                            <button class="copyBtns" id="thrdCopy" onclick="thrListCopy()" hidden>copy to <br /> clipboard</button>
+                            <button class="copyBtns" id="thrdCopy" onclick="thrListCopy()" hidden>
+                                <i class="fa fa-files-o" aria-hidden="true"></i> copy to clipboard
+                            </button>
                         </div>
                     </div>
             </div>
@@ -215,7 +226,6 @@
                 <span id="lazyLoops">Name your array and loops will be made.</span>
             </div>
         </div>
-
         <div class="links">
             <ul class="navlinks">
                 <li><a href="www.https://www.darckode.com" class="nav-link" id="nav-Home" ><i class="fa-solid fa-house fa-2x"></i><br />home</a></li>
@@ -227,9 +237,11 @@
         </div>
     </div>
     <div class="todo" id="getDone">
-        <ol id="toDoText">
-
-        </ol>
+        To Do Items
+        <ol id="toDoText"></ol>
+        <hr />
+        Completed:
+        <ul id="comp"></ul>
     </div>
     <!-- Script -->
     <script src="./js/script.js"></script>

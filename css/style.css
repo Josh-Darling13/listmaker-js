@@ -32,8 +32,9 @@ div{
     height: 300px;
     width: 300px;
     z-index: 10;
-    background-color: aliceblue;
-    opacity: 50%;
+    background-color: hsl(316, 94%, 31%);
+    color: rgb(9, 255, 9);
+    opacity: 60%;
     position: absolute;
     top: 400px;
     left: 0;
@@ -41,7 +42,7 @@ div{
     overflow-x:hidden;
     font-family: Arial;
     padding: 2%;
-
+    font-weight: bold;
 }
 
 /* Animation */
@@ -237,6 +238,10 @@ button:hover{
     font-family: Arial;
     font-size: .8em;
     padding: 2%;
+}
+
+#loopsCopy{
+    float: right;
 }
 
 .listOut{
