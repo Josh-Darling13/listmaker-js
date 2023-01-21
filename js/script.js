@@ -55,7 +55,6 @@ const validation = ()=>{
 const noWhite = (imDirty) => {
     //removes white space and empty values in arrays
     const cleanThis = imDirty.filter(n => n);
-    console.log(cleanThis);
     imClean = [];
     for (const element in cleanThis){
         const soap = cleanThis[element].trim();
@@ -94,7 +93,6 @@ const noSpecialChars = ()=>{
 const hideTwoAndThree = () =>{
     secondList.setAttribute("hidden","");
     secondList.innerText = "";
-    secondList.innerHTML= `<span id="arrayLang" hidden></span><span id="nameIt" hidden></span><span id="arrayElements" hidden></span>`;
     secCopy.setAttribute("hidden","");
     thirdList.setAttribute("hidden","");
     thirdList.innerText = "";
@@ -124,6 +122,10 @@ const hideOneAndThree = () =>{                               //for arrays and ob
 const hideTopAndBottom = () =>{
     eleName.setAttribute("hidden","");
     ArraysObjtLoops.setAttribute("hidden","");
+}
+
+const moveOffArrayObject = () => {
+
 }
 
 /*
@@ -158,33 +160,40 @@ Copy and Paste functions in HTML
 */
 
 const priLstCopy = () =>{
-    var range = document.createRange();
+    const range = document.createRange();
     range.selectNode(primaryList);
-    window.getSelection().removeAllRanges(); // clear current selection
-    window.getSelection().addRange(range); // to select text
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
     document.execCommand("copy");
     window.getSelection().removeAllRanges();
 }
 
 const secListCopy = () => {
-    var range = document.createRange();
+    const range = document.createRange();
     range.selectNode(secondList);
-    window.getSelection().removeAllRanges(); // clear current selection
-    window.getSelection().addRange(range); // to select text
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
     document.execCommand("copy");
     window.getSelection().removeAllRanges();
 }
 
 const thrListCopy = () => {
-    var range = document.createRange();
+    const range = document.createRange();
     range.selectNode(thirdList);
-    window.getSelection().removeAllRanges(); // clear current selection
-    window.getSelection().addRange(range); // to select text
+    window.getSelection().removeAllRanges(); 
+    window.getSelection().addRange(range); 
     document.execCommand("copy");
     window.getSelection().removeAllRanges();
 }
 
-const arrayCopy = () => {}
+const arrObjCopy = () => {
+    const range = document.createRange();
+    range.selectNode(arrayObjBox);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges();
+}
 
 /*
 ****************************************************************
@@ -205,7 +214,6 @@ buildIn.addEventListener('keydown', (event)=>{
         breakBuild = evt.split('/\n?\r/');
         for (const ele in breakBuild){
             const spaceStrip = breakBuild[ele].trim().replace(/['"]+/g, '');
-            console.log(spaceStrip);
             finalOut = spaceStrip.split('\\n');
             memberMeArray.push(breakBuild[ele]);
         }
@@ -460,7 +468,8 @@ arrayItems.addEventListener('click', (event)=>{
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
         arrayOrObject = 'array';
-        secondList.removeAttribute('hidden');
+        secondList.setAttribute("hidden","");
+        secondList.innerText = "";
 
         singleInput.removeAttribute('hidden');
 
@@ -469,12 +478,12 @@ arrayItems.addEventListener('click', (event)=>{
         eleName.removeAttribute('hidden');
 
         primaryList.removeAttribute('hidden');
+        arrayObjBox.removeAttribute('hidden');
 
-        thirdList.removeAttribute('hidden');
         priCopy.removeAttribute('hidden');
-        secCopy.removeAttribute('hidden');
+        aObjCopy.removeAttribute('hidden')
         thrdCopy.removeAttribute('hidden');
-
+        thirdList.removeAttribute('hidden');
 
         primaryList.textContent = '';
         thirdList.textContent = '';
@@ -551,3 +560,42 @@ eleName.addEventListener('keyup', (event)=>{
         nameIt.textContent = codeName;
     }
 })
+
+
+/*
+*********************************************************************
+
+To Do list
+Comment out before production
+
+********************************************************************
+*/
+const toDoText = document.getElementById('toDoText');
+const stuffToGetDone = [
+'add "copy to clip board" for id="singleInput" to copy whatever is in id="ArraysObjtLoops"',
+`When clicking off arrays, objects, dictionaries, hash, etc... ArraysObjtLoops, singleInput, arrayObjBox are all hidden`,
+`make notes on new click off logic and rebuild functions accordingly`,
+`create data lost warning for clicking on "clear list and refreshing the browser` ,
+`Javascript Object={} with matching const and let variables and prebuilt for of loop`,
+`add "With loops and Javascript const and let variables" to the decscription of Javascript arrays and objects`,
+``,
+``,
+``,
+``,
+``,
+// ``,
+// ``,
+// ``,
+// ``,
+// ``,
+// ``,
+
+];
+
+
+stuffToGetDone.forEach(item =>{
+    console.log(item);
+    const litag = document.createElement('li');
+    litag.innerHTML = item;
+    toDoText.appendChild(litag);
+});

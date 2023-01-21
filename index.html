@@ -27,21 +27,19 @@
         <source src="./media/Toys_2.mp4" type="video/mp4">
       </video>
       <div class="container">
-
         <div class="listTitle"><h1 id="typeload">LISTMAKER PLUS + 0.1</h1>
 
         </div>
-
         <div class="textDiv">
             <div class="textInIt">
-                <textarea rows="50" col="40" class="inputs" id="buildIn" ></textarea>
+                <textarea rows="50" col="40" class="inputs" id="buildIn" placeholder="Type stuff or paste list here" ></textarea>
                 <hr />
                 <h3 id="clearAll">&lt;&lt; CLEAR ALL LISTS &gt;&gt;</h3>
             </div>
             <div class="sample">
                 <h2>Directions:</h2>
                 <i class="fa fa-keyboard-o" aria-hidden="true"></i>
-                Type stuff
+                Type stuff <small>(or paste a list)</small>
                 <br/><br/>
                 <i class="fa-solid fa-cog fa-spin"></i>
                 Press [Enter]
@@ -72,7 +70,7 @@
         </div>
 
         <div class="options">
-            <h2>List options</h2>
+            <h2>List Options</h2>
             <hr />
                 <h3>HTML, CSS, Vanilla Javascript </h3>
             <hr />
@@ -107,7 +105,7 @@
             </p>
             <hr />
             <p id="divbuild" name="divbuild">
-                &lt;div class=""&gt; with matching CSS classes/ids, and Javascript variables = document.getElementById(...);
+                &lt;div class=""&gt; with matching CSS classes/ids, and Javascript var = <small>document.getElementById();</small>
             </p>
             <hr />
             <p id="arrayItems" name="arrayItems">
@@ -184,12 +182,12 @@
                         <div class="copybox">
                             <div class="listBox" id="arrayObjBox" hidden>
 
-                                There is text here ... for now
+
                                 <span id="arrayLang" ></span>
                                 <span id="nameIt" ></span>
                                 <span id="arrayElements" ></span>
                             </div>
-                            <button class="copyBtns" id="aObjCopy" onclick="ArrObjCopy()" hidden> copy to <br /> clipboard</button>
+                            <button class="copyBtns" id="aObjCopy" onclick="arrObjCopy()" hidden> copy to <br /> clipboard</button>
                         </div>
 
                         <div class="copybox">
@@ -227,6 +225,11 @@
             </ul>
 
         </div>
+    </div>
+    <div class="todo" id="getDone">
+        <ol id="toDoText">
+
+        </ol>
     </div>
     <!-- Script -->
     <script src="./js/script.js"></script>
