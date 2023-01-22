@@ -107,6 +107,7 @@ const hideAll = () => {
     thrdCopy.setAttribute('hidden','');
     eleName.setAttribute("hidden","");
     ArraysObjtLoops.setAttribute("hidden","");
+    singleInput.setAttribute('hidden','');
 }
 
 
@@ -591,6 +592,7 @@ const stuffToGetDone = [
     `remove this to do list`,
     `Launch listmaker plus`,
     `*** Post Launch stuff ***`,
+    `add map and foreach functions to arrays and object loops`,
     `use an array of functions to do complete input validation`,
     `Use PHP to create file templates`,
     `Add PHP file system for CGI`,

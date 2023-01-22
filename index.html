@@ -32,7 +32,7 @@
         </div>
         <div class="textDiv">
             <div class="textInIt">
-                <textarea rows="50" col="40" class="inputs" id="buildIn" placeholder="Type stuff or paste list here" ></textarea>
+                <textarea rows="50" col="40" class="inputs" id="buildIn" placeholder="Type stuff or paste a list here. Each new line will become a new list item." ></textarea>
                 <hr />
                 <h3 id="clearAll">&lt;&lt; CLEAR ALL LISTS &gt;&gt;</h3>
             </div>
@@ -112,11 +112,11 @@
             </p>
             <hr />
             <p id="arrayItems" name="arrayItems">
-                Javascript Array=[] prebuilt <i>for in</i> loop with const and let
+                Javascript Array=[] prebuilt <i>for in</i> & while loop with const and let vars
             </p>
             <hr />
             <p id="ojectItems" name="ojectItems">
-                Javascript Object={} with matching const and let variables and prebuilt <i>for of</i> loop
+                Javascript Object={} prebuilt <i>for of</i> & while loop with const and let vars
             </p>
             <hr />
                 <h3>--Next builds--</h3>
@@ -167,7 +167,7 @@
 
         <div class="listOut">
             <div class="basicIn">
-                <span id="langIs">list output</span>
+                <span id="langIs"></span>
                 <div  class="basicIn" id="singleInput" hidden>
                     <input type="text" id="eleName" >
                     <label for="eleName">Name your array/object</label>
@@ -189,8 +189,8 @@
                         </div>
 
                         <div class="copybox">
-                            <div class="listBox" id="primaryList">
-                                If you follow the directions, you'll have code here.<br />
+                            <div class="listBox" id="primaryList" hidden>
+                                
                             </div>
                             <button class="copyBtns" id="priCopy" onclick="priLstCopy()" hidden>
                                 <i class="fa fa-files-o" aria-hidden="true"></i> copy to clipboard
@@ -229,13 +229,16 @@
 
         </div>
     </div>
-    <div class="todo" id="getDone">
+
+<!-- To do list here: -->
+
+    <!-- <div class="todo" id="getDone">
         To Do Items
         <ol id="toDoText"></ol>
         <hr />
         Completed:
         <ol id="comp"></ul>
-    </div>
+    </div> -->
     <!-- Script -->
     <script src="./js/script.js"></script>
 </body>
