@@ -433,19 +433,19 @@ divbuild.addEventListener('click', (event)=>{
         })
         thirdList.removeAttribute('hidden');
         thrdCopy.removeAttribute('hidden');
-        thirdList.innerHTML = `<p>/* const variable = document.getElementById('htmlId'); */<p/>\n\n`;
+        // thirdList.innerHTML = `<p>/* const variable = document.getElementById('htmlId'); */<p/>\n\n`;
         sampleText.forEach(item =>{
             let paratag = document.createElement('p');
             paratag.innerText += `const ${item} = document.getElementById('${item}');`;
             thirdList.appendChild(paratag);
         })
-        thirdList.innerHTML += `\n\n<p>/* const variable = document.getElementsByClassName('htmlClass'); */<p/>\n\n`;
-        sampleText.forEach(item =>{
-            let paratag = document.createElement('p');
-            paratag.innerText += `const ${item} = document.getElementById('${item}');`;
-            thirdList.appendChild(paratag);
-        })}
-})
+        // thirdList.innerHTML += `\n\n<p>/* const variable = document.getElementsByClassName('htmlClass'); */<p/>\n\n`;
+        // sampleText.forEach(item =>{
+        //     let paratag = document.createElement('p');
+        //     paratag.innerText += `const ${item} = document.getElementById('${item}');`;
+        //     thirdList.appendChild(paratag);
+        // })}
+}});
 
 /* ********************************* Javascript arrays ********************************/
 
@@ -563,16 +563,17 @@ const stuffDone =[
     `remove input option --for now`,
     `add scrollbar`,
     `make notes on new click off logic and rebuild functions accordingly`,
+    `remove let someVar = document.get...`,
 ];
 
 const stuffToGetDone = [
 
 
+    `create an imported var libarary /module`,
+    `change opacity on typing of list section from 0 to 95 on keydown`,
+    `add load sound`,
     `Javascript Object={} with matching const and let variables and prebuilt for of loop`,
     `fix size of ArraysObjtLoops`,
-
-    `create data lost warning for clicking on "clear list and refreshing the browser` ,
-
     `add "While loops and Javascript const and let variables" to the description of Javascript arrays and objects`,
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
     `add onload chime`,
@@ -591,6 +592,9 @@ const stuffToGetDone = [
     `Add Perl sclars, Arrays, Hash and loops`,
     `remove this to do list`,
     `Launch listmaker plus`,
+    `test listmaker on live site`,
+    `create data lost warning for clicking on "clear list and refreshing the browser`,
+    `update text validation`,
     `*** Post Launch stuff ***`,
     `add map and foreach functions to arrays and object loops`,
     `use an array of functions to do complete input validation`,
@@ -613,7 +617,7 @@ const stuffToGetDone = [
     `Add c file SQL log in and CRUD`,
     `Add c file MongoDB log in and CRUD`,
     `Add c file system for basic game`,
-    `Java, Ruby, R, Dart, etc...`
+    `Java, Ruby, R, Dart, etc...`,
 ];
 
 stuffToGetDone.forEach(item =>{
