@@ -564,13 +564,13 @@ const stuffDone =[
     `add scrollbar`,
     `make notes on new click off logic and rebuild functions accordingly`,
     `remove let someVar = document.get...`,
-    `12`;
+    `12`,
 ];
 
 const stuffToGetDone = [
 
 
-    `create an imported var libarary /module`,
+  
     `change opacity on typing of list section from 0 to 95 on keydown`,
     `add load sound`,
     `Javascript Object={} with matching const and let variables and prebuilt for of loop`,
@@ -597,6 +597,7 @@ const stuffToGetDone = [
     `create data lost warning for clicking on "clear list and refreshing the browser`,
     `update text validation`,
     `*** Post Launch stuff ***`,
+    `create an imported var libarary /module`,
     `add map and foreach functions to arrays and object loops`,
     `use an array of functions to do complete input validation`,
     `Use PHP to create file templates`,
