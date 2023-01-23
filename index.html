@@ -32,7 +32,7 @@
         </div>
         <div class="textDiv">
             <div class="textInIt">
-                <textarea rows="50" col="40" class="inputs" id="buildIn" placeholder="Type stuff or paste a list here. Each new line will become a new list item." ></textarea>
+                <textarea rows="50" col="40" class="inputs" id="buildIn" placeholder="Type stuff or paste a list here. Each new line will become a new list item." onkeydown="listDisNewStyle()"></textarea>
                 <hr />
                 <h3 id="clearAll">&lt;&lt; CLEAR ALL LISTS &gt;&gt;</h3>
             </div>
@@ -165,7 +165,7 @@
                 Language order is based on my skills with them and my enjoyment of the language. Got a project and you need lists built sooner? <a href="mailto:squidDarling@gmail.com">Drop me a line here</a>
         </div>
 
-        <div class="listOut">
+        <div class="listOut" id="listOuts">
             <div class="basicIn">
                 <span id="langIs"></span>
                 <div  class="basicIn" id="singleInput" hidden>
@@ -176,7 +176,7 @@
                     </button>
                 </div>
                     <hr />
-                    <div class="listDisplay">
+                    <div class="listDisplay" >
                         <div class="copybox">
                             <div class="listBox" id="arrayObjBox" hidden>
                                  <span id="arrayLang" ></span>

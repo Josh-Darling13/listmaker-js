@@ -249,6 +249,15 @@ button:hover{
     padding: 2%;
     grid-column: 4 / 6;
     grid-row: 2 / 7;
+    opacity: 0%;
+}
+
+.listOutType{
+    background-color: rgb(215, 215, 215);
+    padding: 2%;
+    grid-column: 4 / 6;
+    grid-row: 2 / 7;
+    opacity: 90%;
 }
 
 .listDisplay{
@@ -263,7 +272,7 @@ button:hover{
 
 .variout{
     background-color: aliceblue;
-    height: 80px;
+    height: 40px;
     font-family: Arial;
     font-size: .8em;
     margin-top: 3%;
@@ -300,7 +309,7 @@ button:hover{
 
 #arrayObjBox{
     font-family: monospace;
-    font-size: 12px;
+    font-size: 8px;
     line-height: 1.5em;
     width: 160px;
     margin: 1%;
@@ -319,9 +328,9 @@ button:hover{
 
 #primaryList{
     font-family: monospace;
-    font-size: 12px;
+    font-size: 8px;
     line-height: 1.5em;
-    width: 160px;
+    width: 100px;
     margin: 1%;
     overflow-y:scroll;
     overflow-x:hidden;
@@ -338,9 +347,9 @@ button:hover{
 
 #secondList{
     font-family: monospace;
-    font-size: 12px;
+    font-size: 8px;
     line-height: 1.5em;
-    width: 160px;
+    width: 100px;
     margin: 1%;
     overflow-y:scroll;
     overflow-x:hidden;
@@ -360,9 +369,9 @@ button:hover{
 
 #thirdList{
     font-family: monospace;
-    font-size: 12px;
+    font-size: 8px;
     line-height: 1.5em;
-    width: 160px;
+    width: 100px;
     margin: 1%;
     overflow-y:scroll;
     overflow-x:hidden;

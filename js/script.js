@@ -186,6 +186,18 @@ const loopCopy = () =>{
 }
 
 /*
+**************************************************************
+Other functions called form the Dom:
+**************************************************************
+*/
+
+const listDisNewStyle = ()=> {
+    const listOut = document.getElementById('listOuts');
+    listOut.classList.remove('listOut');
+    listOut.classList.add('listOutType');
+};
+
+/*
 ****************************************************************
 Listeners:
 ****************************************************************
@@ -195,6 +207,13 @@ clearAll.addEventListener('click', ()=>{
     location.reload();
     return false;
 })
+
+
+
+
+
+
+
 
 buildIn.addEventListener('keydown', (event)=>{
     let evt = JSON.stringify(event.target.value);
