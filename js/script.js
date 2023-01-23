@@ -564,6 +564,7 @@ const stuffDone =[
     `add scrollbar`,
     `make notes on new click off logic and rebuild functions accordingly`,
     `remove let someVar = document.get...`,
+    `12`;
 ];
 
 const stuffToGetDone = [
