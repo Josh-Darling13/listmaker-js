@@ -1,4 +1,6 @@
 const listTitle = document.getElementsByClassName('listTitle');
+const helloTone = document.getElementById('helloTone');
+
 
 const arrayObjBox = document.getElementById('arrayObjBox');
 const primaryList = document.getElementById('primaryList');
@@ -203,6 +205,13 @@ Audio:
 **************************************************************
 */
 
+
+setTimeout( function(){
+    helloTone.muted = false;
+    helloTone.play();
+},2000
+
+)
 
 
 /*
@@ -587,10 +596,11 @@ const stuffDone =[
     `remove let someVar = document.get...`,
     `12`,
     `change opacity on typing of list section from 0 to 95 on keydown`,
+    `add load sound`,
 ];
 
 const stuffToGetDone = [
-    `add load sound`,
+
     `Javascript Object={} with matching const and let variables and prebuilt for of loop`,
     `fix size of ArraysObjtLoops`,
     `add "While loops and Javascript const and let variables" to the description of Javascript arrays and objects`,
