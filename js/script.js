@@ -584,13 +584,10 @@ const stuffDone =[
     `make notes on new click off logic and rebuild functions accordingly`,
     `remove let someVar = document.get...`,
     `12`,
+    `change opacity on typing of list section from 0 to 95 on keydown`,
 ];
 
 const stuffToGetDone = [
-
-
-  
-    `change opacity on typing of list section from 0 to 95 on keydown`,
     `add load sound`,
     `Javascript Object={} with matching const and let variables and prebuilt for of loop`,
     `fix size of ArraysObjtLoops`,
