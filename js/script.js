@@ -130,8 +130,7 @@ const readDirections = (sampleArray, directions) => {       // Message for those
             primaryList.appendChild(li);
         })
         primaryList.innerHTML += '</ul>'
-        hideTwoAndThree();
-        hideTopAndBottom();
+        hideAll();
         return 0;
     }
 }
@@ -524,21 +523,48 @@ arrayItems.addEventListener('click', (event)=>{
 
 /* ********************************* Javascript objects ********************************/
 
-// ojectItems.addEventListener('click', (event)=>{
-//                                     //writes an object and works with eleName.addEventListener to fill in object code
-//     arrayOrObject = 'object';
-//     singleInput.removeAttribute('hidden');
-//     ArraysObjtLoops.removeAttribute('hidden');
-//     eleName.removeAttribute('hidden');
-//     secondList.removeAttribute('hidden');
-//     langIs.innerText = 'Javascript';
-//     arrayLang.textContent = ''
-//     nameIt.textContent = 'object';
-//     arrayElements.textContent = ' = {\n';
-//     sampleText.forEach(item =>{
-//     arrayElements.textContent += `'${item.replace('"', '')}': , `;
-//     })
-//     arrayElements.append('};');
+ojectItems.addEventListener('click', (event)=>{
+    let runcode = readDirections(sampleText, directions);
+    if (runcode !== 0){
+    arrayOrObject = 'object';
+    hideAll();
+    singleInput.removeAttribute('hidden');
+    loopsCopy.removeAttribute('hidden');
+    ArraysObjtLoops.removeAttribute('hidden');
+    nameIt.removeAttribute('hidden');
+    eleName.removeAttribute('hidden');
+    primaryList.removeAttribute('hidden');
+    arrayObjBox.removeAttribute('hidden');
+    priCopy.removeAttribute('hidden');
+    aObjCopy.removeAttribute('hidden')
+    thrdCopy.removeAttribute('hidden');
+    thirdList.removeAttribute('hidden');
+    primaryList.textContent = '';
+    thirdList.textContent = '';
+    langIs.innerText = 'Javascript';
+    arrayLang.innerText = 'const ';
+    nameIt.textContent = 'object';
+    arrayElements.textContent = ' = {\n';
+    sampleText.forEach(item =>{
+        arrayElements.textContent += `'${item.replace('"', '')}': , `;
+        })
+        arrayElements.append('};');
+
+    sampleText.forEach(item =>{
+        let paratag = document.createElement('p');
+        paratag.innerText = "const " + item + " = ``;";
+        primaryList.appendChild(paratag);
+    })
+
+    sampleText.forEach(item =>{
+        let prtag = document.createElement('p');
+        prtag.innerText = "let " + item + " = ``;";
+        thirdList.appendChild(prtag);
+    })
+}}
+);
+
+
 // });
 
 eleName.addEventListener('keyup', (event)=>{
