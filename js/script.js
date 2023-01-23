@@ -186,17 +186,6 @@ const loopCopy = () =>{
     window.getSelection().removeAllRanges();
 }
 
-/*
-**************************************************************
-Other functions called form the Dom:
-**************************************************************
-*/
-
-const listDisNewStyle = ()=> {
-    const listOut = document.getElementById('listOuts');
-    listOut.classList.remove('listOut');
-    listOut.classList.add('listOutType');
-};
 
 /*
 **************************************************************
@@ -564,9 +553,6 @@ ojectItems.addEventListener('click', (event)=>{
 }}
 );
 
-
-// });
-
 eleName.addEventListener('keyup', (event)=>{
 
     if(arrayOrObject === 'array'){
@@ -623,13 +609,15 @@ const stuffDone =[
     `12`,
     `change opacity on typing of list section from 0 to 95 on keydown`,
     `add load sound`,
+    `Javascript Object={} with matching const and let variables and prebuilt for of loop`,
+    `fix size of ArraysObjtLoops`,
+    `add "While loops and Javascript const and let variables" to the description of Javascript arrays`,
 ];
 
 const stuffToGetDone = [
 
-    `Javascript Object={} with matching const and let variables and prebuilt for of loop`,
-    `fix size of ArraysObjtLoops`,
-    `add "While loops and Javascript const and let variables" to the description of Javascript arrays and objects`,
+
+
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
     `add onload chime`,
     `Add Javascript Node.JS file  SQL log in and CRUD`,
