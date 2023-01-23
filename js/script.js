@@ -610,8 +610,8 @@ const stuffDone =[
     `change opacity on typing of list section from 0 to 95 on keydown`,
     `add load sound`,
     `Javascript Object={} with matching const and let variables and prebuilt for of loop`,
+    `add onload chime`,
     `fix size of ArraysObjtLoops`,
-    `add "While loops and Javascript const and let variables" to the description of Javascript arrays`,
 ];
 
 const stuffToGetDone = [
@@ -619,7 +619,7 @@ const stuffToGetDone = [
 
 
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
-    `add onload chime`,
+
     `Add Javascript Node.JS file  SQL log in and CRUD`,
     `Add Javascript Node.JS MongoDB log in and CRUD`,
     `Add Javascript API JSON asycn and await that just need a URL and a loop + console.Log`,
