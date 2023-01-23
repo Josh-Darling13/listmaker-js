@@ -619,7 +619,7 @@ const stuffToGetDone = [
 
 
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
-
+    `find new load noise`,
     `Add Javascript Node.JS file  SQL log in and CRUD`,
     `Add Javascript Node.JS MongoDB log in and CRUD`,
     `Add Javascript API JSON asycn and await that just need a URL and a loop + console.Log`,
