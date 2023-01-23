@@ -424,3 +424,22 @@ i:hover{
     padding: 0px;
     line-height: 1em;
 }
+
+#sizeWarning{
+    height: 200px;
+    width: 440px;
+    z-index: 10;
+    font-size: 2em;
+    background-color: hsl(184, 100%, 81%);
+    color: rgb(37, 32, 26);
+    /* color: rgb(9, 255, 9); */
+    opacity: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    font-family: Calibri;
+    padding: 2%;
+    font-weight: bold;
+}
