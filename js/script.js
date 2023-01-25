@@ -31,7 +31,6 @@ const arrayElements = document.getElementById('arrayElements');
 const langIs = document.getElementById('langIs');
 const ojectItems = document.getElementById('ojectItems');
 const copyOne = document.getElementById('copyOne');
-
 const aObjCopy = document.getElementById('aObjCopy');
 const loopsCopy = document.getElementById('loopsCopy');
 const priCopy = document.getElementById('priCopy');
@@ -52,47 +51,67 @@ let arrayOrObject = "";
 
 
 
-const validation = ()=>{
+class TextCleaning {
+    /**
+    Validation
+    You're good enough, I hope that feels validating.
+    */
 
-}
 
-const noWhite = (imDirty) => {
-    //removes white space and empty values in arrays
-    const cleanThis = imDirty.filter(n => n);
-    imClean = [];
-    for (const element in cleanThis){
-        const soap = cleanThis[element].trim();
-        imClean.push(soap);
+    hereIam= () =>{
+        console.log("Rock you like a hurricane");
     }
-    return imClean
-}
 
-const noDuplicates =(arrayMess)=>{
-    //this verifies there is no duplicate data while keeping  data in order
-    let extraMess = [...arrayMess];
-    for (const element in extraMess.reverse()){
-        const indexes = arrayMess.reduce((accumulator, current, index) => {
-        if (current === extraMess[element]) {
-            accumulator.push(index);
-            }
-        return accumulator;
-    }, []);
-
-    if(indexes.length > 1){
-        let n = 1;
-        while(n < indexes.length){
-            // console.log('indexes' + indexes[n]);
-            arrayMess.splice(indexes[n],1);
-            n++;
-        }}
+    noWhite = (imDirty) => {
+        //removes white space and empty values in arrays
+        const cleanThis = imDirty.filter(n => n);
+        imClean = [];
+        for (const element in cleanThis){
+            const soap = cleanThis[element].trim();
+            imClean.push(soap);
+        }
+        return imClean
     }
-    const cleaned = noWhite(arrayMess);
-    return cleaned
+
+    showWhite = (textVar) => {
+        return textVar.replace(" ", "-WSP-");
+    }
+
+    extraWhitener = (imDirty) =>{
+
+    }
+
+    noDuplicates =(arrayMess)=>{
+        //this verifies there is no duplicate data while keeping  data in order
+        let extraMess = [...arrayMess];
+        for (const element in extraMess.reverse()){
+            const indexes = arrayMess.reduce((accumulator, current, index) => {
+            if (current === extraMess[element]) {
+                accumulator.push(index);
+                }
+            return accumulator;
+        }, []);
+
+        if(indexes.length > 1){
+            let n = 1;
+            while(n < indexes.length){
+                // console.log('indexes' + indexes[n]);
+                arrayMess.splice(indexes[n],1);
+                n++;
+            }}
+        }
+        const cleaned = noWhite(arrayMess);
+        return cleaned
+    }
+
+    fullyClean = (imDirty) => {
+        console.log(this.showWhite(imDirty));
+        // console.log(this.noWhite(imDirty));
+    }
 }
 
-const noSpecialChars = ()=>{
 
-}
+
 
 const hideAll = () => {
     arrayObjBox.setAttribute("hidden","");
@@ -194,12 +213,13 @@ Audio:
 */
 
 
-setTimeout( function(){
-    helloTone.muted = false;
-    helloTone.play();
-},2000
+// setTimeout( function(){
+//     helloTone.muted = false;
+//     helloTone.play();
+// },2000
 
-)
+// )
+
 
 
 /*
@@ -215,6 +235,9 @@ clearAll.addEventListener('click', ()=>{
 
 
 buildIn.addEventListener('keydown', (event)=>{
+    let startValidation = new TextCleaning;
+    let valRoundOne = event.target.value;
+    startValidation.hereIam();
     let evt = JSON.stringify(event.target.value);
     if (event.key === 'Enter'){
         let breakBuild = [];
@@ -615,9 +638,6 @@ const stuffDone =[
 ];
 
 const stuffToGetDone = [
-
-
-
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
     `find new load noise`,
     `Add Javascript Node.JS file  SQL log in and CRUD`,
