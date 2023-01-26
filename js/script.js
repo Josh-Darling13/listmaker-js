@@ -57,28 +57,15 @@ class TextCleaning {
     You're good enough, I hope that feels validating.
     */
 
-
-    hereIam= () =>{
-        console.log("Rock you like a hurricane");
-    }
-
     noWhite = (imDirty) => {
         //removes white space and empty values in arrays
         const cleanThis = imDirty.filter(n => n);
-        imClean = [];
+        let imClean = [];
         for (const element in cleanThis){
             const soap = cleanThis[element].trim();
-            imClean.push(soap);
+            this.imClean.push(soap);
         }
         return imClean
-    }
-
-    showWhite = (textVar) => {
-        return textVar.replace(" ", "-WSP-");
-    }
-
-    extraWhitener = (imDirty) =>{
-
     }
 
     noDuplicates =(arrayMess)=>{
@@ -104,9 +91,41 @@ class TextCleaning {
         return cleaned
     }
 
+    preWhite(imDirty){
+
+        let extraCheck = imDirty.split(' ');
+        let imClean = [];
+        for (let element in extraCheck){
+            console.log("extraCheck[element]"+ extraCheck[element]);
+            let checkME = extraCheck[element]
+            console.log("checkME[0]"+ checkME[0]);
+            if(checkME[0] === " " || checkME[0] === null || checkME[0] === undefined){
+                console.log("YT Space @ start");
+                return false
+            }
+        }
+    }
+
+    postWhite(imDirty){
+
+        let extraCheck = imDirty.split(' ');
+        let imClean = [];
+        for (let element in extraCheck){
+            console.log("extraCheck[element]"+ extraCheck[element]);
+            let checkME = extraCheck[element]
+            console.log("checkME[-1]"+ checkME[0]);
+            if(checkME[-1] === " " || checkME[0] === null || checkME[0] === undefined){
+                console.log("YT Space @ end");
+                return false
+            }
+        }
+    }
+
     fullyClean = (imDirty) => {
-        console.log(this.showWhite(imDirty));
-        // console.log(this.noWhite(imDirty));
+        //Trim isn't 100% reliable...
+
+        let safetyTrim = this.preWhite(imDirty);
+        console.log(safetyTrim(imDirty));
     }
 }
 
@@ -234,28 +253,46 @@ clearAll.addEventListener('click', ()=>{
 })
 
 
+/*********************************************************************
+ * Text input handler:
+ */
+
 buildIn.addEventListener('keydown', (event)=>{
+    /**
+     * Runs code if "enter key press detected"
+     */
+
     let startValidation = new TextCleaning;
-    let valRoundOne = event.target.value;
-    startValidation.hereIam();
-    let evt = JSON.stringify(event.target.value);
+    let ValidRoundOne = event.target.value;
     if (event.key === 'Enter'){
-        let breakBuild = [];
-        let finalOut = [];
-        breakBuild = evt.split('/\n?\r/');
-        for (const ele in breakBuild){
-            const spaceStrip = breakBuild[ele].trim().replace(/['"]+/g, '');
-            finalOut = spaceStrip.split('\\n');
-            memberMeArray.push(breakBuild[ele]);
-        }
-        sampleText = noDuplicates(finalOut);
-        buildOut.innerHTML='';
-        sampleText.forEach(item => {
-            let li = document.createElement('p');
-            li.innerText = item;
-            buildOut.appendChild(li);
-        })
+        let breakBuild = [...ValidRoundOne];
+        let howWhite = startValidation.noWhite(breakBuild);
+        startValidation.preWhite(howWhite);
+        startValidation.postWhite(howWhite);
+        
+
+
     }
+    // let valRoundOne = event.target.value;
+    // startValidation.hereIam();
+    // let evt = JSON.stringify(event.target.value);
+    // if (event.key === 'Enter'){
+    //     let breakBuild = [];
+    //     let finalOut = [];
+    //     breakBuild = evt.split('/\n?\r/');
+    //     for (const ele in breakBuild){
+    //         const spaceStrip = breakBuild[ele].trim().replace(/['"]+/g, '');
+    //         finalOut = spaceStrip.split('\\n');
+    //         memberMeArray.push(breakBuild[ele]);
+    //     }
+    //     sampleText = noDuplicates(finalOut);
+    //     buildOut.innerHTML='';
+    //     sampleText.forEach(item => {
+    //         let li = document.createElement('p');
+    //         li.innerText = item;
+    //         buildOut.appendChild(li);
+    //     })
+    // }
 });
 
 pTag.addEventListener('click', (event)=>{
@@ -474,18 +511,11 @@ divbuild.addEventListener('click', (event)=>{
         })
         thirdList.removeAttribute('hidden');
         thrdCopy.removeAttribute('hidden');
-        // thirdList.innerHTML = `<p>/* const variable = document.getElementById('htmlId'); */<p/>\n\n`;
         sampleText.forEach(item =>{
             let paratag = document.createElement('p');
             paratag.innerText += `const ${item} = document.getElementById('${item}');`;
             thirdList.appendChild(paratag);
         })
-        // thirdList.innerHTML += `\n\n<p>/* const variable = document.getElementsByClassName('htmlClass'); */<p/>\n\n`;
-        // sampleText.forEach(item =>{
-        //     let paratag = document.createElement('p');
-        //     paratag.innerText += `const ${item} = document.getElementById('${item}');`;
-        //     thirdList.appendChild(paratag);
-        // })}
 }});
 
 /* ********************************* Javascript arrays ********************************/
@@ -638,6 +668,8 @@ const stuffDone =[
 ];
 
 const stuffToGetDone = [
+    `update text validation`,
+    'remove test methods for validation',
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
     `find new load noise`,
     `Add Javascript Node.JS file  SQL log in and CRUD`,
@@ -657,7 +689,7 @@ const stuffToGetDone = [
     `Launch listmaker plus`,
     `test listmaker on live site`,
     `create data lost warning for clicking on "clear list and refreshing the browser`,
-    `update text validation`,
+
     `*** Post Launch stuff ***`,
     `create an imported var libarary /module`,
     `add map and foreach functions to arrays and object loops`,
