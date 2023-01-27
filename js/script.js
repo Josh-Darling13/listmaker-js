@@ -750,34 +750,27 @@ const stuffDone =[
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
     'Javascript const document etc with matching event listners',
     `Add Perl 3 types of variables`,
+    `basic hook VARIABLE writer`,
 ];
 
 const stuffToGetDone = [
 
- 
     `Perl Arrays, Hash and loops`,
-
-    `basic hook VARIABLE writer with export, import `,
     `basic hook ARRAY writer with export, import `,
-
     `Add Javascript Node.JS file  SQL log in and CRUD`,
     `Add Javascript Node.JS MongoDB log in and CRUD`,
     `Add Javascript API JSON asycn and await that just need a URL and a loop + console.Log`,
     `add state, render, return for React using a function that maps over state`,
-
     `Add Python List, loops, and Variables`,
     `Add Python Dictionaries, loops, and Variables`,
     `Add Python API that just need a URL and a loop + console.Log`,
-
     `Add PHP variables`,
     `Add PHP arrays and loops`,
     `App PHP class object structure`,
-
     `remove this to do list`,
     `Launch listmaker plus`,
     `test listmaker on live site`,
     `create data lost warning for clicking on "clear list and refreshing the browser`,
-
     `*** Post Launch stuff ***`,
     `write some perl`,
     'List comprehension',
