@@ -34,6 +34,9 @@ const secCopy = document.getElementById('secCopy');
 const thrdCopy = document.getElementById('thrdCopy');
 const sizeWarning = document.getElementById('sizeWarning');
 const tooBigWarn = document.getElementById('tooBigWarn');
+const constEvent = document.getElementById('constEvent');
+
+
 
 let memberMeArray = [];
 let sampleText = [];
@@ -484,6 +487,34 @@ divbuild.addEventListener('click', (event)=>{
         })
 }});
 
+constEvent.addEventListener('click', (event)=>{
+    // write getElementById with matching addEventListener
+    let runcode = readDirections(sampleText, directions);
+    if (runcode !== 0){
+        hideAll();
+        langIs.innerText = 'Javascript';
+        primaryList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
+
+        sampleText.forEach(item =>{
+            let paratag = document.createElement('p');
+            paratag.innerText += `const ${item} = document.getElementById('${item}');`;
+            primaryList.appendChild(paratag);
+        })
+
+        secondList.removeAttribute('hidden');
+        secCopy.removeAttribute('hidden');
+
+        sampleText.forEach(item =>{
+            let paratag = document.createElement('p');
+            paratag.innerText += `${item}.addEventListener('click', (event)=>{`
+            paratag.innerHTML += `\n<p></p>`;
+            paratag.innerText += `\n});`;
+            secondList.appendChild(paratag);
+        })
+
+    }});
+
 /* ********************************* Javascript arrays ********************************/
 
 arrayItems.addEventListener('click', (event)=>{
@@ -632,23 +663,26 @@ const stuffDone =[
     'remove test methods for validation',
     `find new load noise`,
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
+    'Javascript const document etc with matching event listners',
 ];
 
 const stuffToGetDone = [
 
+    `Add Perl 3 types of variables`,
+    `Perl Arrays, Hash and loops`,
 
-    'Javascript const document etc with matching event listners',
 
     `basic hook VARIABLE writer with export, import `,
     `basic hook ARRAY writer with export, import `,
 
 
-    `Add Perl sclars, Arrays, Hash and loops`,
+
 
     `Add Javascript Node.JS file  SQL log in and CRUD`,
     `Add Javascript Node.JS MongoDB log in and CRUD`,
     `Add Javascript API JSON asycn and await that just need a URL and a loop + console.Log`,
     `add state, render, return for React using a function that maps over state`,
+
     `Add Python List, loops, and Variables`,
     `Add Python Dictionaries, loops, and Variables`,
     `Add Python API that just need a URL and a loop + console.Log`,
