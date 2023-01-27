@@ -32,7 +32,8 @@ const loopsCopy = document.getElementById('loopsCopy');
 const priCopy = document.getElementById('priCopy');
 const secCopy = document.getElementById('secCopy');
 const thrdCopy = document.getElementById('thrdCopy');
-
+const sizeWarning = document.getElementById('sizeWarning');
+const tooBigWarn = document.getElementById('tooBigWarn');
 
 let memberMeArray = [];
 let sampleText = [];
@@ -137,11 +138,24 @@ const readDirections = (sampleArray, directions) => {       // Message for those
     }
 }
 
-/**************************************************************
- * Activate size warning
- */
+/*
+****************************************************************
+ *  size warning nothing smaller than 1000px
+****************************************************************
+*/
 
-console.log(document.body.clientWidth);
+
+let screenSize = document.body.clientWidth;
+
+if (screenSize < 1000){
+    sizeWarning.removeAttribute('hidden');
+}
+
+tooBigWarn.addEventListener('click', ()=>{
+    //keep working with it when it looks like garbage
+    sizeWarning.setAttribute("hidden","");
+})
+
 
 /*
 ****************************************************************
@@ -588,7 +602,6 @@ eleName.addEventListener('keyup', (event)=>{
 
 /*
 *********************************************************************
-
 To Do list
 Comment out before production
 
@@ -618,23 +631,33 @@ const stuffDone =[
     `update text validation`,
     'remove test methods for validation',
     `find new load noise`,
+    `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
 ];
 
 const stuffToGetDone = [
-    `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
+
+
+    'Javascript const document etc with matching event listners',
+
+    `basic hook VARIABLE writer with export, import `,
+    `basic hook ARRAY writer with export, import `,
+
+
+    `Add Perl sclars, Arrays, Hash and loops`,
+
     `Add Javascript Node.JS file  SQL log in and CRUD`,
     `Add Javascript Node.JS MongoDB log in and CRUD`,
     `Add Javascript API JSON asycn and await that just need a URL and a loop + console.Log`,
     `add state, render, return for React using a function that maps over state`,
-    `basic hook VARIABLE writer with component export, import `,
-    `basic hook ARRAY writer with component export, import `,
-    `Add PHP variables`,
-    `Add PHP arrays and loops`,
-    `App PHP class object structure`,
     `Add Python List, loops, and Variables`,
     `Add Python Dictionaries, loops, and Variables`,
     `Add Python API that just need a URL and a loop + console.Log`,
-    `Add Perl sclars, Arrays, Hash and loops`,
+
+    `Add PHP variables`,
+    `Add PHP arrays and loops`,
+    `App PHP class object structure`,
+
+
     `remove this to do list`,
     `Launch listmaker plus`,
     `test listmaker on live site`,
