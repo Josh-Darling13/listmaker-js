@@ -37,6 +37,9 @@ const tooBigWarn = document.getElementById('tooBigWarn');
 const constEvent = document.getElementById('constEvent');
 const perlVars = document.getElementById('perlVars');
 const reHook = document.getElementById('reHook');
+const classMethJS = document.getElementById('classMethJS');
+
+
 
 let memberMeArray = [];
 let sampleText = [];
@@ -424,6 +427,35 @@ spaNav.addEventListener('click', (event)=>{
 }
 });
 
+classMethJS.addEventListener('click', (event)=>{
+
+    let runcode = readDirections(sampleText, directions);
+    if (runcode !== 0){
+
+        hideAll();
+
+        arrayOrObject = 'class';
+        aObjCopy.removeAttribute('hidden');
+        singleInput.removeAttribute('hidden');
+        eleName.removeAttribute('hidden');
+        arrayObjBox.removeAttribute('hidden');
+        langIs.innerText = 'Javascript';
+        arrayLang.innerText = `class `;
+        nameIt.innerText = 'className';
+        arrayElements.textContent += ' {';
+        arrayElements.innerHTML += `<br/>`;
+        arrayElements.innerHTML += `constructor() {}`;
+        arrayElements.innerHTML += `<br/>`;
+        sampleText.forEach(item =>{
+            let paratag = document.createElement('p');
+            paratag.innerText = `${item} = () => {\n`
+            paratag.innerHTML += `\n<p>return</p>\n`;
+            paratag.innerText += `\n}`;
+            arrayElements.appendChild(paratag);
+        })
+        arrayElements.append('}');
+}});
+
 divbuild.addEventListener('click', (event)=>{
     // Builds div class="" with CSS classes/ids, and Javascript variables = document.getElementById(...)
     let runcode = readDirections(sampleText, directions);
@@ -506,10 +538,11 @@ constEvent.addEventListener('click', (event)=>{
             paratag.innerText += `\n});`;
             secondList.appendChild(paratag);
         })
-
     }});
 
-/* ********************************* Javascript arrays ********************************/
+/* *********************************
+Javascript arrays
+********************************/
 
 arrayItems.addEventListener('click', (event)=>{
     //writes an array and works with addEventListener to fill in array code
@@ -572,13 +605,14 @@ ojectItems.addEventListener('click', (event)=>{
     nameIt.removeAttribute('hidden');
     eleName.removeAttribute('hidden');
     primaryList.removeAttribute('hidden');
-    arrayObjBox.removeAttribute('hidden');
+
     priCopy.removeAttribute('hidden');
-    aObjCopy.removeAttribute('hidden')
+    aObjCopy.removeAttribute('hidden');
     thrdCopy.removeAttribute('hidden');
     thirdList.removeAttribute('hidden');
     primaryList.textContent = '';
     thirdList.textContent = '';
+
     langIs.innerText = 'Javascript';
     arrayLang.innerText = 'const ';
     nameIt.textContent = 'object';
@@ -690,108 +724,15 @@ eleName.addEventListener('keyup', (event)=>{
     } else if (arrayOrObject === 'object'){
         codeName = 'object';
         codeName = event.target.value;
-        console.log(codeName);
         lazyLoops.innerHTML =`${codeName}`;
         lazyLoops.innerHTML = `for (const element of ${codeName}){\n`;
         lazyLoops.innerHTML += `\t<pre>console.log(${codeName}[element]);</pre>\n`;
         lazyLoops.innerHTML += `\t};<br/>\n`;
         arrayLang.textContent = "";
         nameIt.textContent = codeName;
+    } else if (arrayOrObject === 'class'){
+        codeName = 'class';
+        codeName = event.target.value;
+        nameIt.textContent = codeName;
     }
 })
-
-
-/*
-*********************************************************************
-To Do list
-Comment out before production
-
-********************************************************************
-*/
-const toDoText = document.getElementById('toDoText');
-const comp = document.getElementById('comp');
-const stuffDone =[
-    '50 add "copy to clip board" for id="singleInput" to copy whatever is in id="ArraysObjtLoops" this may need to be uniquely sized',
-    `potentially individually style this button as needed`,
-    `remove hidden on singleInput clipboard button for arrays and objects --possibly first item`,
-    `write the function to copy and paste`,
-    `When clicking off arrays, objects, dictionaries, hash, etc... ArraysObjtLoops, singleInput, arrayObjBox are all hidden SEE NEXT FOR SOULTION`,
-    `THE SOLUTION IS, at the start of ever function hide everything thee unhide as needed`,
-    `testing solution once chrome can work`,
-    `If works delete unused code`,
-    `remove input option --for now`,
-    `add scrollbar`,
-    `make notes on new click off logic and rebuild functions accordingly`,
-    `remove let someVar = document.get...`,
-    `12`,
-    `change opacity on typing of list section from 0 to 95 on keydown`,
-    `add load sound`,
-    `Javascript Object={} with matching const and let variables and prebuilt for of loop`,
-    `add onload chime`,
-    `fix size of ArraysObjtLoops`,
-    `update text validation`,
-    'remove test methods for validation',
-    `find new load noise`,
-    `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
-    'Javascript const document etc with matching event listners',
-    `Add Perl 3 types of variables`,
-    `basic hook VARIABLE writer`,
-];
-
-const stuffToGetDone = [
-
-    `Perl Arrays, Hash and loops`,
-    `basic hook ARRAY writer with export, import `,
-    `Add Javascript Node.JS file  SQL log in and CRUD`,
-    `Add Javascript Node.JS MongoDB log in and CRUD`,
-    `Add Javascript API JSON asycn and await that just need a URL and a loop + console.Log`,
-    `add state, render, return for React using a function that maps over state`,
-    `Add Python List, loops, and Variables`,
-    `Add Python Dictionaries, loops, and Variables`,
-    `Add Python API that just need a URL and a loop + console.Log`,
-    `Add PHP variables`,
-    `Add PHP arrays and loops`,
-    `App PHP class object structure`,
-    `remove this to do list`,
-    `Launch listmaker plus`,
-    `test listmaker on live site`,
-    `create data lost warning for clicking on "clear list and refreshing the browser`,
-    `*** Post Launch stuff ***`,
-    `write some perl`,
-    'List comprehension',
-    `create an imported var libarary /module`,
-    `add map and foreach functions to arrays and object loops`,
-    `use an array of functions to do complete input validation`,
-    `Use PHP to create file templates`,
-    `Add PHP file system for CGI`,
-    `Add PHP file SQL log in and CRUD`,
-    `Add PHP file MongoDB log in and CRUD`,
-    `Add Python file system for CGI`,
-    `Add Python file system for SQL log in and CRUD`,
-    `Add Python file system for MongoDB log in and CRUD`,
-    `Add Python file system for basic game`,
-    `Add Perl file system for CGI`,
-    `Add Perl file system for SQL log in and CRUD`,
-    `Add Perl file system for MongoDB log in and CRUD`,
-    `Add c variables`,
-    `Add c arrays and loops`,
-    `App c++ class object structure`,
-    `Add c file system for CGI`,
-    `Add c API JSON asycn and await that just need a URL and a loop + console.Log`,
-    `Add c file SQL log in and CRUD`,
-    `Add c file MongoDB log in and CRUD`,
-    `Add c file system for basic game`,
-    `Java, Ruby, R, Dart, etc...`,
-];
-
-stuffToGetDone.forEach(item =>{
-    const litag = document.createElement('li');
-    litag.innerHTML = item;
-    toDoText.appendChild(litag);
-});
-
-stuffDone.forEach(item =>{
-    const litag = document.createElement('li');
-    litag.innerHTML = item;
-    comp.appendChild(litag);
-});
