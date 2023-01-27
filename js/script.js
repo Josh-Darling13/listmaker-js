@@ -47,6 +47,7 @@ let arrayOrObject = "";
 
 
 
+
 class TextCleaning {
     /**
     Validation
@@ -55,7 +56,7 @@ class TextCleaning {
 
     removeFirst = (imDirty) => {
         return imDirty.substring(1);
-    }
+    };
 
     noWhite = (imDirty) => {
         //removes white space and empty values in arrays
@@ -83,7 +84,7 @@ class TextCleaning {
             let n = 1;
             while(n < indexes.length){
                 // console.log('indexes' + indexes[n]);
-                arrayMess.splice(indexes[n],1);
+                // arrayMess.splice(indexes[n],1);
                 n++;
             }}
         }
@@ -102,14 +103,16 @@ class TextCleaning {
 
         // }
 
-        const RegExp = `/\S`;
-
             for (const item in imDirty){
-                console.log(imDirty[item].search(reg));
+                console.log("imDirty[item]:" + imDirty[item]);
+                console.log("foo :)");
+                // let isAt = imDirty[item].search(/\w/);
+                // console.log("search "+ isAt);
+                // imClean.push(isAt);
             }
 
-        console.log("imClean" + imClean);
-        return imClean;
+        // console.log("imClean" + imClean);
+        // return imClean;
     }
 
     trimFront = (imDirty) => {
@@ -137,20 +140,21 @@ class TextCleaning {
             //         cleanCollection.push();
             //     }
             }
-
-
-
         }
-    }
-
 
     fullyClean = (imDirty) => {
-        //Trim isn't 100% reliable...
-
-        let safetyTrim = this.preWhite(imDirty);
-        console.log(safetyTrim(imDirty));
+        let whitener = this.noWhite(imDirty);
+        let nodupes = this.noDuplicates(whitener);
     }
+}
 
+
+
+/*
+****************************************************************
+Hide all unused divs:
+****************************************************************
+*/
 
 const hideAll = () => {
     arrayObjBox.setAttribute("hidden","");
@@ -285,25 +289,30 @@ buildIn.addEventListener('keydown', (event)=>{
      * Runs code if "enter key press detected"
      */
 
-    let ValidRoundOne = event.target.value;
+
+    let evt = JSON.stringify(event.target.value);
     if (event.key === 'Enter'){
-        // let breakBuild = ["1,2,3,4"];
+        let splitLtrs = event.target.value;
+        let breakBuild = [];
         let startValidation = new TextCleaning;
-        let breakBuild = ValidRoundOne.split('/\n?\r/');
+ 
+
+
+        breakBuild = splitLtrs.split(/[\r\n]+/).filter(Boolean);
+
         // console.log("breakBuild " + breakBuild);
-        // startValidation.trimFront(breakBuild);
+        console.log("breakBuild " + breakBuild.length);
 
-        console.log("trimAll  " + startValidation.trimAll(breakBuild));
 
-        // let howWhite = startValidation.noWhite(breakBuild);
-        // let manip = String(howWhite).replace(/^\S+/g, 'b');
-        //  console.log('howWhite ' + manip);
-         //.replace(/^\s+/g, ''));
+        // console.log("trimAll  " + startValidation.trimAll(breakBuild));
+        console.log("noWhite  " + startValidation.noWhite(breakBuild));
+        console.log("nodupes  " + startValidation.noDuplicates(breakBuild));
+
 
 
     }
     // let valRoundOne = event.target.value;
-    // startValidation.hereIam();
+
     // let evt = JSON.stringify(event.target.value);
     // if (event.key === 'Enter'){
     //     let breakBuild = [];
