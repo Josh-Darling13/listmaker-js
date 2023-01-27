@@ -18,11 +18,17 @@ Henry
 Ed Gien
 Ted Bundy
 
-const zd = document.getElementById('zd');
+const ddfdfadf = document.getElementById('ddfdfadf');
 
-const zdcfa = document.getElementById('zdcfa');
+const fs = document.getElementById('fs');
 
-const cede = document.getElementById('cede');
+const jyu = document.getElementById('jyu');
+
+
+
+
+
+
 
 
 

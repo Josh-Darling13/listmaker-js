@@ -35,6 +35,11 @@ const thrdCopy = document.getElementById('thrdCopy');
 const sizeWarning = document.getElementById('sizeWarning');
 const tooBigWarn = document.getElementById('tooBigWarn');
 const constEvent = document.getElementById('constEvent');
+const perlVars = document.getElementById('perlVars');
+const reHook = document.getElementById('reHook');
+
+
+
 
 
 
@@ -601,6 +606,86 @@ ojectItems.addEventListener('click', (event)=>{
 }}
 );
 
+/*
+******************************************************
+React
+******************************************************
+*/
+reHook.addEventListener('click', (event)=>{
+ //writes an array and works with addEventListener to fill in array code
+    // write getElementById with matching addEventListener
+    let runcode = readDirections(sampleText, directions);
+    if (runcode !== 0){
+        hideAll();
+        langIs.innerText = 'Javascript/React';
+        primaryList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
+
+        sampleText.forEach(item =>{
+            let paratag = document.createElement('p');
+            paratag.innerText += `const [${item}, set${item}] = useState();`;
+            primaryList.appendChild(paratag);
+        })
+    
+    }
+});
+
+
+
+
+
+
+/*
+******************************************************
+Perl
+******************************************************
+*/
+
+perlVars.addEventListener('click', (event)=>{
+
+    let runcode = readDirections(sampleText, directions);
+    if (runcode !== 0){
+        arrayOrObject = 'array';
+        hideAll();
+        langIs.innerText = 'Perl';
+        primaryList.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
+        primaryList.innerText = `#!/usr/bin/perl`;
+        primaryList.innerHTML += "<p></p>";
+        sampleText.forEach(item =>{
+            let paratag = document.createElement('p');
+            paratag.innerText += `$${item} = ;`;
+            primaryList.appendChild(paratag);
+        })
+
+        secondList.removeAttribute('hidden');
+        secCopy.removeAttribute('hidden');
+
+
+        secondList.innerText = `#!/usr/bin/perl`;
+        secondList.innerHTML += "<p></p>";
+        sampleText.forEach(item =>{
+            let paratag = document.createElement('p');
+            paratag.innerText += `my $${item} = ;`;
+            secondList.appendChild(paratag);
+        })
+
+
+        thirdList.removeAttribute('hidden');
+        thrdCopy.removeAttribute('hidden');
+        thirdList.innerText = `#!/usr/bin/perl`;
+        thirdList.innerHTML += "<p></p>";
+
+        sampleText.forEach(item =>{
+            let paratag = document.createElement('p');
+            paratag.innerText += `out $${item} = ;`;
+            thirdList.appendChild(paratag);
+        })
+    }
+});
+
+
+
 eleName.addEventListener('keyup', (event)=>{
 
     if(arrayOrObject === 'array'){
@@ -664,19 +749,16 @@ const stuffDone =[
     `find new load noise`,
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
     'Javascript const document etc with matching event listners',
+    `Add Perl 3 types of variables`,
 ];
 
 const stuffToGetDone = [
 
-    `Add Perl 3 types of variables`,
+ 
     `Perl Arrays, Hash and loops`,
-
 
     `basic hook VARIABLE writer with export, import `,
     `basic hook ARRAY writer with export, import `,
-
-
-
 
     `Add Javascript Node.JS file  SQL log in and CRUD`,
     `Add Javascript Node.JS MongoDB log in and CRUD`,
@@ -690,7 +772,6 @@ const stuffToGetDone = [
     `Add PHP variables`,
     `Add PHP arrays and loops`,
     `App PHP class object structure`,
-
 
     `remove this to do list`,
     `Launch listmaker plus`,
