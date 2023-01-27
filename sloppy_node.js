@@ -78,3 +78,33 @@ const readDirections = (sampleArray) => {
 }
 
 readDirections(empray);
+
+preWhite(imDirty){
+
+    let extraCheck = this.imDirty.split(' ');
+    let imClean = [];
+    for (let element in extraCheck){
+        console.log("extraCheck[element]"+ extraCheck[element]);
+        let checkME = extraCheck[element]
+        console.log("checkME[0]"+ checkME[0]);
+        if(checkME[0] === " " || checkME[0] === null || checkME[0] === undefined){
+            console.log("YT Space @ start");
+            return false
+        }
+    }
+}
+
+postWhite(imDirty){
+
+    let extraCheck = imDirty.split(' ');
+    let imClean = [];
+    for (let element in extraCheck){
+        console.log("extraCheck[element]"+ extraCheck[element]);
+        let checkME = extraCheck[element]
+        console.log("checkME[-1]"+ checkME[0]);
+        if(checkME[-1] === " " || checkME[0] === null || checkME[0] === undefined){
+            console.log("YT Space @ end");
+            return false
+        }
+    }
+}

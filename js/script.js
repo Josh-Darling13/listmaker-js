@@ -1,13 +1,9 @@
 const listTitle = document.getElementsByClassName('listTitle');
 const helloTone = document.getElementById('helloTone');
-
-
 const arrayObjBox = document.getElementById('arrayObjBox');
 const primaryList = document.getElementById('primaryList');
 const secondList = document.querySelector('.secondList');
 const thirdList = document.querySelector('.thirdList');
-
-
 const buildIn = document.getElementById('buildIn');
 const buildOut = document.getElementById('buildOut');
 const ulItems = document.getElementById('ULItems');
@@ -57,13 +53,17 @@ class TextCleaning {
     You're good enough, I hope that feels validating.
     */
 
+    removeFirst = (imDirty) => {
+        return imDirty.substring(1);
+    }
+
     noWhite = (imDirty) => {
         //removes white space and empty values in arrays
         const cleanThis = imDirty.filter(n => n);
         let imClean = [];
         for (const element in cleanThis){
             const soap = cleanThis[element].trim();
-            this.imClean.push(soap);
+            imClean.push(soap);
         }
         return imClean
     }
@@ -91,35 +91,58 @@ class TextCleaning {
         return cleaned
     }
 
-    preWhite(imDirty){
-
-        let extraCheck = imDirty.split(' ');
+    trimAll = (imDirty) => {
         let imClean = [];
-        for (let element in extraCheck){
-            console.log("extraCheck[element]"+ extraCheck[element]);
-            let checkME = extraCheck[element]
-            console.log("checkME[0]"+ checkME[0]);
-            if(checkME[0] === " " || checkME[0] === null || checkME[0] === undefined){
-                console.log("YT Space @ start");
-                return false
+
+        // for (const item in imDirty){
+        //     let soap = String(imDirty[item]);
+        //     soap = soap.trim();
+        //     console.log("soap " + soap);
+        //     imClean.push(soap);
+
+        // }
+
+        const RegExp = `/\S`;
+
+            for (const item in imDirty){
+                console.log(imDirty[item].search(reg));
             }
+
+        console.log("imClean" + imClean);
+        return imClean;
+    }
+
+    trimFront = (imDirty) => {
+
+        for (const element in imDirty){
+            console.log("Im so dirty: " + imDirty[element]);
+            let n = 0;
+            let itemAsString = imDirty[element]
+            let cleanCollection = [];
+            let rebuildCleanStr = "";
+            let imClean = [];
+
+            for (const ele in itemAsString){
+                if (itemAsString[ele] === undefined || itemAsString[ele] === " "){
+                    imClean = this.removeFirst(imDirty[element])
+                } else { break }
+            }
+            rebuildCleanStr = imClean.join();
+            cleanCollection.push(rebuildCleanStr);
+            console.log("cleanCollection " + cleanCollection);
+            // for (const ele in itemAsString){
+            //     let eachLtr = itemAsString[ele];
+
+            //     if (itemAsString[ele] !== " " || itemAsString[ele] !== undefined){
+            //         cleanCollection.push();
+            //     }
+            }
+
+
+
         }
     }
 
-    postWhite(imDirty){
-
-        let extraCheck = imDirty.split(' ');
-        let imClean = [];
-        for (let element in extraCheck){
-            console.log("extraCheck[element]"+ extraCheck[element]);
-            let checkME = extraCheck[element]
-            console.log("checkME[-1]"+ checkME[0]);
-            if(checkME[-1] === " " || checkME[0] === null || checkME[0] === undefined){
-                console.log("YT Space @ end");
-                return false
-            }
-        }
-    }
 
     fullyClean = (imDirty) => {
         //Trim isn't 100% reliable...
@@ -127,9 +150,6 @@ class TextCleaning {
         let safetyTrim = this.preWhite(imDirty);
         console.log(safetyTrim(imDirty));
     }
-}
-
-
 
 
 const hideAll = () => {
@@ -253,8 +273,11 @@ clearAll.addEventListener('click', ()=>{
 })
 
 
-/*********************************************************************
+/**********************************************************************************************
  * Text input handler:
+
+***********************************************************************************************
+***********************************************************************************************
  */
 
 buildIn.addEventListener('keydown', (event)=>{
@@ -262,14 +285,20 @@ buildIn.addEventListener('keydown', (event)=>{
      * Runs code if "enter key press detected"
      */
 
-    let startValidation = new TextCleaning;
     let ValidRoundOne = event.target.value;
     if (event.key === 'Enter'){
-        let breakBuild = [...ValidRoundOne];
-        let howWhite = startValidation.noWhite(breakBuild);
-        startValidation.preWhite(howWhite);
-        startValidation.postWhite(howWhite);
-        
+        // let breakBuild = ["1,2,3,4"];
+        let startValidation = new TextCleaning;
+        let breakBuild = ValidRoundOne.split('/\n?\r/');
+        // console.log("breakBuild " + breakBuild);
+        // startValidation.trimFront(breakBuild);
+
+        console.log("trimAll  " + startValidation.trimAll(breakBuild));
+
+        // let howWhite = startValidation.noWhite(breakBuild);
+        // let manip = String(howWhite).replace(/^\S+/g, 'b');
+        //  console.log('howWhite ' + manip);
+         //.replace(/^\s+/g, ''));
 
 
     }
@@ -420,7 +449,6 @@ mpNav.addEventListener('click', (event)=>{
                 }
                 secondList.appendChild(paratag);
             })
-            // hideThree();
         }}
     );
 
@@ -668,6 +696,7 @@ const stuffDone =[
 ];
 
 const stuffToGetDone = [
+
     `update text validation`,
     'remove test methods for validation',
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
@@ -691,6 +720,8 @@ const stuffToGetDone = [
     `create data lost warning for clicking on "clear list and refreshing the browser`,
 
     `*** Post Launch stuff ***`,
+    `write some perl`,
+    'List comprehension',
     `create an imported var libarary /module`,
     `add map and foreach functions to arrays and object loops`,
     `use an array of functions to do complete input validation`,
