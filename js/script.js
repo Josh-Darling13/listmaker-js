@@ -38,11 +38,6 @@ const constEvent = document.getElementById('constEvent');
 const perlVars = document.getElementById('perlVars');
 const reHook = document.getElementById('reHook');
 
-
-
-
-
-
 let memberMeArray = [];
 let sampleText = [];
 const directions = [
@@ -53,9 +48,6 @@ const directions = [
 ];
 let codeName = 'array;'
 let arrayOrObject = "";
-
-
-
 
 class TextCleaning {
     /**
@@ -97,7 +89,6 @@ class TextCleaning {
         const cleaned = arrayMess;
         return cleaned
     }
-
 }
 
 /*
@@ -152,7 +143,6 @@ const readDirections = (sampleArray, directions) => {       // Message for those
 ****************************************************************
 */
 
-
 let screenSize = document.body.clientWidth;
 
 if (screenSize < 1000){
@@ -163,7 +153,6 @@ tooBigWarn.addEventListener('click', ()=>{
     //keep working with it when it looks like garbage
     sizeWarning.setAttribute("hidden","");
 })
-
 
 /*
 ****************************************************************
@@ -228,7 +217,6 @@ Audio:
 // },2000
 // )
 
-
 /*
 ****************************************************************
 Listeners:
@@ -239,7 +227,6 @@ clearAll.addEventListener('click', ()=>{
     location.reload();
     return false;
 })
-
 
 /**********************************************************************************************
  * Text input handler:
@@ -496,11 +483,13 @@ constEvent.addEventListener('click', (event)=>{
     // write getElementById with matching addEventListener
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
+
         hideAll();
+
         langIs.innerText = 'Javascript';
+
         primaryList.removeAttribute('hidden');
         priCopy.removeAttribute('hidden');
-
         sampleText.forEach(item =>{
             let paratag = document.createElement('p');
             paratag.innerText += `const ${item} = document.getElementById('${item}');`;
@@ -527,7 +516,9 @@ arrayItems.addEventListener('click', (event)=>{
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
         arrayOrObject = 'array';
+
         hideAll();
+
         singleInput.removeAttribute('hidden');
         loopsCopy.removeAttribute('hidden');
         ArraysObjtLoops.removeAttribute('hidden');
@@ -545,16 +536,19 @@ arrayItems.addEventListener('click', (event)=>{
         arrayLang.innerText = 'const ';
         nameIt.innerText = 'array';
         arrayElements.textContent = ' = [\n';
+
         sampleText.forEach(item =>{
             arrayElements.textContent += `\`${item.replace('"', '')}\`, `;
             console.log(item);
         })
         arrayElements.append('];');
+
         sampleText.forEach(item =>{
             let paratag = document.createElement('p');
             paratag.innerText = "const " + item + " = ``;";
             primaryList.appendChild(paratag);
         })
+
         sampleText.forEach(item =>{
             let prtag = document.createElement('p');
             prtag.innerText = "let " + item + " = ``;";
@@ -569,7 +563,9 @@ ojectItems.addEventListener('click', (event)=>{
     let runcode = readDirections(sampleText, directions);
     if (runcode !== 0){
     arrayOrObject = 'object';
+
     hideAll();
+
     singleInput.removeAttribute('hidden');
     loopsCopy.removeAttribute('hidden');
     ArraysObjtLoops.removeAttribute('hidden');
@@ -587,6 +583,7 @@ ojectItems.addEventListener('click', (event)=>{
     arrayLang.innerText = 'const ';
     nameIt.textContent = 'object';
     arrayElements.textContent = ' = {\n';
+
     sampleText.forEach(item =>{
         arrayElements.textContent += `'${item.replace('"', '')}': , `;
         })
@@ -603,8 +600,7 @@ ojectItems.addEventListener('click', (event)=>{
         prtag.innerText = "let " + item + " = ``;";
         thirdList.appendChild(prtag);
     })
-}}
-);
+}});
 
 /*
 ******************************************************
@@ -626,13 +622,7 @@ reHook.addEventListener('click', (event)=>{
             paratag.innerText += `const [${item}, set${item}] = useState();`;
             primaryList.appendChild(paratag);
         })
-    
-    }
-});
-
-
-
-
+}});
 
 
 /*
@@ -661,7 +651,6 @@ perlVars.addEventListener('click', (event)=>{
         secondList.removeAttribute('hidden');
         secCopy.removeAttribute('hidden');
 
-
         secondList.innerText = `#!/usr/bin/perl`;
         secondList.innerHTML += "<p></p>";
         sampleText.forEach(item =>{
@@ -670,21 +659,17 @@ perlVars.addEventListener('click', (event)=>{
             secondList.appendChild(paratag);
         })
 
-
         thirdList.removeAttribute('hidden');
         thrdCopy.removeAttribute('hidden');
+
         thirdList.innerText = `#!/usr/bin/perl`;
         thirdList.innerHTML += "<p></p>";
-
         sampleText.forEach(item =>{
             let paratag = document.createElement('p');
             paratag.innerText += `out $${item} = ;`;
             thirdList.appendChild(paratag);
         })
-    }
-});
-
-
+    }});
 
 eleName.addEventListener('keyup', (event)=>{
 
