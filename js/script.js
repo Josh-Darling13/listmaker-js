@@ -52,11 +52,8 @@ class TextCleaning {
     /**
     Validation
     You're good enough, I hope that feels validating.
+    Validation is pretty no white space before or after and no duplicate values.
     */
-
-    removeFirst = (imDirty) => {
-        return imDirty.substring(1);
-    };
 
     noWhite = (imDirty) => {
         //removes white space and empty values in arrays
@@ -84,71 +81,15 @@ class TextCleaning {
             let n = 1;
             while(n < indexes.length){
                 // console.log('indexes' + indexes[n]);
-                // arrayMess.splice(indexes[n],1);
+                arrayMess.splice(indexes[n],1);
                 n++;
             }}
         }
-        const cleaned = noWhite(arrayMess);
+        const cleaned = arrayMess;
         return cleaned
     }
 
-    trimAll = (imDirty) => {
-        let imClean = [];
-
-        // for (const item in imDirty){
-        //     let soap = String(imDirty[item]);
-        //     soap = soap.trim();
-        //     console.log("soap " + soap);
-        //     imClean.push(soap);
-
-        // }
-
-            for (const item in imDirty){
-                console.log("imDirty[item]:" + imDirty[item]);
-                console.log("foo :)");
-                // let isAt = imDirty[item].search(/\w/);
-                // console.log("search "+ isAt);
-                // imClean.push(isAt);
-            }
-
-        // console.log("imClean" + imClean);
-        // return imClean;
-    }
-
-    trimFront = (imDirty) => {
-
-        for (const element in imDirty){
-            console.log("Im so dirty: " + imDirty[element]);
-            let n = 0;
-            let itemAsString = imDirty[element]
-            let cleanCollection = [];
-            let rebuildCleanStr = "";
-            let imClean = [];
-
-            for (const ele in itemAsString){
-                if (itemAsString[ele] === undefined || itemAsString[ele] === " "){
-                    imClean = this.removeFirst(imDirty[element])
-                } else { break }
-            }
-            rebuildCleanStr = imClean.join();
-            cleanCollection.push(rebuildCleanStr);
-            console.log("cleanCollection " + cleanCollection);
-            // for (const ele in itemAsString){
-            //     let eachLtr = itemAsString[ele];
-
-            //     if (itemAsString[ele] !== " " || itemAsString[ele] !== undefined){
-            //         cleanCollection.push();
-            //     }
-            }
-        }
-
-    fullyClean = (imDirty) => {
-        let whitener = this.noWhite(imDirty);
-        let nodupes = this.noDuplicates(whitener);
-    }
 }
-
-
 
 /*
 ****************************************************************
@@ -173,7 +114,6 @@ const hideAll = () => {
     ArraysObjtLoops.setAttribute("hidden","");
     singleInput.setAttribute('hidden','');
 }
-
 
 /*
 ****************************************************************
@@ -248,21 +188,17 @@ const loopCopy = () =>{
     window.getSelection().removeAllRanges();
 }
 
-
 /*
 **************************************************************
 Audio:
 **************************************************************
 */
 
-
 // setTimeout( function(){
 //     helloTone.muted = false;
 //     helloTone.play();
 // },2000
-
 // )
-
 
 
 /*
@@ -289,49 +225,22 @@ buildIn.addEventListener('keydown', (event)=>{
      * Runs code if "enter key press detected"
      */
 
-
-    let evt = JSON.stringify(event.target.value);
     if (event.key === 'Enter'){
         let splitLtrs = event.target.value;
         let breakBuild = [];
-        let startValidation = new TextCleaning;
- 
-
-
+        let strValidation = new TextCleaning;
         breakBuild = splitLtrs.split(/[\r\n]+/).filter(Boolean);
-
-        // console.log("breakBuild " + breakBuild);
-        console.log("breakBuild " + breakBuild.length);
-
-
-        // console.log("trimAll  " + startValidation.trimAll(breakBuild));
-        console.log("noWhite  " + startValidation.noWhite(breakBuild));
-        console.log("nodupes  " + startValidation.noDuplicates(breakBuild));
-
-
-
+        let cleanThis = strValidation.noWhite(breakBuild);
+        sampleText = strValidation.noDuplicates(cleanThis);
+        buildOut.innerHTML='';
+        sampleText.forEach(item => {
+            let li = document.createElement('p');
+            li.innerText = item;
+            buildOut.appendChild(li);
+        })
     }
-    // let valRoundOne = event.target.value;
-
-    // let evt = JSON.stringify(event.target.value);
-    // if (event.key === 'Enter'){
-    //     let breakBuild = [];
-    //     let finalOut = [];
-    //     breakBuild = evt.split('/\n?\r/');
-    //     for (const ele in breakBuild){
-    //         const spaceStrip = breakBuild[ele].trim().replace(/['"]+/g, '');
-    //         finalOut = spaceStrip.split('\\n');
-    //         memberMeArray.push(breakBuild[ele]);
-    //     }
-    //     sampleText = noDuplicates(finalOut);
-    //     buildOut.innerHTML='';
-    //     sampleText.forEach(item => {
-    //         let li = document.createElement('p');
-    //         li.innerText = item;
-    //         buildOut.appendChild(li);
-    //     })
-    // }
-});
+    }
+);
 
 pTag.addEventListener('click', (event)=>{
     // paragraph tag generator
@@ -585,13 +494,11 @@ arrayItems.addEventListener('click', (event)=>{
             console.log(item);
         })
         arrayElements.append('];');
-
         sampleText.forEach(item =>{
             let paratag = document.createElement('p');
             paratag.innerText = "const " + item + " = ``;";
             primaryList.appendChild(paratag);
         })
-
         sampleText.forEach(item =>{
             let prtag = document.createElement('p');
             prtag.innerText = "let " + item + " = ``;";
@@ -702,14 +609,16 @@ const stuffDone =[
     `Javascript Object={} with matching const and let variables and prebuilt for of loop`,
     `add onload chime`,
     `fix size of ArraysObjtLoops`,
+    `update text validation`,
+    'remove test methods for validation',
+    `find new load noise`,
 ];
 
 const stuffToGetDone = [
 
-    `update text validation`,
-    'remove test methods for validation',
+
     `Create full screen detection and warning message in div that this program functions best on 1200 dpi or better`,
-    `find new load noise`,
+
     `Add Javascript Node.JS file  SQL log in and CRUD`,
     `Add Javascript Node.JS MongoDB log in and CRUD`,
     `Add Javascript API JSON asycn and await that just need a URL and a loop + console.Log`,
