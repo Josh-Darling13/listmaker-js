@@ -426,13 +426,12 @@ i:hover{
 }
 
 #sizeWarning{
-    height: 200px;
-    width: 440px;
+    height: 800px;
+    width: 400px;
     z-index: 10;
     font-size: 2em;
     background-color: hsl(184, 100%, 81%);
     color: rgb(37, 32, 26);
-    /* color: rgb(9, 255, 9); */
     opacity: 80%;
     position: absolute;
     top: 0;

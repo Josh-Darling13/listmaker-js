@@ -39,8 +39,6 @@ const perlVars = document.getElementById('perlVars');
 const reHook = document.getElementById('reHook');
 const classMethJS = document.getElementById('classMethJS');
 
-
-
 let memberMeArray = [];
 let sampleText = [];
 const directions = [
@@ -214,11 +212,11 @@ Audio:
 **************************************************************
 */
 
-// setTimeout( function(){
-//     helloTone.muted = false;
-//     helloTone.play();
-// },2000
-// )
+setTimeout( function(){
+    helloTone.muted = false;
+    helloTone.play();
+},2000
+)
 
 /*
 ****************************************************************
