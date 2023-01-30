@@ -1,4 +1,46 @@
+<hr />
+<h3>--Next builds--</h3>
 
+<hr />
+<!-- start Python.js here -->
+<p id="PyVar" name="PyVar">
+    Python variables 
+</p>
+<hr />
+<p id="PyList" name="PyList">
+    Python List of strings or variables with matching variables
+</p>
+<hr />
+<!-- nextbuilds.js here -->
+<h3>Javascript Class Methods</h3>
+<hr />
+<h3>Typescript</h3>
+<hr />
+<h3>Javascript Error handeling</h3>
+<hr />
+<h3>Javascript Cookies</h3>
+<hr />
+<h3>JSON, APIs, Local storage, Ajax</h3>
+<hr />
+<h3>Node.js</h3>
+<hr />
+<h3>React, JSX, Components, event handlers, state, hooks</h3>
+<hr />
+<h3>Angular</h3>
+<hr />
+<h3>Vue</h3>
+<hr />
+<h3>Python, Tkinter, Kivy, MySql, Mongodb</h3>
+<hr />
+<h3>PHP, SQL, MySLQ, LAMP Stack</h3>
+<hr />
+<h3>C/C++</h3>
+<hr />
+<h3>Java</h3>
+<hr />
+<h3>Perl</h3>
+<hr />
+<h3>Ruby</h3>
 /*
 *********************************************************************
 To Do list
