@@ -700,7 +700,7 @@ perlVars.addEventListener('click', (event)=>{
         thirdList.innerHTML += "<p></p>";
         sampleText.forEach(item =>{
             let paratag = document.createElement('p');
-            paratag.innerText += `out $${item} = ;`;
+            paratag.innerText += `our $${item} = ;`;
             thirdList.appendChild(paratag);
         })
     }});
