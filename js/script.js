@@ -38,6 +38,9 @@ const constEvent = document.getElementById('constEvent');
 const perlVars = document.getElementById('perlVars');
 const reHook = document.getElementById('reHook');
 const classMethJS = document.getElementById('classMethJS');
+const perlArray = document.getElementById('perlArray');
+
+
 
 let memberMeArray = [];
 let sampleText = [];
@@ -702,6 +705,57 @@ perlVars.addEventListener('click', (event)=>{
             thirdList.appendChild(paratag);
         })
     }});
+
+/**
+ * Perl Arrays
+ */
+
+perlArray.addEventListener('click', (event)=>{
+    //writes an array and works with addEventListener to fill in array code
+    let runcode = readDirections(sampleText, directions);
+    if (runcode !== 0){
+        arrayOrObject = 'perl_array';
+
+        hideAll();
+
+        singleInput.removeAttribute('hidden');
+        loopsCopy.removeAttribute('hidden');
+        ArraysObjtLoops.removeAttribute('hidden');
+        nameIt.removeAttribute('hidden');
+        eleName.removeAttribute('hidden');
+        primaryList.removeAttribute('hidden');
+        arrayObjBox.removeAttribute('hidden');
+        priCopy.removeAttribute('hidden');
+        aObjCopy.removeAttribute('hidden')
+        thrdCopy.removeAttribute('hidden');
+        thirdList.removeAttribute('hidden');
+        primaryList.textContent = '';
+        thirdList.textContent = '';
+        langIs.innerText = 'Perl';
+        arrayLang.innerText = '@';
+        nameIt.innerText = 'array';
+        arrayElements.textContent = ' = (\n';
+
+        sampleText.forEach(item =>{
+            arrayElements.textContent += `\"${item.replace('"', '')}\", `;
+            console.log(item);
+        })
+        arrayElements.append(');');
+
+        sampleText.forEach(item =>{
+            let paratag = document.createElement('p');
+            paratag.innerText = "my $" + item + " = ``;";
+            primaryList.appendChild(paratag);
+        })
+
+        sampleText.forEach(item =>{
+            let prtag = document.createElement('p');
+            prtag.innerText = "our $" + item + " = ``;";
+            thirdList.appendChild(prtag);
+        })
+}}
+);
+
 
 eleName.addEventListener('keyup', (event)=>{
 
