@@ -732,5 +732,14 @@ eleName.addEventListener('keyup', (event)=>{
         codeName = 'class';
         codeName = event.target.value;
         nameIt.textContent = codeName;
+    }  else if(arrayOrObject === 'perl_array'){
+        codeName = 'array';
+        codeName = event.target.value;
+        lazyLoops.innerHTML =`${codeName}`;
+        lazyLoops.innerHTML = `for my $n (@${codeName}){\n`;
+        lazyLoops.innerHTML += `\t<pre>say ${codeName}[$n]);</pre>\n`;
+        lazyLoops.innerHTML += `\t};<br/>\n`;
+        arrayLang.textContent = "";
+        nameIt.textContent = codeName;
     }
 })
